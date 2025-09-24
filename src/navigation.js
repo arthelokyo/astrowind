@@ -6,9 +6,13 @@ export const headerData = {
       text: 'Proyectos',
       links: [
         {
-          text: 'Mi bosque',
-          href: getPermalink('/proyectos/mi-bosque'),
+          text: 'Corredor de Conservación Forestal Quininí',
+          href: getPermalink('/proyectos/corredor-de-conservacion-forestal-quininí'),
         },
+        // {
+        //   text: 'Mi bosque',
+        //   href: getPermalink('/proyectos/mi-bosque'),
+        // },
         {
           text: 'Mi huerta',
           href: getPermalink('/proyectos/mi-huerta'),
@@ -65,17 +69,17 @@ export const headerData = {
     //   ],
     // },
     {
-      text: 'Rutas',
-      href: getPermalink('/rutas'),
-      links: [
-        {
-          text: 'Experiencia Arqueológica Quininí',
-          href: getPermalink('/rutas/experiencia-quinini'),
-        },
-        // {
-        //   text: 'Ruta Ancestral Isla - Mesitas',
-        // },
-      ],
+      text: 'Plantemos Tours',
+      href: getPermalink('/plantemos-tours'),
+      // links: [
+      //   {
+      //     text: 'Experiencia Arqueológica Quininí',
+      //     href: getPermalink('/rutas/experiencia-quinini'),
+      //   },
+      //   // {
+      //   //   text: 'Ruta Ancestral Isla - Mesitas',
+      //   // },
+      // ],
     },
     {
       text: 'Blog',

@@ -1,5 +1,6 @@
 ---
 import { YouTube } from '@astro-community/astro-embed-youtube';
+import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
@@ -8,6 +9,22 @@ const title = `Mi Huerta`;
 ---
 
 <PageLayout metadata={{ title }}>
+
+
+  <Hero
+    tagline="Mi Huerta"
+    image={{ src: '~/assets/images/logo-plantemos-compressed.png', alt: 'Mi Huerta' }}
+  >
+    <Fragment slot="title">
+      Mi Huerta
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Desarrollamos actividades de educación ambiental a través de nuestras redes sociales y <a href="https://www.youtube.com/@FundacionPlantemos" target="_blank">nuestro canal de YouTube</a> con más de 4.600 suscriptores en donde promovemos la seguridad y soberanía alimentaria a través de videotutoriales de cómo hacer una “Huerta en Casa”. 
+    </Fragment>
+  </Hero>
+
+
   <Features2
     title="¿Qué es el proyecto Mi Huerta?"
     subtitle="El Proyecto Mi Huerta es una iniciativa que busca sumar esfuerzos para el fortalecimiento de la soberanía y  seguridad alimentaria a través de experiencias prácticas de huertas urbanas y rurales que le enseñen a la comunidad la germinación, siembra, cuidado y cosecha de alimentos perecederos de fácil producción. Este modelo de agricultura familiar permite incrementar las posibilidades de autonomía alimentaria en las familias, disminuyendo la necesidad de consumo de alimentos transgénicos cultivados con agrotóxicos y aumentando así las posibilidades de que las comunidades puedan cultivar sus propios alimentos de forma práctica y exitosa."

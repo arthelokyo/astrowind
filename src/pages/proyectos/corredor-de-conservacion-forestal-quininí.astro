@@ -1,0 +1,31 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Corredor de Conservación Forestal Quininí',
+};
+
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Corredor de Conservación Forestal Quininí"
+    image={{ src: '~/assets/images/logo-plantemos-compressed.png',  alt: 'Corredor de Conservación Forestal Quininí' }}
+  >
+    <Fragment slot="title">
+        Entre el vuelo del águila y el colibrí
+    </Fragment>
+
+    <Fragment slot="subtitle" >
+        Estamos fortaleciendo el corredor de conservación de la reserva forestal protectora Cerro del Quininí, a través de diez jornadas de reforestación, plantando 1.500 árboles nativos y creando un semillero de 1000 plántulas de especies nativas forestales. 
+
+        La reserva forestal Quininí, es un espacio natural de gran valor ecológico, cultural y ambiental. Sin embargo, como muchas áreas protegidas, enfrenta desafíos relacionados con la deforestación, pérdida de biodiversidad y el cambio climático. Además de esto, es crucial abordar la problemática de los campesinos que habitan la reserva y cuyo sustento depende de actividades como el cultivo de café, plátano, la ganadería y el turismo.
+        
+        La iniciativa de sembrar 1.500 árboles no solo responde a la necesidad de restaurar ecosistemas degradados, sino que también puede ofrecer soluciones sostenibles para equilibrar las demandas ambientales y socioeconómicas.
+    </Fragment>
+  </Hero>
+
+
+  
+</Layout>

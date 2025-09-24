@@ -1,0 +1,25 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+
+---
+
+<PageLayout metadata={{ title: 'Plantemos Tours' }}>
+
+    <Hero 
+        tagline="Plantemos Tours"
+      
+        {/* TODO: Change image */}
+        image={{ src: '~/assets/images/logo-plantemos-compressed.png', alt: 'Plantemos Tours' }} >
+    
+        <Fragment slot="title">
+        Plantemos Tours
+    </Fragment>
+
+    <Fragment slot="subtitle">
+        Somos un operador turístico que actualmente tiene su sede en la Finca “Los Naranjos” en la vereda La Vuelta, en el Cerro del Quininí, en Tibacuy Cundinamarca, con el objetivo de promover y visibilizar los principales atractivos turísticos de la región, usando como eje transversal la naturaleza y la sostenibilidad, promoviendo el senderismo, las experiencias de agroturismo, el turismo arqueológico y el alojamiento en las posadas rurales del territorio.
+    </Fragment>
+    <Hero />
+
+</PageLayout
+>
