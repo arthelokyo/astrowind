@@ -22,3 +22,5 @@ pnpm-debug.log*
 pnpm-lock.yaml
 
 .astro
+
+package-lock.json
