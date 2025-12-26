@@ -104,11 +104,15 @@ Inside **AstroWind** template, you'll see the following folders and files:
 │   │   ├── Favicons.astro
 │   │   └── Logo.astro
 │   ├── content/
+│   │   ├── config.ts
+│   ├── data/
 │   │   ├── post/
-│   │   │   ├── post-slug-1.md
-│   │   │   ├── post-slug-2.mdx
-│   │   │   └── ...
-│   │   └-- config.ts
+│   │   │   ├── astrowind-template-in-depth.mdx
+│   │   │   └── get-started-website-with-astro-tailwind-css.md
+│   │   │   └── how-to-customize-astrowind-to-your-brand.md
+│   │   │   └── landing.md
+│   │   │   └── markdown-elements-demo-post.mdx
+│   │   │   └── useful-resources-to-create-websites.md
 │   ├── layouts/
 │   │   ├── Layout.astro
 │   │   ├── MarkdownLayout.astro
