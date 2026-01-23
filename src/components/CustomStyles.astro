@@ -1,63 +1,56 @@
 ---
-import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+// Fonts chargées via Google Fonts dans le Layout
 ---
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    /* Fonts - Playfair Display pour les titres, Inter pour le corps */
+    --aw-font-sans: 'Inter', sans-serif;
+    --aw-font-serif: 'Playfair Display', serif;
+    --aw-font-heading: 'Playfair Display', serif;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Couleurs - Thème vert sauge */
+    --aw-color-primary: rgb(91 122 107);       /* #5B7A6B - Vert sauge */
+    --aw-color-secondary: rgb(74 99 88);       /* #4A6358 - Vert sauge foncé (hover) */
+    --aw-color-accent: rgb(91 122 107);        /* #5B7A6B - Même que primary */
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    /* Texte */
+    --aw-color-text-heading: rgb(26 26 26);    /* #1A1A1A - Texte principal */
+    --aw-color-text-default: rgb(26 26 26);    /* #1A1A1A - Texte principal */
+    --aw-color-text-muted: rgb(107 114 128);   /* #6B7280 - Texte secondaire */
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    /* Backgrounds */
+    --aw-color-bg-page: rgb(255 255 255);      /* #FFFFFF - Fond principal */
+    --aw-color-bg-page-dark: rgb(250 250 248); /* #FAFAF8 - Fond sections alternées */
 
     ::selection {
-      background-color: lavender;
+      background-color: rgb(91 122 107 / 20%);
+      color: rgb(26 26 26);
     }
   }
 
-  .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+  /* Typographie selon directives */
+  h1, .h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 600;
+  }
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+  h2, .h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+  }
 
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+  h3, .h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 500;
+  }
 
-    ::selection {
-      background-color: black;
-      color: snow;
-    }
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
   }
 </style>
