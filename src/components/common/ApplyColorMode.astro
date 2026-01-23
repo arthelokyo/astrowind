@@ -1,33 +1,50 @@
 ---
 import { UI } from 'astrowind:config';
-
-// TODO: This code is temporary
 ---
 
 <script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    const matches = document.querySelectorAll('[data-aw-toggle-color-scheme] > input');
+  const STORAGE_KEY = 'aw-color-scheme';
+  const LEGACY_KEY = 'theme'; // read-only fallback
+  const systemMedia = window.matchMedia('(prefers-color-scheme: dark)');
 
-    if (matches && matches.length) {
-      matches.forEach((elem) => {
-        elem.checked = theme !== 'dark';
-      });
-    }
+  const getStoredTheme = () => localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_KEY);
+  const applyTheme = (theme) => {
+    const isDark = theme === 'dark';
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.setAttribute('data-aw-theme', theme);
+    document.querySelectorAll('[data-aw-toggle-color-scheme]').forEach((btn) =>
+      btn.setAttribute('aria-pressed', String(isDark))
+    );
+  };
+
+  const preferredFromSystem = () => (systemMedia.matches ? 'dark' : 'light');
+
+  let stored = getStoredTheme();
+  let theme =
+    stored === 'light' || stored === 'dark'
+      ? stored
+      : defaultTheme && defaultTheme.endsWith(':only')
+        ? defaultTheme.replace(':only', '')
+        : preferredFromSystem();
+
+  // Apply before paint
+  applyTheme(theme);
+
+  // Follow system changes only when user has not chosen
+  if (!stored) {
+    systemMedia.addEventListener('change', (e) => applyTheme(e.matches ? 'dark' : 'light'));
   }
 
-  if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-    applyTheme(defaultTheme.replace(':only', ''));
-  } else if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    applyTheme('dark');
-  } else {
-    applyTheme('light');
-  }
+  const handleToggle = () => {
+    const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    theme = next;
+    applyTheme(next);
+    localStorage.setItem(STORAGE_KEY, next);
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-aw-toggle-color-scheme]').forEach((btn) =>
+      btn.addEventListener('click', handleToggle, false)
+    );
+  });
 </script>

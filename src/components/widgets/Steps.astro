@@ -11,6 +11,7 @@ const {
   tagline = await Astro.slots.render('tagline'),
   items = [],
   image = await Astro.slots.render('image'),
+  actions = await Astro.slots.render('actions'),
   isReversed = false,
 
   id,
@@ -34,6 +35,7 @@ const {
         }}
       />
       <Timeline items={items} classes={classes?.items as Record<string, never>} />
+      {actions && <div class="mt-8">{typeof actions === 'string' ? <Fragment set:html={actions} /> : actions}</div>}
     </div>
     {
       image && (

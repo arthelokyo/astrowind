@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
-import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 
@@ -127,6 +126,20 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             </li>
           ))
         }
+        <li class="md:hidden border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
+          <button
+            type="button"
+            data-aw-toggle-color-scheme
+            aria-label="Farbschema wechseln"
+            class="flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold text-default hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary/60"
+          >
+            <span>Farbschema wechseln</span>
+            <span class="flex items-center gap-1">
+              <Icon name="tabler:sun" class="h-5 w-5 dark:hidden" data-aw-icon="sun" />
+              <Icon name="tabler:moon" class="h-5 w-5 hidden dark:inline-block" data-aw-icon="moon" />
+            </span>
+          </button>
+        </li>
       </ul>
     </nav>
     <div
@@ -137,7 +150,15 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     >
       <div class="items-center flex justify-between w-full md:w-auto">
         <div class="flex">
-          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
+          <button
+            type="button"
+            data-aw-toggle-color-scheme
+            aria-label="Farbschema wechseln"
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/60 rounded-lg text-sm p-2.5 inline-flex items-center gap-2"
+          >
+            <Icon name="tabler:sun" class="w-5 h-5 dark:hidden" data-aw-icon="sun" />
+            <Icon name="tabler:moon" class="w-5 h-5 hidden dark:inline-block" data-aw-icon="moon" />
+          </button>
           {
             showRssFeed && (
               <a

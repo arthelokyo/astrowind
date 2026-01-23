@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: TopMaklerWebsites
+  site: 'https://topmaklerwebsites.de'
   base: '/'
   trailingSlash: false
 
@@ -9,22 +9,22 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: TopMaklerWebsites
+    template: '%s — TopMaklerWebsites'
+  description: 'Moderne, mobile-first Makler-Websites für Agrar/Forst/Landwirtschaft – mit Prototyp in 7 Tagen.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: TopMaklerWebsites
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: null
+    site: null
     cardType: summary_large_image
 
 i18n:

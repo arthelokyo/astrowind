@@ -1,399 +1,581 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Button from '~/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'TopMaklerWebsites',
+  description:
+    'Premium Makler-Websites für Agrar, Forst & Landwirtschaft – mobil schnell, filterstark und conversion-optimiert.',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
+  <!-- 1) HERO -->
+  <Hero2
+    id="hero"
+    title="Makler-Websites, die auf dem Handy verkaufen."
+    subtitle="Für Agrar, Forst & Landwirtschaft: mobil schnell, filterstark und conversion-optimiert – mit modularen Automationen für Anfragen, Exposé und Nachfassen."
     actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
+      { variant: 'primary', text: 'Kostenlosen 7-Tage-Prototyp anfragen', href: '#kontakt' },
+      { variant: 'secondary', text: 'Demo ansehen', href: '#demo' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
-    </Fragment>
-  </Hero>
-
-  <!-- Note Widget ******************* -->
-
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 5.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-sm">
+        {['Mobile-first', 'Performance-Fokus', 'Filterstark', 'Modular erweiterbar'].map((item) => (
+          <span class="rounded-full border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))]/80 px-3 py-1 text-[rgb(var(--aw-color-text-default))] shadow-sm">
+            {item}
+          </span>
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-muted">Kurzformular. Kein Risiko. Sie erhalten nach 7 Tagen eine klickbare Vorschau.</p>
     </Fragment>
-
+    <Fragment slot="image">
+      <div class="relative rounded-2xl border border-[color:rgb(var(--aw-color-border))]/80 bg-[rgb(var(--aw-color-surface))]/80 shadow-2xl backdrop-blur">
+        <div class="flex items-center gap-2 border-b border-[color:rgb(var(--aw-color-border))]/80 px-4 py-3">
+          <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
+          <span class="ml-2 text-xs text-gray-500">Prototype</span>
+        </div>
+        <div class="p-6 space-y-4">
+          <div class="h-3 w-1/3 rounded-full bg-gray-200"></div>
+          <div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+              <div class="mb-3 h-3 w-2/3 rounded-full bg-gray-200"></div>
+              <div class="h-2 w-full rounded-full bg-gray-200"></div>
+              <div class="mt-2 h-2 w-5/6 rounded-full bg-gray-200"></div>
+            </div>
+            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+              <div class="mb-3 h-3 w-2/3 rounded-full bg-gray-200"></div>
+              <div class="h-2 w-full rounded-full bg-gray-200"></div>
+              <div class="mt-2 h-2 w-5/6 rounded-full bg-gray-200"></div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+            <div class="mb-3 h-3 w-1/2 rounded-full bg-gray-200"></div>
+            <div class="h-2 w-full rounded-full bg-gray-200"></div>
+            <div class="mt-2 h-2 w-4/6 rounded-full bg-gray-200"></div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-50 via-white to-white"></div>
+      <div class="absolute -top-24 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl"></div>
     </Fragment>
-  </Content>
+  </Hero2>
 
-  <!-- Content Widget **************** -->
+  <!-- 2) PHILOSOPHY BANNER -->
+  <section class="relative bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 text-center text-lg font-semibold">
+      Ich baue Websites als Vertriebssystem – nicht als Visitenkarte.
+    </div>
+  </section>
 
-  <Content
-    isAfterContent
+  <!-- 3) PROBLEM/LÖSUNG -->
+  <WidgetWrapper id="loesung" containerClass="max-w-6xl">
+    <div class="grid gap-10 lg:grid-cols-2 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-heading">
+          Die meisten Makler-Websites verlieren Leads, bevor die Anfrage entsteht.
+        </h2>
+        <ul class="mt-6 space-y-3 text-lg text-muted">
+          <li>Mobil zu langsam → Absprung</li>
+          <li>Filter/Objektfindung zu schwach → Frust</li>
+          <li>Anfragen unstrukturiert → Leads versanden</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm">
+        <p class="text-lg text-muted leading-relaxed">
+          Eine moderne Makler-Website ist kein Design-Projekt. Sie ist der erste Schritt im Verkaufsprozess – und
+          entscheidet, ob Interessenten bleiben, filtern und anfragen.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <!-- 4) FEATURES GRID -->
+  <Features
+    id="ergebnisse"
+    title="Was sich nach dem Relaunch messbar verbessert"
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Mehr qualifizierte Anfragen',
+        description: 'Durch bessere UX + Vorqualifizierung.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+        title: 'Schnellere Reaktion',
+        description: 'Durch Auto-Antworten & Routing.',
+        icon: 'tabler:bolt',
       },
       {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+        title: 'Weniger Admin-Zeit',
+        description: 'Durch Exposé- und Follow-up-Automationen.',
+        icon: 'tabler:clock',
       },
       {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+        title: 'Mehr Abschlüsse',
+        description: 'Weil weniger Leads verloren gehen.',
+        icon: 'tabler:target',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
+    columns={2}
   />
 
-  <!-- Features2 Widget ************** -->
-
+  <!-- 5) FEATURES SECTION -->
   <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
+    title="Ihr System in 15 Sekunden"
     items={[
       {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
+        title: 'Performance & Mobile UX',
+        description: 'Schnelles Laden, klare Objektlogik, moderne Darstellung, perfekte Bedienbarkeit.',
+        icon: 'tabler:device-mobile',
       },
       {
-        title: 'Heros',
+        title: 'Lead Engine',
+        description: 'Anfrage-Flow in 60 Sekunden: Vorqualifizierung statt „Bitte Infos“.',
+        icon: 'tabler:message-circle',
+      },
+      {
+        title: 'Module im Abo',
+        description: 'Exposé-PDF per Klick, Follow-ups, Tracking & Reporting – optional CRM-Sync.',
+        icon: 'tabler:stack-2',
+      },
+    ]}
+    columns={3}
+  />
+
+  <!-- 6) CTA HIGHLIGHT -->
+  <WidgetWrapper id="prototyp" containerClass="max-w-6xl">
+    <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] md:bg-gradient-to-br md:from-white md:via-slate-50 md:to-amber-50 dark:bg-[rgb(var(--aw-color-surface))] p-8 md:p-12 shadow-lg">
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-heading">
+            Kostenloser Prototyp in 7 Tagen – damit Sie sofort sehen, wie es wirkt.
+          </h2>
+          <ul class="mt-6 space-y-3 text-lg text-muted">
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+              <span>Startseite (Positionierung + CTA)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+              <span>Objekt-Übersichtsseite (modern, mobil, filterstark)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+              <span>Objekt-Detailseite (klar, vertrauenswürdig, anfragebereit)</span>
+            </li>
+          </ul>
+          <p class="mt-6 text-sm text-muted">
+            Kein theoretisches Konzept – sondern ein echter, klickbarer Eindruck Ihrer neuen Website.
+          </p>
+        </div>
+        <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm">
+          <div class="space-y-4">
+            <Button variant="primary" href="#kontakt" class="w-full">Prototyp anfragen</Button>
+            <p class="text-sm text-muted">Ergebnis nach 7 Tagen. Ohne Verpflichtung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <!-- 7) FÜR WEN -->
+  <WidgetWrapper id="fuer-wen" containerClass="max-w-6xl">
+    <div class="grid gap-10 lg:grid-cols-2 items-center">
+      <div class="relative rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-lg">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500">
+          Dashboard
+        </div>
+        <div class="mt-4 space-y-3">
+          <div class="h-4 w-2/3 rounded-full bg-gray-200"></div>
+          <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
+          <div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+              <div class="mb-3 h-3 w-3/4 rounded-full bg-gray-200"></div>
+              <div class="h-2 w-full rounded-full bg-gray-200"></div>
+            </div>
+            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+              <div class="mb-3 h-3 w-3/4 rounded-full bg-gray-200"></div>
+              <div class="h-2 w-full rounded-full bg-gray-200"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-heading">
+          Gemacht für Agrar/Forst-Makler mit erklärungsbedürftigen Objekten
+        </h2>
+        <ul class="mt-6 space-y-3 text-lg text-muted">
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Flächenlogik (ha, Nutzung, Besonderheiten)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Dokumente/Unterlagen sauber integriert</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Portal-ähnliche UX statt „Broschüre“</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Ideal für Solo-Makler & Teams</span>
+          </li>
+        </ul>
+        <p class="mt-6 text-lg text-muted">
+          Je komplexer das Objekt, desto wichtiger ist eine Website, die strukturiert erklärt – und nicht verwirrt.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <!-- 8) FEATURES LIST -->
+  <WidgetWrapper containerClass="max-w-5xl">
+    <Headline title="Modern heißt nicht „schön“. Modern heißt: schneller verkaufen." />
+    <ItemGrid
+      columns={1}
+      defaultIcon="tabler:check"
+      items={[
+        { title: 'Objekt finden statt suchen (Filter + klare Struktur)' },
+        { title: 'Mobil bedienbar ohne Frust (UX-first)' },
+        { title: 'Anfragen mit Qualität statt Chaos (Step-Flow)' },
+        { title: 'Prozesse, die nachfassen (automatisiert)' },
+        { title: 'Erweiterbar ohne Relaunch (Module im Abo)' },
+      ]}
+      classes={{
+        container: 'max-w-3xl mx-auto gap-y-6',
+        panel: 'max-w-none',
+        title: 'text-lg font-semibold',
+        icon: 'text-primary bg-primary/10 rounded-full w-8 h-8 p-1.5 mr-3',
+      }}
+    />
+  </WidgetWrapper>
+
+  <!-- 9) ABLAUF -->
+  <Steps
+    id="ablauf"
+    title="So läuft es ab – schnell, klar, ohne Agentur-Chaos"
+    items={[
+      {
+        title: 'Kurz-Audit & Zielbild (Tag 1)',
         description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
+          'Wir klären Zielgruppe, Objektarten, Engpässe und Wunsch-Outcome. Output: klare Empfehlung + Scope für Ihren Prototyp.',
       },
       {
-        title: 'Features',
+        title: 'Prototyp-Umsetzung (Tag 2–7)',
         description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
+          'Sie erhalten eine klickbare Vorschau mit Startseite, Objekt-Übersicht und Objekt-Detail. Output: Sie sehen sofort, wie Ihre neue Website wirkt.',
       },
       {
-        title: 'Content',
+        title: 'Relaunch & Livegang (optional, danach)',
         description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
+          'Wenn der Prototyp überzeugt: Umsetzung der kompletten Website + Module. Output: Relaunch + skalierbare Add-ons.',
       },
     ]}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="image">
+      <div class="relative h-full min-h-[320px] rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] md:bg-gradient-to-br md:from-white md:via-slate-50 md:to-amber-50 dark:bg-[rgb(var(--aw-color-surface))] p-6 shadow-lg">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500">Timeline</div>
+        <div class="mt-6 space-y-4">
+          <div class="h-3 w-2/3 rounded-full bg-gray-200"></div>
+          <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
+          <div class="h-24 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))]"></div>
+          <div class="h-24 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))]"></div>
+        </div>
+      </div>
     </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+    <Fragment slot="actions">
+      <Button variant="primary" href="#kontakt">Prototyp anfragen</Button>
     </Fragment>
+  </Steps>
 
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+  <!-- 10) PRICING -->
+  <WidgetWrapper id="pakete" containerClass="max-w-7xl">
+    <Headline title="Einstieg über Prototyp – danach wählen Sie das passende Paket" />
+    <div class="grid gap-6 lg:grid-cols-3">
+      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm flex flex-col">
+        <div class="text-sm font-semibold uppercase tracking-wider text-muted">Starter (Relaunch)</div>
+        <p class="mt-3 text-lg text-muted">
+          Für Solo-Makler, die modern auftreten und mehr Leads bekommen wollen.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-muted">
+          <li>Website-Relaunch (mobile-first)</li>
+          <li>Objektseiten & Basisfilter</li>
+          <li>Anfrage-Flow (vorqualifiziert)</li>
+          <li>Performance + SEO-Basis</li>
+        </ul>
+        <div class="mt-6 text-lg font-semibold text-primary">Preis auf Anfrage</div>
+        <p class="mt-4 text-sm text-muted">Ideal, wenn Ihre Website alt wirkt und mobil bremst.</p>
+      </div>
+      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm flex flex-col">
+        <div class="text-sm font-semibold uppercase tracking-wider text-muted">Pro (Relaunch + Lead Engine)</div>
+        <p class="mt-3 text-lg text-muted">
+          Für Makler, die Leads konsequent in Gespräche verwandeln wollen.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-muted">
+          <li>Alles aus Starter</li>
+          <li>Lead-Routing & Auto-Antworten</li>
+          <li>Follow-up Sequenzen</li>
+          <li>Exposé-Templates + PDF per Klick</li>
+        </ul>
+        <div class="mt-6 text-lg font-semibold text-primary">Preis auf Anfrage</div>
+        <p class="mt-4 text-sm text-muted">Ideal, wenn Sie zu viel Zeit in Anfragen & Exposés verlieren.</p>
+      </div>
+      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm flex flex-col">
+        <div class="text-sm font-semibold uppercase tracking-wider text-muted">Premium (System + Skalierung)</div>
+        <p class="mt-3 text-lg text-muted">
+          Für Teams und Bestandsmakler mit regelmäßigem Objektvolumen.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-muted">
+          <li>Alles aus Pro</li>
+          <li>Rollen & Zuständigkeiten</li>
+          <li>Reporting (Funnel: Traffic → Leads)</li>
+          <li>Optional: CRM-Sync / Integrationen</li>
+        </ul>
+        <div class="mt-6 text-lg font-semibold text-primary">Preis auf Anfrage</div>
+        <p class="mt-4 text-sm text-muted">Ideal, wenn Sie Prozesse standardisieren und skalieren wollen.</p>
+      </div>
+    </div>
+    <p class="mt-8 text-center text-sm text-muted">
+      Die Pakete sind modular – Sie zahlen nur, was Sie wirklich nutzen.
+    </p>
+  </WidgetWrapper>
+
+  <!-- 11) DEMO -->
+  <WidgetWrapper id="demo" containerClass="max-w-6xl">
+    <div class="grid gap-10 lg:grid-cols-2 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-heading">
+          Sehen Sie es live – bevor Sie entscheiden
+        </h2>
+        <p class="mt-4 text-lg text-muted">
+          In der Demo sehen Sie eine moderne, portal-ähnliche Objektliste, Filter-UX, eine klare Objekt-Detailseite und
+          einen Beispiel-Anfrageflow.
+        </p>
+        <ul class="mt-6 space-y-3 text-lg text-muted">
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Objektliste mobil (schnell & klar)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Filter-UX (portal-ähnlich)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Objekt-Detailseite mit klarer Anfrageführung</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:check" class="mt-1 h-5 w-5 text-primary" />
+            <span>Beispiel für Step-Form</span>
+          </li>
+        </ul>
+        <div class="mt-8">
+          <Button variant="secondary" href="#kontakt">Demo anfragen</Button>
+        </div>
+      </div>
+      <div class="relative rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-lg">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500">Demo</div>
+        <div class="mt-4 space-y-3">
+          <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
+          <div class="h-32 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))]"></div>
+          <div class="grid gap-3 md:grid-cols-2">
+            <div class="h-20 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))]"></div>
+            <div class="h-20 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <!-- 12) FAQ -->
+  <WidgetWrapper id="faq" containerClass="max-w-6xl">
+    <Headline title="FAQ" />
+    <div class="mx-auto max-w-3xl divide-y divide-[color:rgb(var(--aw-color-border))] rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] shadow-sm">
+      {[
+        {
+          q: 'Wie funktioniert der kostenlose Prototyp genau?',
+          a: 'Sie senden mir Ihre Website und 1–2 Beispielobjekte. Ich erstelle daraus eine klickbare Vorschau: Startseite, Objekt-Übersicht und Objekt-Detailseite.',
+        },
+        {
+          q: 'Was brauche ich für den Prototyp?',
+          a: 'Website-URL, Logo (falls vorhanden) und 1–2 Objektlinks oder PDFs. Mehr nicht.',
+        },
+        {
+          q: 'Ist der Prototyp wirklich kostenlos?',
+          a: 'Ja. Er dient dazu, dass Sie den Unterschied sofort sehen. Ohne Verpflichtung.',
+        },
+        {
+          q: 'Was passiert nach den 7 Tagen?',
+          a: 'Sie bekommen die Vorschau. Wenn Sie möchten, planen wir daraus die vollständige Umsetzung und aktivieren optional Module.',
+        },
+        {
+          q: 'Kann ich später Automationen hinzufügen?',
+          a: 'Ja. Die Website wird so aufgebaut, dass Module später ergänzbar sind, ohne Neuaufbau.',
+        },
+        {
+          q: 'Ist das nur für Agrar/Forst?',
+          a: 'Der Fokus ist Agrar/Forst/Landwirtschaft, weil dort Filter, Struktur und Dokumente besonders entscheidend sind. Andere Objektarten sind möglich, aber die Spezialisierung ist Ihr Vorteil.',
+        },
+      ].map((item) => (
+        <details class="group px-6 py-4">
+          <summary class="flex cursor-pointer items-center justify-between text-lg font-semibold text-heading">
+            <span>{item.q}</span>
+            <Icon name="tabler:plus" class="h-5 w-5 text-primary transition-transform group-open:rotate-45" />
+          </summary>
+          <p class="mt-3 text-muted leading-relaxed">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </WidgetWrapper>
+
+  <!-- 13) CTA BANNER -->
+  <section class="relative bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">
+        Wenn Sie mehr Abschlüsse wollen, starten Sie nicht mit „Design“. Starten Sie mit Ihrem Funnel.
+      </h2>
+      <div class="mt-6 flex flex-col items-center gap-4">
+        <Button variant="primary" href="#kontakt">Kostenlosen 7-Tage-Prototyp anfragen</Button>
+        <p class="text-sm text-slate-300">Kurzformular – Ergebnis in 7 Tagen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14) CONTACT -->
+  <WidgetWrapper id="kontakt" containerClass="max-w-6xl">
+    <Headline
+      title="Kostenlosen 7-Tage-Prototyp anfragen"
+      subtitle="Senden Sie mir Ihre Website und ein Beispielobjekt. Ich erstelle daraus eine klickbare Vorschau mit drei Seiten."
+    />
+    <div class="max-w-4xl mx-auto rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] shadow-lg p-6 md:p-8">
+      <form action="mailto:kontakt@topmaklerwebsites.de" method="post" enctype="text/plain">
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <label class="block text-sm font-medium" for="vorname">Vorname</label>
+            <input
+              id="vorname"
+              name="vorname"
+              type="text"
+              required
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="nachname">Nachname</label>
+            <input
+              id="nachname"
+              name="nachname"
+              type="text"
+              required
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="firma">Firma</label>
+            <input
+              id="firma"
+              name="firma"
+              type="text"
+              required
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="website">Website-URL</label>
+            <input
+              id="website"
+              name="website"
+              type="url"
+              required
+              placeholder="https://"
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="email">E-Mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="telefon">Telefon</label>
+            <input
+              id="telefon"
+              name="telefon"
+              type="tel"
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="schwerpunkt">Schwerpunkt</label>
+            <select
+              id="schwerpunkt"
+              name="schwerpunkt"
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            >
+              <option value="">Bitte wählen</option>
+              <option value="Agrar">Agrar</option>
+              <option value="Forst">Forst</option>
+              <option value="Landwirtschaft">Landwirtschaft</option>
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="ziel">Ziel</label>
+            <select id="ziel" name="ziel" class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md">
+              <option value="">Bitte wählen</option>
+              <option value="Mehr Eigentümer">Mehr Eigentümer</option>
+              <option value="Mehr Käufer">Mehr Käufer</option>
+              <option value="Weniger Admin">Weniger Admin</option>
+              <option value="Alles zusammen">Alles zusammen</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium" for="beispiel1">Beispielobjekt 1</label>
+            <input
+              id="beispiel1"
+              name="beispiel1"
+              type="text"
+              required
+              placeholder="URL oder kurze Beschreibung"
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium" for="beispiel2">Beispielobjekt 2 (optional)</label>
+            <input
+              id="beispiel2"
+              name="beispiel2"
+              type="text"
+              placeholder="URL oder kurze Beschreibung"
+              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+            />
+          </div>
+        </div>
+        <div class="mt-8">
+          <Button variant="primary" type="submit">Prototyp anfragen</Button>
+        </div>
+        <p class="mt-4 text-sm text-muted">Kein Spam. Keine Weitergabe. Nur ein konkreter Vorschlag.</p>
+      </form>
+    </div>
+  </WidgetWrapper>
 </Layout>
