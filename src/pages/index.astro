@@ -32,7 +32,7 @@ const metadata = {
     <Fragment slot="content">
       <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-sm">
         {['Mobile-first', 'Performance-Fokus', 'Filterstark', 'Modular erweiterbar'].map((item) => (
-          <span class="rounded-full border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))]/80 px-3 py-1 text-[rgb(var(--aw-color-text-default))] shadow-sm">
+          <span class="rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-3 py-1 text-slate-700 dark:text-slate-200 shadow-sm">
             {item}
           </span>
         ))}
@@ -40,8 +40,8 @@ const metadata = {
       <p class="mt-4 text-sm text-muted">Kurzformular. Kein Risiko. Sie erhalten nach 7 Tagen eine klickbare Vorschau.</p>
     </Fragment>
     <Fragment slot="image">
-      <div class="relative rounded-2xl border border-[color:rgb(var(--aw-color-border))]/80 bg-[rgb(var(--aw-color-surface))]/80 shadow-2xl backdrop-blur">
-        <div class="flex items-center gap-2 border-b border-[color:rgb(var(--aw-color-border))]/80 px-4 py-3">
+      <div class="relative rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 shadow-2xl backdrop-blur">
+        <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 px-4 py-3">
           <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
           <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
           <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
@@ -50,18 +50,18 @@ const metadata = {
         <div class="p-6 space-y-4">
           <div class="h-3 w-1/3 rounded-full bg-gray-200"></div>
           <div class="grid gap-3 md:grid-cols-2">
-            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+            <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4">
               <div class="mb-3 h-3 w-2/3 rounded-full bg-gray-200"></div>
               <div class="h-2 w-full rounded-full bg-gray-200"></div>
               <div class="mt-2 h-2 w-5/6 rounded-full bg-gray-200"></div>
             </div>
-            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+            <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4">
               <div class="mb-3 h-3 w-2/3 rounded-full bg-gray-200"></div>
               <div class="h-2 w-full rounded-full bg-gray-200"></div>
               <div class="mt-2 h-2 w-5/6 rounded-full bg-gray-200"></div>
             </div>
           </div>
-          <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+          <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4">
             <div class="mb-3 h-3 w-1/2 rounded-full bg-gray-200"></div>
             <div class="h-2 w-full rounded-full bg-gray-200"></div>
             <div class="mt-2 h-2 w-4/6 rounded-full bg-gray-200"></div>
@@ -95,8 +95,8 @@ const metadata = {
           <li>Anfragen unstrukturiert → Leads versanden</li>
         </ul>
       </div>
-      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm">
-        <p class="text-lg text-muted leading-relaxed">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
+        <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
           Eine moderne Makler-Website ist kein Design-Projekt. Sie ist der erste Schritt im Verkaufsprozess – und
           entscheidet, ob Interessenten bleiben, filtern und anfragen.
         </p>
@@ -158,7 +158,7 @@ const metadata = {
 
   <!-- 6) CTA HIGHLIGHT -->
   <WidgetWrapper id="prototyp" containerClass="max-w-6xl">
-    <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] md:bg-gradient-to-br md:from-white md:via-slate-50 md:to-amber-50 dark:bg-[rgb(var(--aw-color-surface))] p-8 md:p-12 shadow-lg">
+    <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 md:bg-gradient-to-br md:from-white md:via-slate-50 md:to-amber-50 md:dark:bg-slate-900 p-8 md:p-12 shadow-lg">
       <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-start">
         <div>
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-heading">
@@ -182,7 +182,7 @@ const metadata = {
             Kein theoretisches Konzept – sondern ein echter, klickbarer Eindruck Ihrer neuen Website.
           </p>
         </div>
-        <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm">
+        <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
           <div class="space-y-4">
             <Button variant="primary" href="#kontakt" class="w-full">Prototyp anfragen</Button>
             <p class="text-sm text-muted">Ergebnis nach 7 Tagen. Ohne Verpflichtung.</p>
@@ -195,7 +195,7 @@ const metadata = {
   <!-- 7) FÜR WEN -->
   <WidgetWrapper id="fuer-wen" containerClass="max-w-6xl">
     <div class="grid gap-10 lg:grid-cols-2 items-center">
-      <div class="relative rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-lg">
+      <div class="relative rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-lg">
         <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500">
           Dashboard
         </div>
@@ -203,11 +203,11 @@ const metadata = {
           <div class="h-4 w-2/3 rounded-full bg-gray-200"></div>
           <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
           <div class="grid gap-3 md:grid-cols-2">
-            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+            <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4">
               <div class="mb-3 h-3 w-3/4 rounded-full bg-gray-200"></div>
               <div class="h-2 w-full rounded-full bg-gray-200"></div>
             </div>
-            <div class="rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))] p-4">
+            <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4">
               <div class="mb-3 h-3 w-3/4 rounded-full bg-gray-200"></div>
               <div class="h-2 w-full rounded-full bg-gray-200"></div>
             </div>
@@ -288,13 +288,13 @@ const metadata = {
     ]}
   >
     <Fragment slot="image">
-      <div class="relative h-full min-h-[320px] rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] md:bg-gradient-to-br md:from-white md:via-slate-50 md:to-amber-50 dark:bg-[rgb(var(--aw-color-surface))] p-6 shadow-lg">
+      <div class="relative h-full min-h-[320px] rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 md:bg-gradient-to-br md:from-white md:via-slate-50 md:to-amber-50 md:dark:bg-slate-900 p-6 shadow-lg">
         <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500">Timeline</div>
         <div class="mt-6 space-y-4">
           <div class="h-3 w-2/3 rounded-full bg-gray-200"></div>
           <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
-          <div class="h-24 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))]"></div>
-          <div class="h-24 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))]"></div>
+          <div class="h-24 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"></div>
+          <div class="h-24 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"></div>
         </div>
       </div>
     </Fragment>
@@ -307,7 +307,7 @@ const metadata = {
   <WidgetWrapper id="pakete" containerClass="max-w-7xl">
     <Headline title="Einstieg über Prototyp – danach wählen Sie das passende Paket" />
     <div class="grid gap-6 lg:grid-cols-3">
-      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm flex flex-col">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm flex flex-col">
         <div class="text-sm font-semibold uppercase tracking-wider text-muted">Starter (Relaunch)</div>
         <p class="mt-3 text-lg text-muted">
           Für Solo-Makler, die modern auftreten und mehr Leads bekommen wollen.
@@ -321,7 +321,7 @@ const metadata = {
         <div class="mt-6 text-lg font-semibold text-primary">Preis auf Anfrage</div>
         <p class="mt-4 text-sm text-muted">Ideal, wenn Ihre Website alt wirkt und mobil bremst.</p>
       </div>
-      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm flex flex-col">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm flex flex-col">
         <div class="text-sm font-semibold uppercase tracking-wider text-muted">Pro (Relaunch + Lead Engine)</div>
         <p class="mt-3 text-lg text-muted">
           Für Makler, die Leads konsequent in Gespräche verwandeln wollen.
@@ -335,7 +335,7 @@ const metadata = {
         <div class="mt-6 text-lg font-semibold text-primary">Preis auf Anfrage</div>
         <p class="mt-4 text-sm text-muted">Ideal, wenn Sie zu viel Zeit in Anfragen & Exposés verlieren.</p>
       </div>
-      <div class="rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-sm flex flex-col">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm flex flex-col">
         <div class="text-sm font-semibold uppercase tracking-wider text-muted">Premium (System + Skalierung)</div>
         <p class="mt-3 text-lg text-muted">
           Für Teams und Bestandsmakler mit regelmäßigem Objektvolumen.
@@ -388,14 +388,14 @@ const metadata = {
           <Button variant="secondary" href="#kontakt">Demo anfragen</Button>
         </div>
       </div>
-      <div class="relative rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] p-6 shadow-lg">
+      <div class="relative rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-lg">
         <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500">Demo</div>
         <div class="mt-4 space-y-3">
           <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
-          <div class="h-32 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))]"></div>
+          <div class="h-32 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"></div>
           <div class="grid gap-3 md:grid-cols-2">
-            <div class="h-20 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))]"></div>
-            <div class="h-20 rounded-xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface-2))]"></div>
+            <div class="h-20 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"></div>
+            <div class="h-20 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"></div>
           </div>
         </div>
       </div>
@@ -405,7 +405,7 @@ const metadata = {
   <!-- 12) FAQ -->
   <WidgetWrapper id="faq" containerClass="max-w-6xl">
     <Headline title="FAQ" />
-    <div class="mx-auto max-w-3xl divide-y divide-[color:rgb(var(--aw-color-border))] rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] shadow-sm">
+    <div class="mx-auto max-w-3xl divide-y divide-slate-200 dark:divide-slate-700 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm">
       {[
         {
           q: 'Wie funktioniert der kostenlose Prototyp genau?',
@@ -462,7 +462,7 @@ const metadata = {
       title="Kostenlosen 7-Tage-Prototyp anfragen"
       subtitle="Senden Sie mir Ihre Website und ein Beispielobjekt. Ich erstelle daraus eine klickbare Vorschau mit drei Seiten."
     />
-    <div class="max-w-4xl mx-auto rounded-2xl border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] shadow-lg p-6 md:p-8">
+    <div class="max-w-4xl mx-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg p-6 md:p-8">
       <form action="mailto:kontakt@topmaklerwebsites.de" method="post" enctype="text/plain">
         <div class="grid gap-6 md:grid-cols-2">
           <div>
@@ -472,7 +472,7 @@ const metadata = {
               name="vorname"
               type="text"
               required
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div>
@@ -482,7 +482,7 @@ const metadata = {
               name="nachname"
               type="text"
               required
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div>
@@ -492,7 +492,7 @@ const metadata = {
               name="firma"
               type="text"
               required
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div>
@@ -503,7 +503,7 @@ const metadata = {
               type="url"
               required
               placeholder="https://"
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div>
@@ -513,7 +513,7 @@ const metadata = {
               name="email"
               type="email"
               required
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div>
@@ -522,7 +522,7 @@ const metadata = {
               id="telefon"
               name="telefon"
               type="tel"
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div>
@@ -530,7 +530,7 @@ const metadata = {
             <select
               id="schwerpunkt"
               name="schwerpunkt"
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             >
               <option value="">Bitte wählen</option>
               <option value="Agrar">Agrar</option>
@@ -541,7 +541,7 @@ const metadata = {
           </div>
           <div>
             <label class="block text-sm font-medium" for="ziel">Ziel</label>
-            <select id="ziel" name="ziel" class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md">
+            <select id="ziel" name="ziel" class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300">
               <option value="">Bitte wählen</option>
               <option value="Mehr Eigentümer">Mehr Eigentümer</option>
               <option value="Mehr Käufer">Mehr Käufer</option>
@@ -557,7 +557,7 @@ const metadata = {
               type="text"
               required
               placeholder="URL oder kurze Beschreibung"
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
           <div class="md:col-span-2">
@@ -567,7 +567,7 @@ const metadata = {
               name="beispiel2"
               type="text"
               placeholder="URL oder kurze Beschreibung"
-              class="mt-2 w-full rounded-lg border border-[color:rgb(var(--aw-color-border))] bg-[rgb(var(--aw-color-surface))] px-4 py-3 text-md"
+              class="mt-2 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-md text-slate-700 dark:text-slate-300"
             />
           </div>
         </div>
