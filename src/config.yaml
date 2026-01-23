@@ -1,34 +1,34 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Phycocyanine
+  site: 'https://phycocyanine.fr'
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: null
 
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Phycocyanine - Guide complet sur le pigment bleu de la spiruline
+    template: '%s — Phycocyanine'
+  description: "Découvrez la phycocyanine, le pigment bleu aux propriétés antioxydantes. Guide complet, conseils d'achat et sélection de produits de qualité."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Phycocyanine
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: ''
+    site: ''
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: fr
   textDirection: ltr
 
 apps:
@@ -69,4 +69,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light:only' # Light mode uniquement - dark mode désactivé

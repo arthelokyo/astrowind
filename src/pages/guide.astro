@@ -1,0 +1,255 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Newsletter from '~/components/widgets/Newsletter.astro';
+
+const metadata = {
+  title: 'Guide complet de la phycocyanine',
+  description: 'Découvrez tout ce qu\'il faut savoir sur la phycocyanine : origines, propriétés, bienfaits et conseils d\'utilisation.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Article principal -->
+  <section class="py-12 md:py-20 bg-white">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- En-tête -->
+      <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900" style="font-family: 'Playfair Display', serif;">
+          Guide complet de la phycocyanine
+        </h1>
+        <p class="text-xl text-muted">
+          Tout ce que vous devez savoir sur le pigment bleu de la spiruline
+        </p>
+      </header>
+
+      <!-- Table des matières -->
+      <nav class="bg-[#FAFAF8] rounded-lg p-6 mb-12">
+        <h2 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Table des matières</h2>
+        <ul class="space-y-2 text-muted">
+          <li><a href="#origine" class="hover:text-primary transition">1. Origine et extraction</a></li>
+          <li><a href="#proprietes" class="hover:text-primary transition">2. Propriétés et composition</a></li>
+          <li><a href="#bienfaits" class="hover:text-primary transition">3. Bienfaits pour la santé</a></li>
+          <li><a href="#utilisation" class="hover:text-primary transition">4. Comment l'utiliser</a></li>
+          <li><a href="#choisir" class="hover:text-primary transition">5. Comment choisir sa phycocyanine</a></li>
+          <li><a href="#precautions" class="hover:text-primary transition">6. Précautions et contre-indications</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contenu -->
+      <div class="prose prose-lg max-w-none">
+
+        <!-- Section 1 -->
+        <section id="origine" class="mb-12">
+          <h2 style="font-family: 'Playfair Display', serif;">1. Origine et extraction</h2>
+
+          <h3>Qu'est-ce que la phycocyanine ?</h3>
+          <p>
+            La phycocyanine est un pigment naturel de couleur bleu intense, présent dans certaines microalgues,
+            notamment la spiruline (Arthrospira platensis). Ce composé appartient à la famille des phycobiliprotéines
+            et est responsable de la teinte bleu-vert caractéristique de la spiruline.
+          </p>
+
+          <h3>Le processus d'extraction</h3>
+          <p>
+            L'extraction de la phycocyanine de la spiruline nécessite un procédé délicat pour préserver ses propriétés.
+            Les méthodes les plus respectueuses utilisent une extraction à froid, sans solvants chimiques, qui permet
+            de conserver l'intégrité du pigment et ses propriétés antioxydantes.
+          </p>
+
+          <p>
+            La spiruline est d'abord cultivée dans des bassins contrôlés, récoltée, puis séchée. L'extraction
+            consiste ensuite à libérer le pigment des cellules de l'algue par des techniques physiques douces,
+            avant une filtration et une stabilisation du produit final.
+          </p>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="proprietes" class="mb-12">
+          <h2 style="font-family: 'Playfair Display', serif;">2. Propriétés et composition</h2>
+
+          <h3>Composition chimique</h3>
+          <p>
+            La phycocyanine est une protéine conjuguée composée d'une partie protéique liée à des groupements
+            chromophores. Sa structure unique lui confère à la fois des propriétés nutritionnelles (apport en
+            acides aminés) et des propriétés antioxydantes exceptionnelles.
+          </p>
+
+          <h3>Pouvoir antioxydant</h3>
+          <p>
+            Le pouvoir antioxydant de la phycocyanine est l'un des plus élevés parmi les composés naturels.
+            Elle peut contribuer à neutraliser les radicaux libres et à protéger les cellules contre le stress
+            oxydatif, un processus impliqué dans le vieillissement cellulaire.
+          </p>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="bienfaits" class="mb-12">
+          <h2 style="font-family: 'Playfair Display', serif;">3. Bienfaits pour la santé</h2>
+
+          <p>
+            La phycocyanine est traditionnellement reconnue pour plusieurs bienfaits potentiels :
+          </p>
+
+          <ul>
+            <li>
+              <strong>Action antioxydante :</strong> Protection des cellules contre le stress oxydatif
+              et soutien du système de défense naturel de l'organisme.
+            </li>
+            <li>
+              <strong>Soutien immunitaire :</strong> Peut contribuer au bon fonctionnement du système
+              immunitaire et au renforcement des défenses naturelles.
+            </li>
+            <li>
+              <strong>Énergie et vitalité :</strong> Aide à réduire la fatigue et à maintenir une bonne
+              vitalité au quotidien.
+            </li>
+            <li>
+              <strong>Récupération sportive :</strong> Apprécié des sportifs pour ses propriétés qui peuvent
+              favoriser la récupération après l'effort.
+            </li>
+          </ul>
+
+          <p class="text-sm text-muted italic mt-4">
+            Note : Ces bienfaits sont basés sur l'usage traditionnel et des études préliminaires. La phycocyanine
+            n'est pas un médicament et ne remplace pas une alimentation variée et équilibrée ni un mode de vie sain.
+          </p>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="utilisation" class="mb-12">
+          <h2 style="font-family: 'Playfair Display', serif;">4. Comment l'utiliser</h2>
+
+          <h3>Formes disponibles</h3>
+          <p>
+            La phycocyanine est disponible sous plusieurs formes :
+          </p>
+          <ul>
+            <li><strong>Forme liquide :</strong> La plus biodisponible, généralement concentrée à 20-25 mg/ml</li>
+            <li><strong>Gélules :</strong> Pratiques pour le dosage, mais potentiellement moins bien assimilées</li>
+            <li><strong>Poudre :</strong> Moins courante, peut être mélangée à des boissons</li>
+          </ul>
+
+          <h3>Posologie recommandée</h3>
+          <p>
+            Pour la forme liquide, la posologie habituelle est de 10 à 20 ml par jour, de préférence le matin
+            à jeun pour une meilleure absorption. Il est conseillé de commencer par de petites doses (5 ml)
+            et d'augmenter progressivement selon votre ressenti.
+          </p>
+
+          <h3>Mode de conservation</h3>
+          <p>
+            La phycocyanine liquide doit être conservée au réfrigérateur après ouverture. Sa durée de conservation
+            est généralement de 3 à 6 mois une fois le flacon ouvert. Vérifiez toujours les recommandations du
+            fabricant.
+          </p>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="choisir" class="mb-12">
+          <h2 style="font-family: 'Playfair Display', serif;">5. Comment choisir sa phycocyanine</h2>
+
+          <h3>Critères de qualité</h3>
+          <p>Pour choisir une phycocyanine de qualité, vérifiez :</p>
+
+          <ul>
+            <li><strong>L'origine :</strong> Préférez une spiruline cultivée en France ou Europe, dans des bassins contrôlés</li>
+            <li><strong>La concentration :</strong> Au minimum 20-25 mg/ml pour la forme liquide</li>
+            <li><strong>Le mode d'extraction :</strong> Extraction à froid sans solvants chimiques</li>
+            <li><strong>Les certifications :</strong> Bio, Ecocert, ou autres labels de qualité</li>
+            <li><strong>La transparence :</strong> Le fabricant doit fournir des informations claires sur la provenance et les analyses</li>
+          </ul>
+
+          <h3>Prix indicatif</h3>
+          <p>
+            Une phycocyanine de qualité se situe généralement entre 40 et 60 € pour un flacon de 250 ml.
+            Un prix trop bas peut indiquer une qualité ou une concentration insuffisante.
+          </p>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="precautions" class="mb-12">
+          <h2 style="font-family: 'Playfair Display', serif;">6. Précautions et contre-indications</h2>
+
+          <h3>Contre-indications</h3>
+          <p>
+            La phycocyanine est généralement bien tolérée. Cependant, elle est déconseillée dans les cas suivants :
+          </p>
+          <ul>
+            <li>Allergie connue aux algues ou aux produits de la mer</li>
+            <li>Phénylcétonurie (en raison de la teneur en phénylalanine)</li>
+            <li>Femmes enceintes ou allaitantes (par précaution, consultez votre médecin)</li>
+          </ul>
+
+          <h3>Interactions médicamenteuses</h3>
+          <p>
+            Si vous suivez un traitement médical, notamment anticoagulants ou immunosuppresseurs, consultez
+            votre médecin avant de prendre de la phycocyanine.
+          </p>
+
+          <h3>Effets secondaires possibles</h3>
+          <p>
+            Les effets secondaires sont rares et généralement bénins : légers troubles digestifs en début
+            de cure, qui disparaissent en réduisant la dose. Commencez toujours par de petites quantités.
+          </p>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="bg-[#FAFAF8] rounded-lg p-8 mt-12">
+          <h2 style="font-family: 'Playfair Display', serif;">En résumé</h2>
+          <p>
+            La phycocyanine est un complément naturel intéressant pour ceux qui cherchent à bénéficier des
+            propriétés antioxydantes de la spiruline sous une forme concentrée. Choisissez toujours une
+            phycocyanine de qualité, issue de spiruline cultivée dans des conditions contrôlées, et consultez
+            un professionnel de santé en cas de doute.
+          </p>
+          <p class="mb-0">
+            Découvrez notre <a href="/produits" class="text-primary hover:underline">sélection de produits</a>
+            pour trouver la phycocyanine qui vous convient.
+          </p>
+        </section>
+      </div>
+    </article>
+  </section>
+
+  <!-- Newsletter -->
+  <Newsletter />
+</Layout>
+
+<style>
+  .prose h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+  }
+
+  .prose h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .prose ul {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.75rem;
+  }
+
+  .prose strong {
+    font-weight: 600;
+    color: #1A1A1A;
+  }
+</style>

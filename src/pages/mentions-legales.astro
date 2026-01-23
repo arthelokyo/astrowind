@@ -1,0 +1,156 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Mentions légales',
+  description: 'Mentions légales du site Phycocyanine.fr',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="py-12 md:py-20 bg-white">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6">
+      <header class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900" style="font-family: 'Playfair Display', serif;">
+          Mentions légales
+        </h1>
+        <p class="text-muted">Dernière mise à jour : Janvier 2025</p>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+
+        <section class="mb-10">
+          <h2>1. Informations légales</h2>
+
+          <h3>Éditeur du site</h3>
+          <p>
+            Le site Phycocyanine.fr est édité par :<br>
+            [Nom de l'entreprise ou du particulier]<br>
+            [Adresse]<br>
+            [Code postal et ville]<br>
+            [Pays]
+          </p>
+
+          <p>
+            Email : <a href="mailto:contact@phycocyanine.fr" class="text-primary hover:underline">contact@phycocyanine.fr</a><br>
+            Téléphone : [À compléter]
+          </p>
+
+          <h3>Directeur de la publication</h3>
+          <p>[Nom du directeur de publication]</p>
+
+          <h3>Hébergement</h3>
+          <p>
+            Le site est hébergé par :<br>
+            Vercel Inc.<br>
+            340 S Lemon Ave #4133<br>
+            Walnut, CA 91789<br>
+            États-Unis
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>2. Propriété intellectuelle</h2>
+          <p>
+            L'ensemble du contenu de ce site (textes, images, vidéos, design, logos) est la propriété
+            exclusive de Phycocyanine.fr ou de ses partenaires, sauf mention contraire.
+          </p>
+          <p>
+            Toute reproduction, distribution, modification, adaptation, retransmission ou publication,
+            même partielle, de ces différents éléments est strictement interdite sans l'accord exprès
+            par écrit de Phycocyanine.fr.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>3. Responsabilité</h2>
+          <p>
+            Les informations fournies sur ce site le sont à titre informatif uniquement. Phycocyanine.fr
+            s'efforce de fournir des informations aussi précises que possible, mais ne peut garantir
+            l'exactitude, la complétude ou l'actualité des informations diffusées.
+          </p>
+          <p>
+            Les informations présentes sur le site ne constituent pas des conseils médicaux. Pour tout
+            usage de complément alimentaire, nous vous recommandons de consulter un professionnel de santé.
+          </p>
+          <p>
+            Phycocyanine.fr ne pourra être tenu responsable des dommages directs ou indirects qui pourraient
+            résulter de l'utilisation des informations présentes sur le site.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>4. Liens affiliés</h2>
+          <p>
+            Ce site peut contenir des liens affiliés vers des produits ou services. Cela signifie que nous
+            pouvons percevoir une commission si vous effectuez un achat via ces liens, sans frais supplémentaire
+            pour vous.
+          </p>
+          <p>
+            Ces commissions nous permettent de maintenir le site à jour et de continuer à fournir du contenu
+            gratuit de qualité. Nous ne recommandons que des produits que nous estimons de qualité et pertinents
+            pour nos lecteurs.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>5. Liens externes</h2>
+          <p>
+            Le site peut contenir des liens vers des sites externes. Phycocyanine.fr ne peut être tenu
+            responsable du contenu de ces sites tiers ni des dommages qui pourraient résulter de leur utilisation.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>6. Cookies</h2>
+          <p>
+            Le site utilise des cookies pour améliorer l'expérience utilisateur et mesurer l'audience.
+            Pour plus d'informations, consultez notre <a href="/confidentialite" class="text-primary hover:underline">Politique de confidentialité</a>.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>7. Droit applicable</h2>
+          <p>
+            Les présentes mentions légales sont régies par le droit français. Tout litige relatif à
+            l'utilisation du site sera soumis à la compétence exclusive des tribunaux français.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2>8. Contact</h2>
+          <p>
+            Pour toute question concernant ces mentions légales, vous pouvez nous contacter à l'adresse :
+            <a href="mailto:contact@phycocyanine.fr" class="text-primary hover:underline">contact@phycocyanine.fr</a>
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+  }
+
+  .prose h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+</style>

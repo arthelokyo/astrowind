@@ -1,0 +1,57 @@
+---
+// Section "Qu'est-ce que la phycocyanine"
+export interface Props {
+  id?: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section class="not-prose bg-[#FAFAF8] py-16" {...id ? { id } : {}}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="md:flex md:gap-12 items-center">
+      <!-- Texte -->
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900" style="font-family: 'Playfair Display', serif;">
+          Qu'est-ce que la phycocyanine ?
+        </h2>
+
+        <div class="text-muted leading-relaxed space-y-4">
+          <p>
+            La phycocyanine est un pigment bleu naturel extrait de la spiruline, une microalgue reconnue
+            pour ses nombreuses propriétés. Ce composé actif est particulièrement apprécié pour son
+            pouvoir antioxydant exceptionnel.
+          </p>
+
+          <p>
+            Contrairement à la spiruline en poudre qui contient l'ensemble des nutriments de l'algue,
+            la phycocyanine est un extrait concentré qui permet de bénéficier spécifiquement des bienfaits
+            de ce pigment bleu.
+          </p>
+
+          <p>
+            Traditionnellement utilisée pour soutenir la vitalité et l'équilibre de l'organisme, la phycocyanine
+            est aujourd'hui de plus en plus recherchée pour son action antioxydante et ses effets bénéfiques
+            sur le bien-être général.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="/guide"
+            class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-[#4A6358] transition-colors"
+          >
+            En savoir plus →
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="md:w-1/2">
+        <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg aspect-video flex items-center justify-center">
+          <p class="text-blue-600 font-medium">Image spiruline / phycocyanine</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

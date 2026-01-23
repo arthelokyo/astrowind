@@ -1,0 +1,59 @@
+---
+// Composant Newsletter pour capture d'email
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  id?: string;
+}
+
+const {
+  title = 'Recevez le guide gratuit',
+  subtitle = '"Bien choisir sa phycocyanine"',
+  id,
+} = Astro.props;
+---
+
+<section class="not-prose bg-[#FAFAF8] py-16" id={id || 'newsletter'}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900" style="font-family: 'Playfair Display', serif;">
+      {title}
+    </h2>
+    <p class="text-xl md:text-2xl text-muted mb-8">
+      {subtitle}
+    </p>
+
+    <form
+      class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 mb-6"
+      method="POST"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Votre email"
+        required
+        class="flex-1 px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+      />
+      <button
+        type="submit"
+        class="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-[#4A6358] transition-colors"
+      >
+        Recevoir →
+      </button>
+    </form>
+
+    <div class="flex items-center justify-center gap-6 text-sm text-muted">
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Gratuit
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Sans spam
+      </span>
+    </div>
+  </div>
+</section>

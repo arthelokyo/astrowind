@@ -1,0 +1,180 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Newsletter from '~/components/widgets/Newsletter.astro';
+
+const metadata = {
+  title: 'Produits de phycocyanine sélectionnés',
+  description: 'Notre sélection de phycocyanine de qualité : produits testés, certifiés et issus de spiruline cultivée en bassins contrôlés.',
+};
+
+const products = [
+  {
+    name: 'Phycocyanine Premium Bio',
+    brand: 'Marque X',
+    description: 'Phycocyanine liquide issue de spiruline française cultivée en bassins contrôlés. Concentration de 25 mg/ml, extraction à froid pour préserver les propriétés.',
+    features: [
+      'Concentration : 25 mg/ml',
+      'Format : Flacon de 250 ml',
+      'Origine : France',
+      'Certification : Bio, Ecocert',
+      'Conservation : Au réfrigérateur',
+    ],
+    price: '52 €',
+  },
+  {
+    name: 'Phycocyanine Spiruline Artisanale',
+    brand: 'Marque Y',
+    description: 'Phycocyanine extraite de spiruline artisanale cultivée en Provence. Extraction douce à basse température, sans additifs ni conservateurs.',
+    features: [
+      'Concentration : 22 mg/ml',
+      'Format : Flacon de 200 ml',
+      'Origine : Provence, France',
+      'Certification : Nature & Progrès',
+      'Posologie : 10-15 ml/jour',
+    ],
+    price: '48 €',
+  },
+  {
+    name: 'Phycocyanine Gélules',
+    brand: 'Marque Z',
+    description: 'Pour ceux qui préfèrent la forme gélule, ce produit propose une phycocyanine concentrée issue de spiruline bio européenne.',
+    features: [
+      'Concentration : 300 mg par gélule',
+      'Format : 60 gélules',
+      'Origine : Union Européenne',
+      'Certification : Bio',
+      'Posologie : 2 gélules/jour',
+    ],
+    price: '35 €',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- En-tête -->
+  <section class="py-12 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900" style="font-family: 'Playfair Display', serif;">
+          Nos produits sélectionnés
+        </h1>
+        <p class="text-xl text-muted max-w-3xl mx-auto">
+          Découvrez notre sélection de phycocyanine de qualité, issue de spiruline cultivée en bassins
+          contrôlés et certifiée bio.
+        </p>
+      </div>
+
+      <!-- Critères de sélection -->
+      <div class="bg-[#FAFAF8] rounded-lg p-8 mb-16">
+        <h2 class="text-2xl font-bold mb-4 text-center" style="font-family: 'Playfair Display', serif;">
+          Nos critères de sélection
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-primary font-bold text-lg mb-2">✓ Qualité</div>
+            <p class="text-sm text-muted">
+              Spiruline cultivée en bassins contrôlés, certifications bio
+            </p>
+          </div>
+          <div>
+            <div class="text-primary font-bold text-lg mb-2">✓ Traçabilité</div>
+            <p class="text-sm text-muted">
+              Origine France ou Europe, transparence sur la provenance
+            </p>
+          </div>
+          <div>
+            <div class="text-primary font-bold text-lg mb-2">✓ Extraction</div>
+            <p class="text-sm text-muted">
+              Extraction à froid sans solvants chimiques
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Liste des produits -->
+      <div class="space-y-8">
+        {products.map((product, index) => (
+          <div class="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div class="md:flex md:gap-8 items-start">
+              <!-- Image produit -->
+              <div class="md:w-1/4 mb-6 md:mb-0">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg aspect-square flex items-center justify-center">
+                  <p class="text-blue-600 text-sm font-medium">Photo produit {index + 1}</p>
+                </div>
+              </div>
+
+              <!-- Détails produit -->
+              <div class="md:w-3/4">
+                <div class="mb-4">
+                  <h3 class="text-2xl font-bold mb-1 text-gray-900">
+                    {product.name}
+                  </h3>
+                  <p class="text-muted text-sm">{product.brand}</p>
+                </div>
+
+                <p class="text-muted mb-4 leading-relaxed">
+                  {product.description}
+                </p>
+
+                <!-- Caractéristiques -->
+                <ul class="mb-6 space-y-2">
+                  {product.features.map((feature) => (
+                    <li class="text-sm text-muted flex items-start">
+                      <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <!-- Prix et CTA -->
+                <div class="flex items-center gap-4">
+                  <div class="text-2xl font-bold text-primary">
+                    {product.price}
+                  </div>
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-[#4A6358] transition-colors"
+                    rel="nofollow noopener"
+                  >
+                    Voir le produit →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Note d'affiliation -->
+      <div class="mt-12 text-center text-sm text-muted">
+        <p>
+          Les liens vers les produits peuvent contenir des liens affiliés. En achetant via ces liens,
+          vous nous aidez à maintenir ce site à jour, sans frais supplémentaire pour vous.
+        </p>
+      </div>
+
+      <!-- Guide d'achat -->
+      <div class="bg-[#FAFAF8] rounded-lg p-8 mt-16">
+        <h2 class="text-2xl font-bold mb-4 text-center" style="font-family: 'Playfair Display', serif;">
+          Besoin d'aide pour choisir ?
+        </h2>
+        <p class="text-muted text-center mb-6">
+          Consultez notre guide complet pour tout savoir sur la phycocyanine et faire le bon choix.
+        </p>
+        <div class="text-center">
+          <a
+            href="/guide"
+            class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-[#4A6358] transition-colors"
+          >
+            Lire le guide complet →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <Newsletter />
+</Layout>
