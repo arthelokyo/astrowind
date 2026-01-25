@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
@@ -121,6 +122,41 @@ const metadata = {
     ]}
     columns={3}
   />
+
+  <!-- ADD-ONS / BLUEPRINT -->
+  <Content
+    id="addons"
+    isReversed
+    tagline="Inside Template"
+    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    subtitle="Add-ons, die Ihren Makler-Funnel erweitern – modular aktivierbar, ohne den Kern neu zu bauen."
+    items={[
+      {
+        title: 'Exposé-Automation',
+        description: 'PDF per Klick mit Markenlayout, Bildergalerie, Datenpunkte und Sharing-Link.',
+      },
+      {
+        title: 'Lead-Routing & Auto-Reply',
+        description: 'Sofort-Antwort mit Kontext, Zuordnung nach Region/Team und Übergabe an CRM.',
+      },
+      {
+        title: 'Tracking & Reporting',
+        description: 'Funnel-KPIs von Traffic bis Abschluss, klare Alerts bei Engpässen.',
+      },
+    ]}
+    columns={1}
+    image={{
+      src: 'https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=900&q=80',
+      alt: 'Modulares Dashboard',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="text-lg text-muted dark:text-slate-300">
+        Wählen Sie nur die Module, die Sie wirklich brauchen. Starten Sie mit dem Prototyp, aktivieren Sie Add-ons
+        später – ohne Relaunch. Alles bleibt performant, mobil und klar strukturiert.
+      </p>
+    </Fragment>
+  </Content>
 
   <!-- 6) CTA HIGHLIGHT -->
   <WidgetWrapper id="prototyp" containerClass="max-w-6xl">
