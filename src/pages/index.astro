@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
+import Image from '~/components/common/Image.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
@@ -401,6 +402,52 @@ const metadata = {
           </div>
         </div>
       </div>
+    </div>
+  </WidgetWrapper>
+
+  <!-- TEAM & OFFICE -->
+  <WidgetWrapper id="team" containerClass="max-w-6xl">
+    <Headline title="Team & Office" subtitle="Ihr Kernteam für Prototyp, Relaunch und laufende Add-ons." />
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { name: 'Luca Ingenbleek', role: 'Gründer · Produkt & UX', img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80' },
+        { name: 'Mara Klein', role: 'Projektmanagement', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80' },
+        { name: 'Tobias Seidel', role: 'Frontend (Astro + Tailwind)', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80&sat=-40' },
+        { name: 'Leyla Öztürk', role: 'Content & SEO', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80&hue=20' },
+        { name: 'Jonas Weber', role: 'Automation & Integrationen', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80&sat=40' },
+        { name: 'Sven Hartmann', role: 'QA & Performance', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80&blur=1' },
+      ].map((person) => (
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 shadow-sm">
+          <Image
+            class="w-full h-48 object-cover rounded-xl mb-4"
+            widths={[400, 768]}
+            sizes="(max-width: 768px) 100vw, 400px"
+            src={person.img}
+            alt={person.name}
+            width={400}
+            height={320}
+          />
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">{person.name}</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">{person.role}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 grid gap-4 md:grid-cols-3">
+      {[
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80',
+      ].map((src) => (
+        <Image
+          class="w-full h-52 md:h-64 object-cover rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800"
+          widths={[600, 900]}
+          sizes="(max-width: 1024px) 100vw, 33vw"
+          src={src}
+          alt="Office Impression"
+          width={900}
+          height={512}
+        />
+      ))}
     </div>
   </WidgetWrapper>
 
