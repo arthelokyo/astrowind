@@ -2,6 +2,7 @@
 publishDate: 2026-01-31T00:00:00Z
 title: 'Nottingham Plumber Website Audit: 9 Quick Wins That Get More Calls'
 excerpt: If you’re a plumber in Nottingham, your website should turn searches into calls. Here are 9 fast, high-impact fixes—plus a free 1-page audit (PDF).
+image: '~/assets/images/default.png'
 category: Business Growth
 tags:
   - Web Speed
@@ -49,6 +50,10 @@ Recommended minimum:
 - Name
 - Email or phone
 - Short message
+
+**Want us to send you a free 1‑page audit (PDF) with quick wins for your site?**
+Request it here:
+- https://uxhm.co.uk/nottingham-plumber-website-audit
 
 ## 5) Speed matters (especially on mobile data)
 If your site takes 5–8 seconds to load on mobile, you’re losing people before they see your number.
