@@ -1,5 +1,4 @@
 ---
-import FormContainer from '~/components/ui/Form.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Contact as Props } from '~/types';
@@ -27,14 +26,62 @@ const {
   {
     inputs && (
       <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
-        <FormContainer
-          inputs={inputs}
-          textarea={textarea}
-          disclaimer={disclaimer}
-          button={button}
-          description={description}
-        />
+
+        <!--
+          This form posts to Fabform.io using a project-specific Form ID.
+          Developers can generate their own Form ID on the free tier.
+          Field names are kept simple so the component stays portable across projects.
+          The backend handles validation and message delivery.
+        -->
+
+        <form
+          action="https://fabform.io/f/{YOUR_FORM_ID}"
+          method="POST"
+          class="flex flex-col gap-4 w-full"
+        >
+
+          {
+            inputs.map((input) => (
+              <label class="flex flex-col gap-1">
+                <span class="text-sm font-medium">{input.label}</span>
+                <input
+                  type={input.type}
+                  name={input.name}
+                  placeholder={input.placeholder}
+                  required={input.required}
+                  class="rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-slate-800 px-3 py-2"
+                />
+              </label>
+            ))
+          }
+
+          {
+            textarea && (
+              <label class="flex flex-col gap-1">
+                <span class="text-sm font-medium">{textarea.label}</span>
+                <textarea
+                  name={textarea.name}
+                  placeholder={textarea.placeholder}
+                  required={textarea.required}
+                  rows={textarea.rows ?? 5}
+                  class="rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-slate-800 px-3 py-2"
+                ></textarea>
+              </label>
+            )
+          }
+
+          {description && <p class="text-sm opacity-80">{description}</p>}
+          {disclaimer && <p class="text-xs opacity-60">{disclaimer}</p>}
+
+          <button
+            type="submit"
+            class="mt-2 inline-flex items-center justify-center rounded-md bg-black dark:bg-white text-white dark:text-black px-4 py-2 font-medium hover:opacity-90 transition"
+          >
+            {button?.label ?? 'Send Message'}
+          </button>
+        </form>
       </div>
     )
   }
 </WidgetWrapper>
+
