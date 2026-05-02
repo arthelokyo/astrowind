@@ -26,12 +26,12 @@
   --color-accent: var(--aw-color-accent);
   --color-default: var(--aw-color-text-default);
   --color-muted: var(--aw-color-text-muted);
-  
+
   /* Fonts */
   --default-font-family: var(--aw-font-sans);
   --font-serif: var(--aw-font-serif, ui-serif), var(--font-serif);
   --font-heading: var(--aw-font-heading, ui-sans-serif), var(--font-sans);
-  
+
   /* Animation effects  */
   --animate-fade: fade-in-up 1s both;
   @keyframes fade-in-up {
@@ -43,14 +43,14 @@
       opacity: 1;
       transform: translateY(0);
     }
-}
   }
+}
 
 /* Custom Variants */
 @custom-variant intersect (&:not([no-intersect]));
 /* The dark mode utilities will be applied whenever the .dark class is present somewhere up the tree */
 @custom-variant dark (&:where(.dark, .dark *));
-  
+
 @utility bg-page {
   background-color: var(--aw-color-bg-page);
 }

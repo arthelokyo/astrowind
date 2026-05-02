@@ -21,21 +21,12 @@ const {
 } = Astro.props;
 ---
 
-<WidgetWrapper
-  id={id}
-  isDark={isDark}
-  containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
-  bg={bg}
->
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
-  />
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
   {
     inputs && (
-      <div class='flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-sm p-4 sm:p-6 lg:p-8 w-full'>
+      <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-sm p-4 sm:p-6 lg:p-8 w-full">
         <FormContainer
           inputs={inputs}
           textarea={textarea}

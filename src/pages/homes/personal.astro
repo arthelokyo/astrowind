@@ -17,8 +17,8 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Fragment slot='announcement'></Fragment>
-  <Fragment slot='header'>
+  <Fragment slot="announcement"></Fragment>
+  <Fragment slot="header">
     <Header
       links={[
         { text: 'Home', href: '#' },
@@ -42,12 +42,12 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero
-    id='hero'
-    title='Sarah Johnson'
-    tagline='Personal Web Demo'
+    id="hero"
+    title="Sarah Johnson"
+    tagline="Personal Web Demo"
     actions={[{ variant: 'primary', text: 'Hire me', href: getPermalink('/contact#form') }]}
   >
-    <Fragment slot='subtitle'>
+    <Fragment slot="subtitle">
       I'm a Graphic Designer passionate about crafting visual stories. <br /> With 5 years of experience and a degree from
       New York University's School of Design. I infuse vitality into brands and designs, transforming concepts into captivating
       realities.
@@ -57,7 +57,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-    id='about'
+    id="about"
     columns={3}
     items={[
       {
@@ -91,8 +91,8 @@ const metadata = {
       loading: 'eager',
     }}
   >
-    <Fragment slot='content'>
-      <h2 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>About me</h2>
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h2>
       <p>
         Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
         pixel becomes a brushstroke in the canvas of imagination.
@@ -106,16 +106,16 @@ const metadata = {
       <p>If you're curious to dive deeper into my work, you can follow me:</p>
     </Fragment>
 
-    <Fragment slot='bg'>
-      <div class='absolute inset-0 bg-blue-50 dark:bg-transparent'></div>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    id='resume'
-    title='Work experience'
+    id="resume"
+    title="Work experience"
     items={[
       {
         title:
@@ -136,8 +136,8 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    id='resume'
-    title='Education'
+    id="resume"
+    title="Education"
     items={[
       {
         title: `Master of Fine Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2018 - 2020</span>`,
@@ -154,10 +154,10 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title='Skills'
-    subtitle='Discover the proficiencies that allow me to bring imagination to life through design.'
+    title="Skills"
+    subtitle="Discover the proficiencies that allow me to bring imagination to life through design."
     columns={3}
-    defaultIcon='tabler:point-filled'
+    defaultIcon="tabler:point-filled"
     items={[
       {
         title: 'Graphic design',
@@ -201,9 +201,9 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-    id='porfolio'
-    title='Elevating visual narratives'
-    subtitle='Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives.'
+    id="porfolio"
+    title="Elevating visual narratives"
+    subtitle="Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives."
     isReversed
     items={[
       {
@@ -228,14 +228,14 @@ const metadata = {
       href: '#',
     }}
   >
-    <Fragment slot='content'>
-      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>
-        Project 1: <br /><span class='text-2xl'>Brand identity for tech innovators</span>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
       </h3>
     </Fragment>
 
-    <Fragment slot='bg'>
-      <div class='absolute inset-0 bg-blue-50 dark:bg-transparent'></div>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
@@ -266,14 +266,14 @@ const metadata = {
       href: '#',
     }}
   >
-    <Fragment slot='content'>
-      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>
-        Project 2: <br /><span class='text-2xl'>Event poster for art & music festival</span>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Project 2: <br /><span class="text-2xl">Event poster for art & music festival</span>
       </h3>
     </Fragment>
 
-    <Fragment slot='bg'>
-      <div class='absolute inset-0 bg-blue-50 dark:bg-transparent'></div>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
@@ -303,22 +303,22 @@ const metadata = {
       href: '#',
     }}
   >
-    <Fragment slot='content'>
-      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>
-        Project 3: <br /><span class='text-2xl'>E-commerce website redesign for fashion brand</span>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Project 3: <br /><span class="text-2xl">E-commerce website redesign for fashion brand</span>
       </h3>
     </Fragment>
 
-    <Fragment slot='bg'>
-      <div class='absolute inset-0 bg-blue-50 dark:bg-transparent'></div>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title='Client testimonials'
-    subtitle='Discover what clients have to say about their experiences working with me.'
+    title="Client testimonials"
+    subtitle="Discover what clients have to say about their experiences working with me."
     testimonials={[
       {
         testimonial: `She took our vague concept and turned it into a visual masterpiece that perfectly aligned with our goals. Her attention to detail and ability to translate ideas into compelling visuals exceeded our expectations.`,
@@ -381,7 +381,7 @@ const metadata = {
 
   <CallToAction
     title="Let's create together"
-    subtitle='Ready to transform your vision into captivating designs?'
+    subtitle="Ready to transform your vision into captivating designs?"
     actions={[
       {
         variant: 'primary',
@@ -394,12 +394,12 @@ const metadata = {
   <!-- BlogLatestPost Widget **************** -->
 
   <BlogLatestPosts
-    id='blog'
-    title='Explore my insightful articles on my blog'
+    id="blog"
+    title="Explore my insightful articles on my blog"
     information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
   >
-    <Fragment slot='bg'>
-      <div class='absolute inset-0 bg-blue-50 dark:bg-transparent'></div>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
 </Layout>

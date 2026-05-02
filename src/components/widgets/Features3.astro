@@ -31,29 +31,21 @@ const {
   }`}
   bg={bg}
 >
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
-    classes={classes?.headline as Record<string, string>}
-  />
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
 
-  <div
-    aria-hidden='true'
-    class='aspect-w-16 aspect-h-7'
-  >
+  <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
     {
       image && (
-        <div class='w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg'>
+        <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
             <Image
-              class='w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg'
-              width='auto'
+              class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
+              width="auto"
               height={320}
               widths={[400, 768]}
-              layout='fullWidth'
+              layout="fullWidth"
               {...image}
             />
           )}
