@@ -26,10 +26,10 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Fragment slot="announcement"></Fragment>
-  <Fragment slot="header">
+  <Fragment slot='announcement'></Fragment>
+  <Fragment slot='header'>
     <Header
-      position="left"
+      position='left'
       links={[
         { text: 'Services', href: '#' },
         { text: 'Features', href: '#' },
@@ -49,32 +49,49 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    tagline="Mobile App Web Demo"
+    tagline='Mobile App Web Demo'
     image={{
       src: 'https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
       alt: 'AstroWind Hero Image',
     }}
   >
-    <Fragment slot="title">
-      <span class="text-accent dark:text-white">AstroWind App</span>: <br /> professional websites <span
-        class="hidden xl:inline">made easy</span
+    <Fragment slot='title'>
+      <span class='text-accent dark:text-white'>AstroWind App</span>: <br /> professional websites <span
+        class='hidden xl:inline'>made easy</span
       >
     </Fragment>
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
+    <Fragment slot='subtitle'>
+      <span class='hidden sm:inline'>
         Unlock boundless creativity at your fingertips: your gateway to innovative design.
       </span>
       Download now and embark on a journey to elevate your projects like never before.
     </Fragment>
 
-    <div slot="actions" class="flex max-w-sm gap-4">
-      <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
+    <div
+      slot='actions'
+      class='flex max-w-sm gap-4'
+    >
+      <Button
+        variant='link'
+        href={appStoreDownloadLink}
+      >
+        <Image
+          src={appStoreImg}
+          alt='App Store Image'
+          width={200}
+        />
       </Button>
 
-      <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+      <Button
+        variant='link'
+        href={googlePlayDownloadLink}
+      >
+        <Image
+          src={googlePlayImg}
+          alt='Google Play Image'
+          width={200}
+        />
       </Button>
     </div>
   </Hero2>
@@ -82,10 +99,10 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    id="features"
-    title="How to use our app?"
-    subtitle="Tired of spending hours crafting documents from scratch? Our app offers an innovative solution. With a wide array of professionally designed templates, you can now create stunning documents in minutes. Explore our templates now and experience the difference."
-    tagline="Step-by-step guide"
+    id='features'
+    title='How to use our app?'
+    subtitle='Tired of spending hours crafting documents from scratch? Our app offers an innovative solution. With a wide array of professionally designed templates, you can now create stunning documents in minutes. Explore our templates now and experience the difference.'
+    tagline='Step-by-step guide'
     columns={2}
     items={[
       {
@@ -150,8 +167,8 @@ const metadata = {
       alt: 'Colorful Image',
     }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>Main Features</h3>
     </Fragment>
   </Content>
 
@@ -187,15 +204,15 @@ const metadata = {
       alt: 'Vintage Image',
     }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Other features</h3>
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>Other features</h3>
     </Fragment>
   </Content>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics of our app"
+    title='Statistics of our app'
     stats={[
       { amount: '20K', icon: 'tabler:download' },
       { amount: '18.5K', icon: 'tabler:users' },
@@ -206,7 +223,7 @@ const metadata = {
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="What our users say?"
+    title='What our users say?'
     testimonials={[
       {
         testimonial: `It's made exploring and downloading website templates a breeze. The interface is intuitive, and I had no trouble finding the perfect template for my project. It's an app that truly empowers users.`,
@@ -248,7 +265,7 @@ const metadata = {
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Still have some doubts?"
+    title='Still have some doubts?'
     items={[
       {
         title: 'What does this app do?',
@@ -280,17 +297,34 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    id="download"
-    title="Download our app now!"
-    subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."
+    id='download'
+    title='Download our app now!'
+    subtitle='Access a variety of stunning templates, simplify your creative process, and elevate your online presence.'
   >
-    <div slot="actions" class="flex max-w-sm gap-4">
-      <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
+    <div
+      slot='actions'
+      class='flex max-w-sm gap-4'
+    >
+      <Button
+        variant='link'
+        href={appStoreDownloadLink}
+      >
+        <Image
+          src={appStoreImg}
+          alt='App Store Image'
+          width={200}
+        />
       </Button>
 
-      <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+      <Button
+        variant='link'
+        href={googlePlayDownloadLink}
+      >
+        <Image
+          src={googlePlayImg}
+          alt='Google Play Image'
+          width={200}
+        />
       </Button>
     </div>
   </CallToAction>

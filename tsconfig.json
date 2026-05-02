@@ -3,10 +3,10 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
-    }
+      "~/*": ["./src/*"]
+    },
+    "types": ["eslint"]
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist/"]
