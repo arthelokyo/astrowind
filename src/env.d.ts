@@ -3,5 +3,3 @@
 /// <reference types="astro/client" />
 /// <reference types="vite/client" />
 /// <reference types="../vendor/integration/types.d.ts" />
-
-declare module '@fontsource-variable/inter';

@@ -27,7 +27,6 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
-    "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.2.1",
     "astro-embed": "^0.13.0",
