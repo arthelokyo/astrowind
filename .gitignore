@@ -33,5 +33,4 @@ pnpm-debug.log*
 # ── TypeScript ──
 *.tsbuildinfo
 
-# ── Lock files (opt-in) ──
-pnpm-lock.yaml
+
