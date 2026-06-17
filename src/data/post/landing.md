@@ -8,10 +8,10 @@ tags:
   - front-end
   - resources
 metadata:
-  canonical: https://astrowind.vercel.app/landing
+  canonical: https://prontosass.com/landing
 ---
 
-In the vast digital landscape, standing out is more than a desire—it's a necessity. Enter the world of Landing Pages, the unsung heroes of digital marketing. With the power of the AstroWind template, developed using Astro and Tailwind CSS, crafting these pages becomes even more intuitive. Let's dive deep into understanding, creating, and optimizing them.
+In the vast digital landscape, standing out is more than a desire—it's a necessity. Enter the world of Landing Pages, the unsung heroes of digital marketing. With the power of our template, developed using Astro and Tailwind CSS, crafting these pages becomes even more intuitive. Let's dive deep into understanding, creating, and optimizing them.
 
 ## Landing Pages Unveiled
 
@@ -45,7 +45,7 @@ Every element of your Landing Page should resonate with its core objective. Here
 - **Engaging Imagery**: Visuals that complement and enhance the content.
 - **Compelling Copy**: Clear, concise, and persuasive text that speaks directly to the visitor's needs.
 - **Clear Call-to-Action (CTA)**: A standout button or link urging the visitor to take action.
-- **Minimalist Design**: A clutter-free layout that emphasizes the offer. For example, using a Tailwind CSS web template like AstroWind.
+- **Minimalist Design**: A clutter-free layout that emphasizes the offer. For example, using a Tailwind CSS web template.
 - **Trust Indicators**: Endorsements, reviews, and badges that bolster credibility.
 
 Imagine browsing online for a writing course. You land on a page with a captivating headline: "Unlock the Writer Within." Below, there's an engaging image of a person writing, followed by persuasive text and a bright "Enroll Now" button. This Landing Page has effectively used its elements to entice you to sign up.

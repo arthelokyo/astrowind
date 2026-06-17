@@ -1,24 +1,37 @@
-# build output
+# ── Build output ──
 dist/
 .output/
 
-# dependencies
+# ── Dependencies ──
 node_modules/
 
-# logs
+# ── Environment variables ──
+.env
+.env.*
+!.env.example
+
+# ── IDE / Editor ──
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS files ──
+.DS_Store
+Thumbs.db
+
+# ── Logs ──
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# ── Runtime / Cache ──
+.astro/
+.cache/
 
-# environment variables
-.env
-.env.production
+# ── TypeScript ──
+*.tsbuildinfo
 
-# macOS-specific files
-.DS_Store
-
+# ── Lock files (opt-in) ──
 pnpm-lock.yaml
-
-.astro
