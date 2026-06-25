@@ -21,7 +21,8 @@ const googlePlayImg = '~/assets/images/google-play.png';
 const googlePlayDownloadLink = '#';
 
 const metadata = {
-  title: 'Mobile App Homepage',
+  title: 'Pronto App — Gestiona tu negocio desde el celular',
+  ignoreTitleTemplate: true,
 };
 ---
 
@@ -30,13 +31,13 @@ const metadata = {
     <Header
       position="left"
       links={[
-        { text: 'Services', href: '#' },
-        { text: 'Features', href: '#' },
-        { text: 'About', href: '#' },
+        { text: 'Características', href: '#features' },
+        { text: 'Cómo funciona', href: '#how' },
+        { text: 'FAQ', href: '#faq' },
       ]}
       actions={[
         {
-          text: 'Download',
+          text: 'Descargar',
           href: '#download',
         },
       ]}
@@ -48,23 +49,23 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    tagline="Mobile App Web Demo"
+    tagline="App para tu negocio"
     image={{
       src: 'https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Hero Image',
+      alt: 'Pronto App Hero',
     }}
   >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white">Pronto App</span>: <br /> professional websites <span
-        class="hidden xl:inline">made easy</span
+      <span class="text-accent dark:text-white">Pronto App</span>: <br /> gestiona tu negocio <span
+        class="hidden xl:inline">desde el celular</span
       >
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Unlock boundless creativity at your fingertips: your gateway to innovative design.
+        Recibe pedidos por WhatsApp, actualiza tu catálogo al instante y haz seguimiento en tiempo real.
       </span>
-      Download now and embark on a journey to elevate your projects like never before.
+      Descarga la app y empieza a vender más hoy.
     </Fragment>
 
     <div slot="actions" class="flex max-w-sm gap-4">
@@ -82,75 +83,74 @@ const metadata = {
 
   <Features3
     id="features"
-    title="How to use our app?"
-    subtitle="Tired of spending hours crafting documents from scratch? Our app offers an innovative solution. With a wide array of professionally designed templates, you can now create stunning documents in minutes. Explore our templates now and experience the difference."
-    tagline="Step-by-step guide"
+    title="¿Cómo funciona Pronto App?"
+    subtitle="En menos de 5 minutos puedes tener tu negocio digitalizado. Tus clientes piden desde el celular y tú gestionas todo desde la app."
+    tagline="Guía paso a paso"
     columns={2}
     items={[
       {
-        title: 'Download and install the app',
-        description: `Begin your journey by downloading our user-friendly app from your device's app store or our official website.`,
+        title: 'Descarga la app',
+        description: `Descarga Pronto App desde la tienda de tu dispositivo. Crea tu cuenta en segundos y empieza a configurar tu negocio.`,
         icon: 'tabler:square-number-1',
       },
       {
-        title: 'Sign up',
+        title: 'Crea tu catálogo con IA',
         description:
-          'Create your account by providing the necessary information, enabling you to access our full range of features.',
+          'Toma una foto a tu menú impreso y la IA de Pronto genera automáticamente el catálogo con precios y descripciones. Listo en 5 minutos.',
         icon: 'tabler:square-number-2',
       },
       {
-        title: 'Browse templates',
-        description: 'Explore our diverse collection of website templates, categorized for easy navigation.',
+        title: 'Comparte el link con tus clientes',
+        description: 'Reciben un enlace por WhatsApp y pueden ver tu catálogo completo. Hacen su pedido al instante, sin descargar nada.',
         icon: 'tabler:square-number-3',
       },
       {
-        title: 'Preview and select a template',
-        description: `Visualize the potential of each template through previews, then choose the one that aligns best with your project's needs.`,
+        title: 'Gestiona pedidos en tiempo real',
+        description: `Los pedidos llegan a la app con validación SMS. Aceptas, preparas y el cliente recibe tracking con mapa de seguimiento.`,
         icon: 'tabler:square-number-4',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1521517407911-565264e7d82d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
-      alt: 'Colorful Image',
+      alt: 'App Pronto',
     }}
   />
-
   <!-- Content Widget **************** -->
 
   <Content
     isReversed
     items={[
       {
-        title: 'User-friendly interface',
+        title: 'Catálogo con IA',
         description:
-          'An intuitive and easy-to-navigate interface that allows users to quickly browse and find the templates they need.',
+          'Sube una foto de tu menú impreso y Pronto genera automáticamente el catálogo completo con precios y descripciones. En 5 minutos tienes todo listo.',
         icon: 'tabler:wand',
       },
       {
-        title: 'Personalization options',
+        title: 'Pedidos por WhatsApp',
         description:
-          'Include basic customization tools that let users modify text, colors, images, and other elements within the templates.',
-        icon: 'tabler:settings',
+          'Cada pedido llega directo a tu app con confirmación SMS. Recibe notificaciones al instante y nunca pierdas una venta.',
+        icon: 'tabler:brand-whatsapp',
       },
       {
-        title: 'Ready-to-use components',
+        title: 'Tracking en tiempo real',
         description:
-          'Enhance your designs with ready-to-use elements like graphics, icons, and layouts, saving you time and boosting visual appeal.',
-        icon: 'tabler:template',
+          'Tus clientes reciben una URL para seguir su pedido paso a paso. Con mapa incluido para entregas a domicilio.',
+        icon: 'tabler:map-pin',
       },
       {
-        title: 'Preview Mode',
-        description: 'Provide a preview of each template, allowing users to see how it looks before making a purchase.',
+        title: 'App de repartidores',
+        description: 'Tu repartidor ve la ruta en el mapa con la mejor ruta de entrega. El cliente también ve la ubicación en tiempo real.',
         icon: 'tabler:carousel-horizontal',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1576153192621-7a3be10b356e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-      alt: 'Colorful Image',
+      alt: 'Funcionalidades Pronto',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Funcionalidades principales</h3>
     </Fragment>
   </Content>
 
@@ -160,85 +160,85 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Offline Access',
-        description: 'Offer the option for users to download purchased templates for offline use.',
-        icon: 'tabler:wifi-off',
+        title: 'Sin comisiones por pedido',
+        description: 'Paga solo una tarifa fija mensual. Sin comisiones ocultas. Todas las ganancias son para ti.',
+        icon: 'tabler:receipt',
       },
       {
-        title: 'Secure Cloud Storage',
+        title: 'Validación SMS anti-fraude',
         description:
-          'Provide cloud storage for purchased templates, ensuring users can access and back up their templates from anywhere securely.',
-        icon: 'tabler:file-download',
+          'Cada pedido se confirma con un código SMS único. Evita pedidos falsos y clientes fantasma.',
+        icon: 'tabler:shield-check',
       },
       {
-        title: 'Regular Updates',
-        description: 'Continuously add new templates and features to keep the app fresh and engaging for users.',
-        icon: 'tabler:refresh',
+        title: 'Sin descargas para clientes',
+        description: 'Tus clientes piden desde el navegador. Solo compartes un link por WhatsApp y listo.',
+        icon: 'tabler:link',
       },
       {
-        title: 'Wishlist',
-        description: `Allow users to create a wishlist of templates they're interested in, making it easier for them to revisit and potentially purchase later.`,
-        icon: 'tabler:heart',
+        title: 'Estadísticas de ventas',
+        description: `Conoce tus productos más vendidos, horarios pico y el crecimiento de tu negocio. Datos para hacer crecer tu negocio.`,
+        icon: 'tabler:chart-bar',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Vintage Image',
+      alt: 'Ventajas Pronto',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Other features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Más ventajas</h3>
     </Fragment>
   </Content>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics of our app"
+    title="Pronto en números"
     stats={[
-      { amount: '20K', icon: 'tabler:download' },
-      { amount: '18.5K', icon: 'tabler:users' },
-      { amount: '4.7', icon: 'tabler:user-star' },
+      { title: 'Pedidos gestionados', amount: '12.5K' },
+      { title: 'Negocios activos', amount: '500+' },
+      { title: 'Productos catalogados', amount: '15K+' },
     ]}
   />
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="What our users say?"
+    title="Lo que dicen nuestros usuarios"
     testimonials={[
       {
-        testimonial: `It's made exploring and downloading website templates a breeze. The interface is intuitive, and I had no trouble finding the perfect template for my project. It's an app that truly empowers users.`,
-        name: 'Cary Kennedy',
-        job: 'Film director',
+        testimonial: `Pronto me cambió la forma de vender. Mis clientes piden por WhatsApp y yo gestiono todo desde la app. El tracking en tiempo real es un game changer para mi negocio de comida.`,
+        name: 'María García',
+        job: 'Dueña de restaurante',
         image: {
           src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          alt: 'Cary Kennedy Image',
+          alt: 'María García',
         },
       },
       {
-        testimonial: `The app's seamless download process and intuitive layout have made selecting templates an enjoyable experience. Being able to preview and experiment with different designs before committing has saved me time and ensured I get the perfect look for my website.`,
-        name: 'Josh Wilkinson',
-        job: 'Product Manager',
+        testimonial: `Antes perdía pedidos porque no los anotaba bien. Con Pronto todo llega organizado a la app con confirmación SMS. Ahora sí puedo dormir tranquila sabiendo que no se me escapa ninguna venta.`,
+        name: 'Carmen López',
+        job: 'Pastelera',
         image: {
           src: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          alt: 'Josh Wilkinson Image',
+          alt: 'Carmen López',
         },
       },
       {
         testimonial:
-          'I was able to download and use a professional website template within minutes. The step-by-step process and user-friendly interface made it easy for me to create a website that looks as if it was designed by a pro.',
-        name: 'Sidney Hansen',
-        job: 'Decorator',
+          'La IA de Pronto es alucinante. Tomé una foto de mi menú escrito a mano y en 5 minutos tenía el catálogo digital completo. Mis clientes quedan fascinados cuando les envío el link.',
+        name: 'Roberto Mendoza',
+        job: 'Emprendedor',
         image: {
           src: 'https://images.unsplash.com/photo-1512361436605-a484bdb34b5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          alt: 'Sidney Hansen Image',
+          alt: 'Roberto Mendoza',
         },
       },
     ]}
     callToAction={{
       target: '_blank',
-      text: 'Read more testimonials',
+      text: 'Ver más testimonios',
       href: '#',
       icon: 'tabler:chevron-right',
     }}
@@ -247,31 +247,32 @@ const metadata = {
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Still have some doubts?"
+    id="faq"
+    title="Preguntas frecuentes"
     items={[
       {
-        title: 'What does this app do?',
+        title: '¿Cómo funciona Pronto App?',
         description:
-          'This app provides a platform for you to easily browse, purchase, download, and use a wide range of website templates for your projects.',
+          'Descargas la app, creas tu catálogo con IA tomando una foto a tu menú, compartes el link con tus clientes y empiezas a recibir pedidos por WhatsApp con confirmación SMS y tracking en tiempo real.',
       },
       {
-        title: 'How can this app solve my problem?',
+        title: '¿Mis clientes necesitan descargar la app?',
         description:
-          'This app streamlines the process of finding and implementing professional website designs, saving you time and effort in creating visually appealing and functional websites.',
+          'No. Tus clientes solo abren un link desde WhatsApp. Todo funciona en el navegador. Sin descargas, sin registros.',
       },
       {
-        title: 'Is it available for my device?',
-        description: `Our app is designed for compatibility across various devices and platforms, ensuring accessibility whether you're using a smartphone, tablet, or computer.`,
+        title: '¿Está disponible para iOS y Android?',
+        description: `Sí, Pronto App está disponible tanto para iOS como para Android. Descárgala desde la App Store o Google Play.`,
       },
       {
-        title: 'What makes this app different from others?',
+        title: '¿Qué la hace diferente a otras apps?',
         description:
-          'Our app stands out for its user-friendly interface, extensive template collection, and seamless integration of the purchasing and downloading process, making it highly efficient.',
+          'Pronto usa IA para crear tu catálogo desde una foto, tiene validación SMS anti-fraude, tracking en tiempo real con mapa, y app de repartidores incluida. Todo en una sola plataforma.',
       },
       {
-        title: 'Are there any costs involved?',
+        title: '¿Hay costos?',
         description:
-          'While the app itself may be free to download, there may be costs associated with purchasing specific templates based on your preferences and project requirements.',
+          'Pronto tiene una tarifa fija mensual. Sin comisiones por pedido. Puedes empezar con una prueba gratuita y cancelar cuando quieras.',
       },
     ]}
   />
@@ -280,8 +281,8 @@ const metadata = {
 
   <CallToAction
     id="download"
-    title="Download our app now!"
-    subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."
+    title="Descarga Pronto App"
+    subtitle="Empieza a recibir pedidos por WhatsApp desde hoy. Crea tu catálogo digital en 5 minutos con IA."
   >
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
