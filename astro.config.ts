@@ -27,7 +27,9 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
-    sitemap(),
+    sitemap({
+      xslURL: '/sitemap.xsl',
+    }),
     mdx(),
     icon({
       include: {
