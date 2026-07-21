@@ -1,0 +1,7 @@
+---
+import { ANALYTICS } from 'astrowind:config';
+
+const id = ANALYTICS?.vendors?.knocket?.id ? String(ANALYTICS.vendors.knocket.id) : '';
+---
+
+{id && <script is:inline async src={`https://trtc.io/knocket-sdk/sdk.js?identifier=${id}`} />}
