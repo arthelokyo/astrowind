@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-AstroWind is a free, open-source website template built with **Astro v6** and **Tailwind CSS v4**. It generates a fully static site optimized for performance, SEO, and accessibility.
+AstroWind is a free, open-source website template built with **Astro v7** and **Tailwind CSS v4**. It generates a fully static site optimized for performance, SEO, and accessibility.
 
-**Stack:** Astro v6 | Tailwind CSS v4 | TypeScript 5.9 | MDX | Sharp
+**Stack:** Astro v7 | Tailwind CSS v4 | TypeScript 5.9 | MDX | Sharp
 
 ## Quick Reference
 
@@ -31,7 +31,7 @@ src/
     widgets/       # Page sections: Hero, Features, Pricing, Header, Footer
     blog/          # Blog: SinglePost, List, Pagination, Tags
     CustomStyles.astro  # CSS variables for colors and fonts
-  content.config.ts    # Content Collections schema (Astro v6 location)
+  content.config.ts    # Content Collections schema (Astro v7 location)
   data/post/           # Blog posts (.md, .mdx)
   layouts/             # Layout.astro, PageLayout.astro, MarkdownLayout.astro
   pages/               # File-based routing
@@ -75,7 +75,7 @@ Components use `twMerge` from `tailwind-merge` v3 for conditional class composit
 
 ## Content Collections
 
-Defined in `src/content.config.ts` using the Astro v6 Content Layer API with `glob()` loader. Posts are in `src/data/post/` as `.md` or `.mdx` files.
+Defined in `src/content.config.ts` using the Astro v7 Content Layer API with `glob()` loader. Posts are in `src/data/post/` as `.md` or `.mdx` files.
 
 Post frontmatter: `title` (required), `publishDate`, `updateDate`, `draft`, `excerpt`, `image`, `category`, `tags`, `author`, `metadata`.
 
