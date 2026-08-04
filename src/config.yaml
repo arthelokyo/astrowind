@@ -11,7 +11,7 @@ metadata:
   title:
     default: Pronto
     template: '%s — Pronto'
-  description: "Crea tu menú digital en 5 minutos con IA y recibe pedidos por WhatsApp. Tus clientes piden desde un catálogo virtual y siguen su pedido en tiempo real."
+  description: 'Crea tu menú digital en 5 minutos con IA y recibe pedidos por WhatsApp. Tus clientes piden desde un catálogo virtual y siguen su pedido en tiempo real.'
   robots:
     index: true
     follow: true
