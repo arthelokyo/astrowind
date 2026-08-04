@@ -56,7 +56,6 @@ export const headerData = {
         },
       ],
     },
-
   ],
   actions: [{ text: 'Comenzar', href: '' }],
 };
