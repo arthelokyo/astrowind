@@ -12,7 +12,7 @@ import { headerData } from '~/navigation';
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
-  title: 'SaaS Landing Page',
+  title: 'Página de inicio SaaS — Pronto',
 };
 ---
 
@@ -23,12 +23,12 @@ const metadata = {
       actions={[
         {
           variant: 'secondary',
-          text: 'Login',
+          text: 'Ingresar',
           href: '#',
         },
         {
           variant: 'primary',
-          text: 'Sign Up',
+          text: 'Registrarse',
           href: '#',
         },
       ]}
@@ -39,10 +39,10 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    tagline="SaaS Web Demo"
+    tagline="Demo SaaS Web"
     actions={[
-      { variant: 'primary', target: '_blank', text: 'Get Started', href: '#' },
-      { text: 'Learn more', href: '#features' },
+      { variant: 'primary', target: '_blank', text: 'Empezar ahora', href: '#' },
+      { text: 'Saber más', href: '#features' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
@@ -50,14 +50,14 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      Simplify web design: <br /> your ultimate <span class="text-accent dark:text-white">SaaS</span> companion<br />
+      Simplifica el diseño web: <br /> tu compañero definitivo para <span class="text-accent dark:text-white">SaaS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Elevate your website creation process with <span class="font-semibold">Pronto</span>'s SaaS solutions.</span
-      >
-      Seamlessly blend the power of Astro and Tailwind CSS to craft websites that resonate with your brand and audience.
+        Potencia tu proceso de creación de sitios web con las soluciones SaaS de <span class="font-semibold">Pronto</span>.
+      </span>
+      Combina perfectamente el poder de Astro y Tailwind CSS para crear sitios web que resuenen con tu marca y audiencia.
     </Fragment>
   </Hero2>
 
@@ -65,39 +65,39 @@ const metadata = {
 
   <Features
     id="features"
-    title="Why choose Pronto?"
-    subtitle="Each of the following features enhances Pronto's value proposition."
+    title="¿Por qué elegir Pronto?"
+    subtitle="Cada una de las siguientes características mejora la propuesta de valor de Pronto."
     columns={2}
     items={[
       {
-        title: 'Integration of Astro and Tailwind CSS',
+        title: 'Integración de Astro y Tailwind CSS',
         description:
-          'Offers a powerful combination that enhances both the development process and the end-user experience. Also, allows to build dynamic and visually stunning websites with optimized performance.',
+          'Ofrece una combinación poderosa que mejora tanto el proceso de desarrollo como la experiencia del usuario final. Permite construir sitios web dinámicos y visualmente impresionantes con un rendimiento optimizado.',
         icon: 'tabler:layers-union',
       },
       {
-        title: 'Versatile design for startups, small businesses, and more',
-        description: `Easily customize Pronto to harmonize with the unique branding and identity of your venture. Pronto's versatile design adapts to suit your needs.`,
+        title: 'Diseño versátil para startups, pequeños negocios y más',
+        description: `Personaliza fácilmente Pronto para armonizar con la identidad y marca única de tu emprendimiento. El diseño versátil de Pronto se adapta para satisfacer tus necesidades.`,
         icon: 'tabler:artboard',
       },
       {
-        title: 'Effortless customization for portfolios and marketing sites',
+        title: 'Personalización sencilla para portafolios y sitios de marketing',
         description:
-          'With intuitive customization, easily showcase portfolio pieces, case studies, project highlights, and relevant content. Ideal for creative professionals and businesses looking to highlight their expertise.',
+          'Con una personalización intuitiva, muestra fácilmente piezas de portafolios, estudios de casos, puntos destacados de proyectos y contenido relevante. Ideal para profesionales creativos y negocios que buscan destacar su experiencia.',
         icon: 'tabler:writing',
       },
       {
-        title: 'Optimized landing pages and engaging blogs',
-        description: `Landing pages are strategically designed to captivate visitors and prompt specific actions. Additionally, the blog creation feature empowers sharing insights, engaging the audience.`,
+        title: 'Landing pages optimizadas y blogs atractivos',
+        description: `Las landing pages están diseñadas estratégicamente para captar la atención de los visitantes y generar acciones específicas. Además, la función de creación de blogs permite compartir conocimientos y conectar con la audiencia.`,
         icon: 'tabler:podium',
       },
       {
-        title: 'Fast loading times and production-ready code',
-        description: `Using Astro ensures fast loading and seamless rendering, enhancing browsing. The code follows best practices, improving user experience, SEO, and reducing bounce rates.`,
+        title: 'Tempos de carga rápidos y código listo para producción',
+        description: `El uso de Astro asegura cargas rápidas y renderizado fluido, mejorando la navegación. El código sigue las mejores prácticas, mejorando la experiencia del usuario, el SEO y reduciendo las tasas de rebote.`,
         icon: 'tabler:rocket',
       },
       {
-        title: 'SEO-optimized structure for enhanced visibility',
+        title: 'Estructura optimizada para SEO para mayor visibilidad',
         description: `Follows SEO best practices with clean code, semantic HTML markup, and fast loading, enhancing search engine rankings. Pronto's SEO structure ensures visibility to potential customers and clients.`,
         icon: 'tabler:eyeglass',
       },

@@ -7,7 +7,8 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Servicios — Pronto',
+  ignoreTitleTemplate: true,
 };
 ---
 
@@ -15,10 +16,10 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
+    tagline="Servicios"
+    title="Herramientas digitales para negocios reales"
+    subtitle="Plataforma de catálogo digital y gestión de pedidos diseñada para pequeños negocios que quieren vender más por WhatsApp."
+    actions={[{ variant: 'primary', target: '_blank', text: 'Explorar plataformas', href: '/' }]}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
       alt: 'Hero Image',
@@ -28,60 +29,61 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+    title="Todo lo que necesitas para digitalizar tu negocio"
+    subtitle="Plataforma completa para crear catálogos digitales, gestionar pedidos por WhatsApp y hacer seguimiento en tiempo real."
     columns={3}
     items={[
       {
-        title: 'Educational',
+        title: 'Catálogo con IA',
         description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
+          'Sube una foto de tu menú impreso y Pronto genera automáticamente el catálogo completo con precios y descripciones. En 5 minutos tienes tu menú digital listo.',
         icon: 'tabler:school',
       },
       {
-        title: 'Interior Design',
+        title: 'Gestión de productos',
         description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
+          'Agrega, edita, elimina o desactiva productos desde la app. Todos los cambios se reflejan en tiempo real en el catálogo de tus clientes.',
         icon: 'tabler:home-star',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
+        title: 'Pedidos por WhatsApp',
+        description: `Cada pedido llega directo a la app con confirmación SMS. Todo organizado sin perder detalle y listo para entregar.`,
         icon: 'tabler:photo',
       },
       {
-        title: 'E-commerce',
+        title: 'Tracking en tiempo real',
         description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
+          'Tus clientes siguen su pedido paso a paso con URL de seguimiento y mapa en vivo del repartidor. Mejora la experiencia de compra.',
         icon: 'tabler:shopping-cart',
       },
       {
-        title: 'Blog',
+        title: 'App de repartidores',
         description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
+          'Mapa integrado con la mejor ruta para tus entregas a domicilio. Tu repartidor ve la ruta y el cliente puede hacer seguimiento.',
         icon: 'tabler:article',
       },
       {
-        title: 'Business',
+        title: 'Validación SMS',
         description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
+          'Código de confirmación único para cada pedido. Adiós a los fraudes y pedidos falsos. Solo recibes pedidos reales.',
         icon: 'tabler:building-store',
       },
       {
-        title: 'Branding',
+        title: 'Estadísticas de ventas',
         description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
+          'Conoce tus productos más vendidos, horarios pico y el crecimiento de tu negocio. Datos para tomar mejores decisiones.',
         icon: 'tabler:arrow-big-up-lines',
       },
       {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
+        title: 'Recoge en tienda o delivery',
+        description:
+          'Ofrece a tus clientes la flexibilidad de elegir cómo quieren recibir su pedido. Tú controlas las opciones desde la app.',
         icon: 'tabler:vaccine',
       },
       {
-        title: 'Fashion Design',
+        title: 'Sin descargas para clientes',
         description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
+          'Tus clientes piden desde el navegador. Solo compartes un link o código QR por WhatsApp. Sin apps ni registros.',
         icon: 'tabler:tie',
       },
     ]}
@@ -93,37 +95,37 @@ const metadata = {
     isReversed
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Fácil de usar',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
+          'Nuestra plataforma está diseñada para que cualquier persona la use desde el primer minuto, sin manuales ni capacitación.',
         icon: 'tabler:wand',
       },
       {
-        title: 'Customization Tools',
+        title: 'Actualizaciones en tiempo real',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
+          'Cada cambio que haces en tu catálogo se refleja al instante en el menú de tus clientes. Precios nuevos, productos disponibles, todo al día.',
         icon: 'tabler:settings',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Sin complicaciones técnicas',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
+          'No necesitas programar ni mantener un servidor. Nos encargamos de todo para que tú te enfoques en tu negocio.',
         icon: 'tabler:presentation',
       },
       {
-        title: 'Preview and Mockup Views',
+        title: 'Compatible con todos los dispositivos',
         description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
+          'Tu catálogo funciona perfectamente en cualquier celular o computadora. Sin descargas, sin apps, solo un link.',
         icon: 'tabler:carousel-horizontal',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      alt: 'Características de Pronto',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Características principales</h3>
     </Fragment>
   </Content>
 
@@ -133,76 +135,76 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Time Savings',
+        title: 'Aumenta tus ventas',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
+          'Más fácil para tus clientes pedir, más ventas para ti. El catálogo digital está disponible 24/7 para que cualquiera pueda hacer un pedido.',
         icon: 'tabler:clock',
       },
       {
-        title: 'Professional Appearance',
+        title: 'Apariencia profesional',
         description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
+          'Un catálogo digital bien diseñado hace que tu negocio parezca más grande y organizado. Impresiona a tus clientes desde el primer pedido.',
         icon: 'tabler:school',
       },
       {
-        title: 'Cost-Efficiency',
+        title: 'Sin costos ocultos',
         description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
+          'Solo pagas una tarifa mensual fija. Sin comisiones por pedido, sin cargos extra. Sabes exactamente cuánto vas a pagar cada mes.',
         icon: 'tabler:coin',
       },
       {
-        title: 'Instant Download',
+        title: 'Comienza hoy mismo',
         description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
+          'Crea tu catálogo en 5 minutos. Sube una foto de tu menú y deja que la IA haga el resto. No hay trials ni procesos largos.',
         icon: 'tabler:file-download',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      alt: 'Beneficios de Pronto',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Beneficios</h3>
     </Fragment>
   </Content>
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Words from real customers"
+    title="Lo que dicen nuestros clientes"
     testimonials={[
       {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
+        testimonial: `Pronto ha transformado completamente cómo recibimos pedidos. Nuestra clientela ya no tiene que llamarnos para hacer pedidos, simplemente abren el link y eligen lo que quieren. Ha aumentado nuestras ventas un 40%`,
+        name: 'Carlos Ramírez',
+        job: 'Propietario de Pizzería La Delicia',
         image: {
           src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
+          alt: 'Carlos Ramírez Image',
         },
       },
       {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
+        testimonial: `La plataforma es súper fácil de usar y mis clientes adoran que pueden ver el menú completo y hacer pedidos desde su celular. El tracking en tiempo real ha reducido significativamente las llamadas preguntando por sus pedidos.`,
+        name: 'Ana Méndez',
+        job: 'Propietaria de Heladería Dulce Sol',
         image: {
           src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
+          alt: 'Ana Méndez Image',
         },
       },
       {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
+        testimonial: `He recomendado Pronto a todos mis conocidos que tienen negocios de comida. La IA que crea el catálogo a partir de una foto de la carta es genial. Ahorré horas de trabajo escribiendo descripciones.`,
+        name: 'Luis Fernández',
+        job: 'Propietario de Restaurante Sabores',
         image: {
           src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
+          alt: 'Luis Fernández Image',
         },
       },
     ]}
     callToAction={{
       target: '_blank',
-      text: 'More testimonials...',
+      text: 'Ver más testimonios...',
       href: '#',
       icon: 'tabler:chevron-right',
     }}
@@ -214,11 +216,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
+        text: 'Explorar servicios',
         href: '/',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
+    title="Empieza a vender más hoy mismo"
+    subtitle="Convierte tu negocio en un catálogo digital. Recibe pedidos por WhatsApp sin complicaciones."
   />
 </Layout>

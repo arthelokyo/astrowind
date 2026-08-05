@@ -14,7 +14,7 @@ import Brands from '~/components/widgets/Brands.astro';
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Startup Landing Page',
+  title: 'Página de inicio para startups — Pronto',
 };
 ---
 
@@ -22,27 +22,25 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Startup Web Demo"
+    tagline="Para startups"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Get templates',
+        text: 'Explorar plantillas',
         href: '#',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'Saber más', href: '#features' },
     ]}
   >
     <Fragment slot="title">
-      Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white">Startup</span
-      > with Pronto templates
+      Fortalece la presencia online de tu <span class="text-accent dark:text-white">startup</span>
+      con Pronto
     </Fragment>
 
     <Fragment slot="subtitle">
-      Step into the spotlight with <span class="font-semibold">Pronto</span> templates, your pathway to fortifying your startup's
-      digital footprint, fostering credibility, and expanding your reach.
+      Destaca con plantillas profesionales diseñadas para startups. Crea una imagen de marca sólida y aumenta tu alcance desde el primer día.
     </Fragment>
 
     <Fragment slot="image">
@@ -59,8 +57,8 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="About us"
-    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
+    title="Sobre nosotros"
+    subtitle="Creemos en la magia de convertir sueños en realidades impresionantes. Fundada por desarrolladores apasionados con una visión compartida, creamos plantillas que simplifican el proceso de crear páginas web. Nuestras plantillas combinan la innovación de Astro con la versatilidad de Tailwind CSS."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -70,21 +68,21 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Discover the impressive impact of Pronto"
-    subtitle="The numbers below reflect the trust our users have placed in us and the remarkable outcomes we've helped them achieve."
+    title="El impacto de Pronto en cifras"
+    subtitle="Las cifras a continuación reflejan la confianza que nuestros usuarios han depositado en nosotros y los resultados extraordinarios que les hemos ayudado a lograr."
     stats={[
-      { title: 'Downloads', amount: '182K' },
-      { title: 'Websites Launched', amount: '87' },
-      { title: 'User Ratings', amount: '4.8' },
-      { title: 'Satisfied Clients', amount: '116K' },
+      { title: 'Descargas', amount: '182K' },
+      { title: 'Sitios web creados', amount: '87' },
+      { title: 'Calificación de usuarios', amount: '4.8' },
+      { title: 'Clientes satisfechos', amount: '116K' },
     ]}
   />
 
   <!-- Brands Widget ****************** -->
 
   <Brands
-    title="Partnerships & Collaborations"
-    subtitle="At Pronto, we believe in the power of collaboration to drive innovation and create exceptional experiences."
+    title="Alianzas y colaboraciones"
+    subtitle="En Pronto creemos en el poder de la colaboración para impulsar la innovación y crear experiencias excepcionales."
     icons={[]}
     images={[
       {
@@ -130,25 +128,25 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="What services do we provide?"
-    subtitle="We offer a wide range of website templates that suit various industries and purposes such as business, portfolio, e-commerce, blog, etc."
+    title="¿Qué servicios ofrecemos?"
+    subtitle="Ofrecemos una amplia gama de plantillas web que se adaptan a diversas industrias y propósitos como negocios, portafolios, comercio electrónico, blogs, etc."
     items={[
       {
-        title: 'Installation Instructions',
+        title: 'Instrucciones de instalación',
         description:
-          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
+          'Ofrecemos instrucciones claras sobre cómo descargar las plantillas compradas e instalarlas en varias plataformas web o sistemas de gestión de contenido.',
         icon: 'flat-color-icons:document',
       },
       {
-        title: 'Demo and Previews',
+        title: 'Demostraciones y vistas previas',
         description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
+          'Ofrecemos demostraciones interactivas y vistas previas que permiten a los clientes ver cómo se verá y funcionará la plantilla elegida antes de realizar la compra.',
         icon: 'flat-color-icons:template',
       },
       {
-        title: 'Technical Support',
+        title: 'Soporte técnico',
         description:
-          'Providing customer support for any technical issues related to the templates or their implementation.',
+          'Proporcionamos soporte al cliente para cualquier problema técnico relacionado con las plantillas o su implementación.',
         icon: 'flat-color-icons:voice-presentation',
       },
     ]}
@@ -162,41 +160,41 @@ const metadata = {
 
   <Features
     id="features"
-    title="Main features of our templates"
-    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
+    title="Características principales de nuestras plantillas"
+    subtitle="Cuentan con varias características clave para satisfacer eficazmente las necesidades de startups y emprendedores."
     columns={3}
     items={[
       {
-        title: 'Modern and Professional Design',
+        title: 'Diseño moderno y profesional',
         description:
-          'Have a contemporary design that reflects current design trends and gives a professional impression.',
+          'Tienen un diseño contemporáneo que refleja las tendencias actuales y da una impresión profesional.',
         icon: 'tabler:artboard',
       },
       {
-        title: 'Responsive and Mobile-Friendly',
-        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
+        title: 'Responsivo y compatible con móviles',
+        description: 'Se adaptan perfectamente a diferentes tamaños de pantalla y dispositivos para asegurar una experiencia consistente.',
         icon: 'tabler:picture-in-picture',
       },
       {
-        title: 'Customizability',
+        title: 'Personalizables',
         description:
-          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
+          'Fácilmente personalizables, permitiendo a los usuarios adaptar el diseño, colores, tipografía y contenido para coincidir con su identidad de marca.',
         icon: 'tabler:adjustments-horizontal',
       },
       {
-        title: 'Fast Loading Times',
-        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
+        title: 'Carga rápida',
+        description: 'Optimizadas para velocidad para asegurar una experiencia de usuario fluida y buenos rankings en motores de búsqueda.',
         icon: 'tabler:rocket',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: 'Optimización para motores de búsqueda (SEO)',
         description:
-          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
+          'Incorporamos las mejores prácticas de SEO en la estructura y código de las plantillas para mejorar la visibilidad en los resultados de búsqueda.',
         icon: 'tabler:arrows-right-left',
       },
       {
-        title: 'Compatibility',
-        description: 'The templates work seamlessly across various content management systems and website builders.',
+        title: 'Compatibilidad',
+        description: 'Las plantillas funcionan perfectamente en diversos sistemas de gestión de contenido y creadores de sitios web.',
         icon: 'tabler:plug-connected',
       },
     ]}
@@ -205,37 +203,37 @@ const metadata = {
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Frequently Asked Questions"
+    title="Preguntas frecuentes"
     items={[
       {
-        title: 'What are landing page templates?',
+        title: '¿Qué son las plantillas de landing page?',
         description:
-          'Landing page templates are pre-designed web page layouts that are specifically created to serve as a foundation for building effective landing pages. These templates are designed to capture the attention of visitors and guide them towards a specific action or goal, such as signing up for a newsletter, making a purchase, or downloading a resource.',
+          'Las plantillas de landing page son diseños de páginas web predefinidos creados específicamente para servir como base para construir landing pages efectivas. Estas plantillas están diseñadas para captar la atención de los visitantes y guiarlos hacia una acción o meta específica, como suscribirse a un boletín, hacer una compra o descargar un recurso.',
       },
       {
-        title: 'Why should I use a template?',
+        title: '¿Por qué debería usar una plantilla?',
         description:
-          'Some of the advantages are that they provide a ready-to-use structure,  saving you significant time. Are designed with user-friendliness in mind and provide a cost-effective alternative, saving you money while still delivering a quality result.',
+          'Algunas ventajas son que proporcionan una estructura lista para usar, ahorrandote mucho tiempo. están diseñadas con facilidad de uso en mente y ofrecen una alternativa rentable, ahorrándote dinero mientras te entrega un resultado de calidad.',
       },
       {
-        title: 'Can I preview templates before buying?',
+        title: '¿Puedo ver una demostración antes de comprar?',
         description:
-          'Yes, the templates allow you to preview them before making a purchase. There is a "Demo" button associated with each template.',
+          'Sí, las plantillas te permiten ver una demostración antes de realizar la compra. Hay un botón "Demo" asociado con cada plantilla.',
       },
       {
-        title: 'Do I need technical skills to use a template?',
+        title: '¿Necesito habilidades técnicas para usar una plantilla?',
         description:
-          'Advanced technical skills are not required to use a template, but having a basic understanding of web navigation and familiarity with using online tools can still be beneficial. If you have more specific customization needs, you might need to consult guides or reach out to customer support for assistance.',
+          'No se requieren habilidades técnicas avanzadas para usar una plantilla, pero tener un conocimiento básico de navegación web y familiaridad con el uso de herramientas en línea puede ser beneficioso. Si necesitas personalizaciones más específicas, podrías consultar guías o ponerte en contacto con el soporte al cliente para obtener ayuda.',
       },
       {
-        title: 'Can I use the template on multiple websites?',
+        title: '¿Puedo usar la plantilla en múltiples sitios web?',
         description:
-          'No, the template comes with a single-use license, meaning you can use the template on one website or project only. Using the template on additional websites would require purchasing additional licenses.',
+          'No, la plantilla viene con una licencia de uso único, lo que significa que puedes usar la plantilla en un solo sitio web o proyecto únicamente. Usar la plantilla en sitios web adicionales requeriría comprar licencias adicionales.',
       },
       {
-        title: 'What if I need help with customization?',
+        title: '¿Qué hago si necesito ayuda con la personalización?',
         description:
-          "The templates provides a comprehensive step-by-step guide that walk you through the customization process. If you still have doubts, you can reach out to our customer support team. They can answer your questions, provide guidance on customization, and address any issues you're facing.",
+          'Las plantillas incluyen una guía completa paso a paso que te guía a través del proceso de personalización. Si aún tienes dudas, puedes ponerte en contacto con nuestro equipo de soporte al cliente. Ellos pueden responder tus preguntas, brindarte orientación sobre personalización y abordar cualquier problema que estés enfrentando.',
       },
     ]}
   >
@@ -247,16 +245,16 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Let us know how we can help"
-    subtitle="We're here to help and answer any question you might have."
+    title="Háznos saber cómo podemos ayudarte"
+    subtitle="Estamos aquí para ayudarte y responder cualquier pregunta que tengas."
     columns={4}
     items={[
       {
-        title: 'Phone',
+        title: 'Teléfono',
         icon: 'tabler:phone',
         callToAction: {
           target: '_blank',
-          text: 'Call us',
+          text: 'Llámanos',
           href: '/',
           variant: 'link',
         },
@@ -266,27 +264,27 @@ const metadata = {
         icon: 'tabler:mail',
         callToAction: {
           target: '_blank',
-          text: 'Write to us',
+          text: 'Escríbenos',
           href: '/',
           variant: 'link',
         },
       },
       {
-        title: 'Chat with sales',
+        title: 'Chat con ventas',
         icon: 'tabler:message-circle',
         callToAction: {
           target: '_blank',
-          text: 'Start chatting',
+          text: 'Chatear con ventas',
           href: '/',
           variant: 'link',
         },
       },
       {
-        title: 'Chat with support',
+        title: 'Chat con soporte',
         icon: 'tabler:message-circle',
         callToAction: {
           target: '_blank',
-          text: 'Start chatting',
+          text: 'Chatear con soporte',
           href: '/',
           variant: 'link',
         },
@@ -301,17 +299,16 @@ const metadata = {
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Get templates',
+        text: 'Explorar plantillas',
         href: '#',
         icon: 'tabler:download',
       },
     ]}
   >
-    <Fragment slot="title">Be a part of our vision</Fragment>
+    <Fragment slot="title">Sé parte de nuestra visión</Fragment>
 
     <Fragment slot="subtitle">
-      Discover a dynamic work environment, unparalleled growth opportunities, and the chance to make a meaningful
-      impact.
+      Descubre un entorno laboral dinámico, oportunidades de crecimiento insuperables y la oportunidad de tener un impacto significativo.
     </Fragment>
   </CallToAction>
 </Layout>

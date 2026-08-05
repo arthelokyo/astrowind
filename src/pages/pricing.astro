@@ -8,7 +8,8 @@ import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Pricing',
+  title: 'Precios — Pronto',
+  ignoreTitleTemplate: true,
 };
 ---
 
@@ -16,67 +17,67 @@ const metadata = {
   <!-- HeroText Widget ******************* -->
 
   <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
+    tagline="Precios"
+    title="Planes simples y transparentes"
+    subtitle="Elige el plan perfecto para tu negocio. Sin sorpresas, sin comisiones ocultas."
   />
 
   <!-- Pricing Widget ******************* -->
 
   <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
+    title="Nuestros planes"
+    subtitle="Solo pagas por lo que necesitas"
     prices={[
       {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
+        title: 'básico',
+        subtitle: 'Opción ideal para empezar',
         price: 29,
-        period: 'per month',
+        period: 'por mes',
         items: [
           {
-            description: 'Etiam in libero, et volutpat',
+            description: 'Catálogo digital con IA',
           },
           {
-            description: 'Aenean ac nunc dolor tristique',
+            description: 'Pedidos por WhatsApp',
           },
           {
-            description: 'Cras scelerisque accumsan lib',
+            description: 'Tracking en tiempo real',
           },
           {
-            description: 'In hac habitasse',
+            description: 'Sin comisiones por pedido',
           },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
+          text: 'Empezar ahora',
           href: '#',
         },
       },
       {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
+        title: 'estándar',
+        subtitle: 'Ideal para negocios en crecimiento',
         price: 69,
-        period: 'Per Month',
+        period: 'por mes',
         items: [
           {
-            description: 'Proin vel laoreet',
+            description: 'Todo del plan básico',
           },
           {
-            description: 'Ut efficitur habitasse egestas',
+            description: 'Estadísticas de ventas',
           },
           {
-            description: 'Volutpat hac curabitur',
+            description: 'App de repartidores',
           },
           {
-            description: 'Pellentesque blandit ut nibh',
+            description: 'Recoge en tienda o delivery',
           },
           {
-            description: 'Donec fringilla sem',
+            description: 'Validación SMS anti-fraude',
           },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
+          text: 'Empezar ahora',
           href: '#',
         },
         hasRibbon: true,
@@ -84,26 +85,26 @@ const metadata = {
       },
       {
         title: 'premium',
-        subtitle: 'Optimal choice for companies',
+        subtitle: 'Para negocios que quieren más',
         price: 199,
-        period: 'Per Month',
+        period: 'por mes',
         items: [
           {
-            description: 'Curabitur suscipit risus',
+            description: 'Todo del plan estándar',
           },
           {
-            description: 'Aliquam habitasse malesuada',
+            description: 'Soporte prioritario 24/7',
           },
           {
-            description: 'Suspendisse sit amet blandit',
+            description: 'Personalización de marca',
           },
           {
-            description: 'Suspendisse auctor blandit dui',
+            description: 'Reportes avanzados',
           },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
+          text: 'Empezar ahora',
           href: '#',
         },
       },
@@ -113,38 +114,38 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
+    title="Características por plan"
+    subtitle="Descubre las ventajas de elegir nuestros planes"
     columns={2}
     items={[
       {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
+        title: 'Planes escalonados',
+        description: 'Elige entre una variedad de planes diseñados para diferentes tipos de negocios y presupuestos.',
         icon: 'tabler:stairs',
       },
       {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
+        title: 'Precios transparentes',
+        description: 'Costos claramente mostrados en cada plan, sin costos ocultos ni cargos inesperados.',
         icon: 'tabler:flip-vertical',
       },
       {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
+        title: 'Pagos seguros',
+        description: 'Métodos de pago seguros para proteger tu información financiera.',
         icon: 'tabler:shield-lock',
       },
       {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
+        title: 'Acceso inmediato',
+        description: 'Acceso inmediato a todas las características del plan seleccionado al suscribirte.',
         icon: 'tabler:accessible',
       },
       {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
+        title: 'Mejor valor',
+        description: 'Actualiza a planes superiores para desbloquear más funciones y beneficios.',
         icon: 'tabler:chevrons-up',
       },
       {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
+        title: 'Soporte 24H',
+        description: 'Preguntas respondidas por chat en vivo, email o teléfono, todos los días.',
         icon: 'tabler:headset',
       },
     ]}
@@ -154,76 +155,76 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
+    title="Tu camino desde el plan hasta el éxito"
+    tagline="Proceso simplificado"
     isReversed={true}
     items={[
       {
-        title: 'Explore plans',
+        title: 'Explora los planes',
         icon: 'tabler:number-1',
       },
       {
-        title: 'Select a plan',
+        title: 'Selecciona tu plan',
         icon: 'tabler:number-2',
       },
       {
-        title: 'Sign Up / Log In',
+        title: 'Regístrate o inicia sesión',
         icon: 'tabler:number-3',
       },
       {
-        title: 'Review order',
+        title: 'Revisa tu pedido',
         icon: 'tabler:number-4',
       },
       {
-        title: 'Enter payment details',
+        title: 'Ingresa tus datos de pago',
         icon: 'tabler:number-5',
       },
       {
-        title: 'Confirmation',
+        title: 'Confirmación',
         icon: 'tabler:number-6',
       },
       {
-        title: 'Download and start using the template(s)',
+        title: 'Comienza a usar Pronto',
         icon: 'tabler:number-7',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      alt: 'Pasos para suscribirte',
     }}
   />
 
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
+    title="Preguntas frecuentes sobre precios"
+    subtitle="Elegir el plan correcto es importante, y estamos aquí para responder tus preguntas."
     columns={1}
     items={[
       {
-        title: 'Do the plans come with customer support?',
+        title: '¿Los planes incluyen soporte al cliente?',
         description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+          'Absolutamente. Todos los planes incluyen acceso a nuestro equipo de soporte dedicado para ayudarte con cualquier duda.',
       },
       {
-        title: 'Is there a trial period for the different plans?',
+        title: '¿Hay un periodo de prueba para los planes?',
         description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+          'Actualmente no ofrecemos periodos de prueba. Sin embargo, puedes ver nuestro catálogo de ejemplo para evaluar la calidad de nuestra plataforma.',
       },
       {
-        title: 'Can I switch between plans?',
+        title: '¿Puedo cambiar entre planes?',
         description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
+          '¡Claro! Puedes subir o bajar de plan en cualquier momento para encontrar el que mejor se adapte a tus necesidades.',
       },
       {
-        title: 'What payment methods do you accept?',
+        title: '¿Qué métodos de pago aceptan?',
         description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
+          'Aceptamos tarjetas de crédito principales y métodos de pago en línea para garantizar un proceso seguro y conveniente.',
       },
       {
-        title: 'Are there any hidden fees beyond the displayed cost?',
+        title: '¿Hay costos ocultos aparte del precio mostrado?',
         description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+          'No. El costo de suscripción cubre todas las características mostradas en cada plan. No hay costos ocultos ni cargos adicionales.',
       },
     ]}
   />
@@ -231,12 +232,12 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
+    title="¿Listo para aumentar tus ventas?"
+    subtitle="Únete a cientos de negocios que ya usan Pronto para digitalizar su operación y vender más por WhatsApp."
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
+        text: 'Empezar ahora',
         href: '/',
       },
     ]}
