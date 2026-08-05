@@ -7,7 +7,8 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Sobre Pronto — La plataforma que digitaliza tu negocio',
+  ignoreTitleTemplate: true,
 };
 ---
 
@@ -15,61 +16,61 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="Sobre nosotros"
     image={{
       src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      alt: 'Equipo Pronto',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Ayudamos a pequeños negocios a <br />
+      <span class="text-accent dark:text-white"> vender más por WhatsApp</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      En Pronto creemos que la tecnología debe ser simple y accesible. Creamos una plataforma que permite a cualquier
+      negocio tener un catálogo digital, recibir pedidos por WhatsApp y hacer seguimiento en tiempo real. Todo desde el
+      celular, sin complicaciones.
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics about us"
+    title="Pronto en cifras"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Pedidos gestionados', amount: '12.5K' },
+      { title: 'Negocios activos', amount: '500+' },
+      { title: 'Productos catalogados', amount: '15K+' },
+      { title: 'Países', amount: '5' },
     ]}
   />
 
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="¿Para quién es Pronto?"
+    subtitle="Pronto está diseñado para pequeños y medianos negocios que quieren digitalizar su operación y vender más por WhatsApp sin complicaciones."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'Restaurantes y comida',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'Restaurantes, pizzerías, cafeterías, heladerías y cualquier negocio de comida que quiera recibir pedidos por WhatsApp con un catálogo digital actualizado.',
+        icon: 'tabler:building-store',
       },
       {
-        title: 'Interior Design',
+        title: 'Tiendas y comercios',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+          'Tiendas de ropa, regalos, florerías, ferreterías y cualquier comercio que quiera mostrar su catálogo y recibir pedidos desde el celular de sus clientes.',
+        icon: 'tabler:shopping-bag',
       },
       {
-        title: 'Photography',
+        title: 'Servicios locales',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+          'Servicios de delivery, catering, repostería, y emprendedores que quieran ofrecer una experiencia profesional a sus clientes sin tener página web.',
+        icon: 'tabler:star',
       },
     ]}
   />
@@ -81,40 +82,36 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'E-commerce',
+        title: 'Catálogo con IA',
         description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+          'Sube una foto de tu menú impreso y Pronto genera el catálogo completo con precios y descripciones. En 5 minutos tienes tu menú digital listo.',
+        icon: 'tabler:camera',
       },
       {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
+        title: 'Pedidos por WhatsApp',
+        description: 'Cada pedido llega directo a la app con confirmación SMS. Todo organizado sin perder detalle.',
+        icon: 'tabler:brand-whatsapp',
       },
       {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
+        title: 'Tracking en tiempo real',
+        description: 'Tus clientes siguen su pedido paso a paso con URL de seguimiento y mapa en vivo del repartidor.',
+        icon: 'tabler:map-pin',
       },
       {
-        title: 'Branding',
+        title: 'App de repartidores',
         description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
+          'Mapa integrado con la mejor ruta para tus entregas a domicilio. El cliente también ve la ubicación en tiempo real.',
+        icon: 'tabler:truck-delivery',
       },
       {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
+        title: 'Validación SMS',
+        description: 'Código de confirmación único para cada pedido. Adiós a los fraudes y pedidos falsos.',
+        icon: 'tabler:shield-check',
       },
       {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+        title: 'Estadísticas',
+        description: 'Conoce tus productos más vendidos, horarios pico y el crecimiento de tu negocio.',
+        icon: 'tabler:chart-bar',
       },
     ]}
     image={{
@@ -126,23 +123,23 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Nuestros valores"
+    subtitle="Creemos en la tecnología simple, accesible y que realmente ayude a los pequeños negocios a crecer."
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Simplicidad',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'La tecnología no tiene que ser complicada. Diseñamos Pronto para que cualquier persona pueda usarlo desde el primer minuto, sin manuales ni capacitación.',
       },
       {
-        title: 'Constant Improvement',
+        title: 'Accesibilidad',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'Creemos que todos los negocios merecen herramientas digitales profesionales, sin importar su tamaño. Por eso ofrecemos precios justos y sin comisiones ocultas.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Compromiso con el cliente',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Cada decisión que tomamos está pensada para ayudar a nuestros usuarios a vender más. Su éxito es nuestro éxito.',
       },
     ]}
   />
@@ -150,29 +147,30 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    title="Nuestros logros"
+    subtitle="En poco tiempo hemos ayudado a cientos de negocios a dar el salto digital."
     isReversed={true}
     callToAction={{
-      text: 'See more',
+      text: 'Ver más',
       href: '/',
     }}
     items={[
       {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
+        title: 'Presencia en 5 países',
+        description:
+          'México, Colombia, Perú, Chile y Argentina. Seguimos expandiéndonos para llegar a más negocios en Latinoamérica.',
         icon: 'tabler:globe',
       },
       {
-        title: 'Positive customer feedback and reviews',
+        title: 'Más de 12.500 pedidos gestionados',
         description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
+          'Nuestra plataforma ha procesado más de 12.500 pedidos con una tasa de satisfacción del 98%. Cada pedido validado con SMS anti-fraude.',
         icon: 'tabler:message-star',
       },
       {
-        title: 'Awards and recognition as industry experts',
+        title: '500+ negocios activos',
         description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
+          'Restaurantes, tiendas y emprendedores confían en Pronto para digitalizar su negocio y vender más por WhatsApp.',
         icon: 'tabler:award',
       },
     ]}
@@ -181,25 +179,29 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Our locations"
-    tagline="Find us"
+    title="Estamos en Latinoamérica"
+    tagline="Presencia"
     columns={4}
     items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
+        title: 'México',
+        icon: 'tabler:map-pin',
+        description: 'Ciudad de México',
       },
       {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
+        title: 'Colombia',
+        icon: 'tabler:map-pin',
+        description: 'Bogotá',
       },
       {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
+        title: 'Perú',
+        icon: 'tabler:map-pin',
+        description: 'Lima',
       },
       {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Argentina',
+        icon: 'tabler:map-pin',
+        description: 'Buenos Aires',
       },
     ]}
   />
@@ -207,21 +209,19 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="Soporte técnico"
+    tagline="Contacto"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
+        title: 'Chat en vivo',
+        description: 'Chatea con nuestro equipo de soporte en horario laboral. Respondemos en menos de 5 minutos.',
         icon: 'tabler:messages',
       },
       {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+        title: 'Email',
+        description: 'Escríbenos a soporte@pronto.app y te responderemos en menos de 24 horas hábiles.',
+        icon: 'tabler:mail',
       },
     ]}
   />

@@ -7,13 +7,12 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'Pronto — Catálogo digital y gestión de pedidos para tu negocio',
   ignoreTitleTemplate: true,
 };
 ---
@@ -25,77 +24,76 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Crear mi catálogo gratis',
+        href: '#features',
+        icon: 'tabler:smart-home',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'Ver cómo funciona', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Pronto Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro v6</span> + Tailwind CSS
+      Transforma tu negocio con un <span class="hidden xl:inline">catálogo digital</span>
+      <span class="text-accent dark:text-white"> en 5 minutos</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v6 +
-        Tailwind CSS v4.</span
+        <span class="font-semibold">Pronto</span> es la plataforma que ayuda a pequeños negocios a vender más por WhatsApp.
+        Tus clientes piden desde un catálogo virtual, reciben confirmación SMS y siguen su pedido en tiempo real.</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages & Blogs.
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Pronto: Vende más por WhatsApp.</span>
+      Crea tu menú digital con IA. Sin comisiones. Sin complicaciones.
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+  <Note title="Pronto SaaS:" description="La forma más fácil de recibir pedidos por WhatsApp" />
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023, 2024 and 2025."
+    tagline="Características"
+    title="Todo lo que necesitas para vender más"
+    subtitle="Pronto te da las herramientas para digitalizar tu negocio en minutos. Tus clientes piden desde el celular, sin descargar nada."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Catálogo con IA',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility. Now powered by Tailwind CSS v4.',
-        icon: 'tabler:brand-tailwind',
+          'Sube una foto de tu menú impreso y Pronto genera automáticamente el catálogo completo con precios y descripciones. Crea tu menú digital en 5 minutos.',
+        icon: 'tabler:camera',
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'Gestión de productos',
         description:
-          'Widgets made with Tailwind CSS v4 ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+          'Agrega, edita, elimina o desactiva productos desde la app. Todos los cambios se reflejan en tiempo real en el catálogo de tus clientes.',
+        icon: 'tabler:settings',
       },
       {
-        title: 'Best Practices',
+        title: 'Pedidos por WhatsApp',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
+          'Cada pedido llega directo a tu app con confirmación vía SMS. Recibe notificaciones al instante y nunca pierdas una venta.',
+        icon: 'tabler:brand-whatsapp',
       },
       {
-        title: 'Excellent Page Speed',
+        title: 'Tracking en tiempo real',
         description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
+          'Tus clientes reciben una URL para seguir su pedido paso a paso: Confirmado → Aceptado → En preparación → En reparto. Con mapa incluido.',
+        icon: 'tabler:map-pin',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: 'Recoge en tienda, a domicilio o en sitio',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+          'Ofrece a tus clientes la flexibilidad de elegir cómo quieren recibir su pedido. Tú controlas las opciones desde la app.',
+        icon: 'tabler:building-store',
       },
       {
-        title: 'Open to new ideas and contributions',
+        title: 'App de repartidores con mapa',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'Cuando el pedido es a domicilio, tu repartidor ve la ruta en el mapa. El cliente también puede ver la ubicación en tiempo real desde su tracking.',
+        icon: 'tabler:map-2',
       },
     ]}
   />
@@ -104,33 +102,35 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Cómo funciona"
+    title="De tu negocio a tus clientes en 3 pasos"
     items={[
       {
-        title: 'Built on top of Astro v6',
+        title: 'Crea tu catálogo en 5 minutos',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'Toma una foto a tu menú impreso o súbelo desde tu celular. La IA de Pronto genera automáticamente precios, descripciones y categorías. Sin escribir nada.',
       },
       {
-        title: 'Styled using Tailwind CSS v4',
+        title: 'Comparte con tus clientes',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'Reciben un link o código QR por WhatsApp. Pueden ver tu catálogo completo, elegir productos y hacer su pedido al instante. Sin descargar nada.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: 'Gestiona pedidos al instante',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Los pedidos llegan a la app con validación SMS. Aceptas, preparas y el cliente recibe tracking en tiempo real con mapa de seguimiento.',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      alt: 'Cómo funciona Pronto',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Digitaliza tu negocio en minutos
+      </h3>
+      Más de 100 pequeños negocios ya venden más con Pronto
     </Fragment>
 
     <Fragment slot="bg">
@@ -144,31 +144,31 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Aumenta tus ventas por WhatsApp',
+        description: `Tus clientes pueden hacer pedidos desde la comodidad de su casa con solo abrir un link. Más fácil que nunca.`,
       },
       {
-        title: 'Multiple layout possibilities',
+        title: 'Sin comisiones por pedido',
         description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+          'Paga solo una tarifa fija mensual. Sin comisiones ocultas. Todas las ganancias de tus ventas son para ti.',
       },
       {
-        title: 'Fully responsive design',
+        title: 'Tus clientes no necesitan descargar nada',
         description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+          'Todo funciona desde el navegador web. Compartes un link o código QR y ya pueden pedir. Sin apps, sin registros.',
       },
       {
-        title: 'Integration of media',
+        title: 'Actualiza tu catálogo al instante',
         description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+          'Agregas un producto, cambias un precio o descuentas algo. Se refleja al segundo en el catálogo de todos tus clientes.',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      alt: 'Vende más con Pronto',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+    <Fragment slot="content">Diseñado para que vendas más, sin complicaciones.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -182,31 +182,31 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Enhanced user engagement',
+        title: 'Validación SMS anti-fraude',
         description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
+          'Cada pedido se confirma con un código SMS único. Evita pedidos falsos y clientes fantasma. Solo pedidos reales.',
       },
       {
-        title: 'Continuous improvement',
+        title: 'Notificaciones en tiempo real',
         description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
+          'Recibe una alerta al instante cuando llega un pedido nuevo. Nunca más pierdas una venta por no revisar a tiempo.',
       },
       {
-        title: 'Time and resource efficiency',
+        title: 'App de repartidores incluida',
         description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
+          'Cuando ofreces delivery, tu repartidor usa la app con mapa integrado y la mejor ruta. El cliente también ve el mapa en su tracking.',
       },
       {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
+        title: 'Estadísticas de ventas',
+        description: `Sabes cuánto vendes, qué productos son los más populares y en qué horarios recibes más pedidos. Datos para hacer crecer tu negocio.`,
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      alt: 'Pronto App',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+    <Fragment slot="content">Todo lo que necesitas para vender más, en un solo lugar.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -216,93 +216,89 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    title="Empieza a vender más por WhatsApp en minutos"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'Paso 1: <span class="font-medium">Toma una foto a tu menú</span>',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+          'La IA de Pronto crea el catálogo digital automáticamente con precios, descripciones y fotos. No necesitas escribir nada. Listo en 5 minutos.',
+        icon: 'tabler:camera',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
+        title: 'Paso 2: <span class="font-medium">Comparte el link</span>',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+          'Envía el enlace a tus clientes por WhatsApp. Pueden ver el catálogo completo y hacer su pedido al instante. Sin descargar nada.',
+        icon: 'tabler:share',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Paso 3: <span class="font-medium">Recibe pedidos y haz seguimiento</span>',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
+          'Los pedidos llegan a la app con confirmación SMS. Gestionas, preparas y el cliente recibe tracking en tiempo real con mapa.',
+        icon: 'tabler:checklist',
       },
       {
-        title: 'Ready!',
+        title: '¡A vender!',
         icon: 'tabler:check',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      alt: 'Pasos para crear tu catálogo digital',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS v4"
-    tagline="Components"
+    title="Todo lo que incluye Pronto"
+    subtitle="Una solución completa para digitalizar tu negocio y vender más por WhatsApp"
+    tagline="Funcionalidades"
     items={[
       {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
+        title: 'Catálogo con IA',
         description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
+          'Sube una foto de tu menú impreso y Pronto genera el catálogo completo con precios y descripciones.',
+        icon: 'tabler:camera',
       },
       {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
+        title: 'Pedidos por WhatsApp',
+        description: 'Cada pedido llega directo a la app con confirmación SMS. Todo organizado sin perder detalle.',
+        icon: 'tabler:brand-whatsapp',
       },
       {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
+        title: 'Tracking en tiempo real',
+        description: 'Tus clientes siguen su pedido paso a paso con URL de seguimiento y mapa en vivo del repartidor.',
+        icon: 'flat-color-icons:globe',
       },
       {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
+        title: 'Gestión de productos',
+        description: 'Agrega, edita, elimina o desactiva productos. Se actualiza al instante en el catálogo.',
+        icon: 'flat-color-icons:settings',
       },
       {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
+        title: 'App de repartidores',
+        description: 'Mapa integrado con la mejor ruta para tus entregas a domicilio. El cliente también ve el mapa.',
+        icon: 'flat-color-icons:in-transit',
       },
       {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
+        title: 'Recoge en tienda o delivery',
+        description: 'Ofrece recoger en tienda, delivery o pedidos en sitio. Tú decides cómo vender.',
+        icon: 'flat-color-icons:shop',
       },
       {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
+        title: 'Validación SMS',
+        description: 'Código de confirmación único para cada pedido. Adiós a los fraudes y pedidos falsos.',
+        icon: 'flat-color-icons:phone',
       },
       {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
+        title: 'Sin descargas para clientes',
+        description: 'Tus clientes piden desde el navegador. Solo compartes un link por WhatsApp y listo.',
+        icon: 'flat-color-icons:link',
+      },
+      {
+        title: 'Estadísticas de ventas',
+        description: 'Conoce tus productos más vendidos, horarios pico y el crecimiento de tu negocio.',
+        icon: 'flat-color-icons:statistics',
       },
     ]}
   >
@@ -311,53 +307,43 @@ const metadata = {
     </Fragment>
   </Features2>
 
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro v6 + Tailwind CSS v4.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    title="Preguntas Frecuentes"
+    subtitle="Resuelve tus dudas sobre cómo Pronto puede ayudar a tu negocio a vender más por WhatsApp."
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: '¿Cómo funciona Pronto?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          'Pronto es una plataforma de catálogo digital y gestión de pedidos. Tomas una foto a tu menú impreso, la IA genera el catálogo automáticamente, compartes un link con tus clientes y ellos pueden hacer pedidos desde WhatsApp. Tú recibes y gestionas todo desde la app.',
       },
       {
-        title: 'What do I need to start?',
+        title: '¿Mis clientes necesitan descargar una app?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'No. Tus clientes solo necesitan abrir el link que les envías por WhatsApp. Todo funciona desde el navegador de su celular. Sin descargas, sin registros, sin complicaciones.',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: '¿Cómo se crea el catálogo con IA?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          'Subes una foto de tu menú físico impreso (una carta, un pizarrón, un folleto) y la inteligencia artificial de Pronto extrae automáticamente los productos, precios y descripciones. En 5 minutos tienes tu catálogo digital listo.',
       },
       {
-        title: "What's something that you don't understand?",
+        title: '¿Qué opciones de entrega puedo ofrecer?',
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+          'Puedes ofrecer recoger en tienda, entrega a domicilio o pedidos para consumir en el sitio. Tú activas las opciones que quieras desde la app y el cliente elige al hacer su pedido.',
       },
       {
-        title: 'What is something that you would like to try again?',
+        title: '¿Cómo funciona el tracking para el cliente?',
         description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+          'Cuando confirmas un pedido, el cliente recibe una URL de seguimiento. Puede ver en tiempo real el estado: Confirmado, Aceptado, En preparación, En reparto. Si es delivery, también ve el mapa con la ubicación del repartidor.',
       },
       {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
+        title: '¿Cómo se validan los pedidos?',
         description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          'Cada pedido se confirma mediante un código SMS que enviamos al cliente. Esto asegura que el pedido es real y evita fraudes o pedidos falsos. Solo recibes pedidos validados.',
       },
     ]}
   />
@@ -366,10 +352,10 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'Pedidos gestionados', amount: '12.5K' },
+      { title: 'Negocios activos', amount: '500+' },
+      { title: 'Productos catalogados', amount: '15K+' },
+      { title: 'WhatsApp enviados', amount: '8K+' },
     ]}
   />
 
@@ -379,20 +365,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Crear mi catálogo gratis',
+        href: '#features',
+        icon: 'tabler:smart-home',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Pronto&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">WhatsApp</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Empieza hoy a recibir pedidos por WhatsApp. <br class="hidden md:inline" />Crea tu catálogo digital en 5 minutos
+      con IA.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Pronto
+  site: 'https://prontosass.com'
   base: '/'
   trailingSlash: false
 
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Pronto
+    template: '%s — Pronto'
+  description: 'Crea tu menú digital en 5 minutos con IA y recibe pedidos por WhatsApp. Tus clientes piden desde un catálogo virtual y siguen su pedido en tiempo real.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Pronto
     images:
       - url: '~/assets/images/default.png'
         width: 1200

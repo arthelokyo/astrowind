@@ -10,7 +10,6 @@ import Pricing from '~/components/widgets/Pricing.astro';
 
 import { headerData } from '~/navigation';
 import FAQs from '~/components/widgets/FAQs.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
   title: 'SaaS Landing Page',
@@ -42,24 +41,23 @@ const metadata = {
   <Hero2
     tagline="SaaS Web Demo"
     actions={[
-      { variant: 'primary', target: '_blank', text: 'Get Started', href: 'https://github.com/arthelokyo/astrowind' },
+      { variant: 'primary', target: '_blank', text: 'Get Started', href: '#' },
       { text: 'Learn more', href: '#features' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'AstroWind Hero Image',
+      alt: 'Hero Image',
     }}
   >
     <Fragment slot="title">
-      Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white">SaaS</span> companion<br
-      />
+      Simplify web design: <br /> your ultimate <span class="text-accent dark:text-white">SaaS</span> companion<br />
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Elevate your website creation process with <span class="font-semibold">AstroWind</span>'s SaaS solutions.</span
+        Elevate your website creation process with <span class="font-semibold">Pronto</span>'s SaaS solutions.</span
       >
-      Seamlessly blend the power of Astro v6 and Tailwind CSS v4 to craft websites that resonate with your brand and audience.
+      Seamlessly blend the power of Astro and Tailwind CSS to craft websites that resonate with your brand and audience.
     </Fragment>
   </Hero2>
 
@@ -67,19 +65,19 @@ const metadata = {
 
   <Features
     id="features"
-    title="Why choose AstroWind?"
-    subtitle="Each of the following features enhances AstroWind's value proposition."
+    title="Why choose Pronto?"
+    subtitle="Each of the following features enhances Pronto's value proposition."
     columns={2}
     items={[
       {
-        title: 'Integration of Astro v6 and Tailwind CSS v4',
+        title: 'Integration of Astro and Tailwind CSS',
         description:
           'Offers a powerful combination that enhances both the development process and the end-user experience. Also, allows to build dynamic and visually stunning websites with optimized performance.',
         icon: 'tabler:layers-union',
       },
       {
         title: 'Versatile design for startups, small businesses, and more',
-        description: `Easily customize AstroWind to harmonize with the unique branding and identity of your venture. AstroWind's versatile design adapts to suit your needs.`,
+        description: `Easily customize Pronto to harmonize with the unique branding and identity of your venture. Pronto's versatile design adapts to suit your needs.`,
         icon: 'tabler:artboard',
       },
       {
@@ -95,12 +93,12 @@ const metadata = {
       },
       {
         title: 'Fast loading times and production-ready code',
-        description: `Using Astro v6 ensures fast loading and seamless rendering, enhancing browsing. The code follows best practices, improving user experience, SEO, and reducing bounce rates.`,
+        description: `Using Astro ensures fast loading and seamless rendering, enhancing browsing. The code follows best practices, improving user experience, SEO, and reducing bounce rates.`,
         icon: 'tabler:rocket',
       },
       {
         title: 'SEO-optimized structure for enhanced visibility',
-        description: `Follows SEO best practices with clean code, semantic HTML markup, and fast loading, enhancing search engine rankings. AstroWind's SEO structure ensures visibility to potential customers and clients.`,
+        description: `Follows SEO best practices with clean code, semantic HTML markup, and fast loading, enhancing search engine rankings. Pronto's SEO structure ensures visibility to potential customers and clients.`,
         icon: 'tabler:eyeglass',
       },
     ]}
@@ -110,13 +108,13 @@ const metadata = {
 
   <Content
     title="Use cases"
-    subtitle="Discover how AstroWind's versatile template serves as the ideal solution for various use cases, providing tailored solutions to drive success."
+    subtitle="Discover how Pronto's versatile template serves as the ideal solution for various use cases, providing tailored solutions to drive success."
     isReversed
     items={[
       {
         title: 'Description:',
         description:
-          'Are you a startup with big dreams? AstroWind propels your success. Our template forges a seamless online presence, attracting investors and customers from day one. Astro v6 and Tailwind CSS v4 ensure striking, responsive sites, leaving lasting impressions. Countless startups leverage AstroWind to kickstart their journey and resonate with audiences.',
+          'Are you a startup with big dreams? Pronto propels your success. Our template forges a seamless online presence, attracting investors and customers from day one. Astro and Tailwind CSS ensure striking, responsive sites, leaving lasting impressions. Countless startups leverage Pronto to kickstart their journey and resonate with audiences.',
       },
       {
         title: 'Benefits:',
@@ -130,7 +128,7 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Startup success stories: <br /><span class="text-2xl">Launching with AstroWind</span>
+        Startup success stories: <br /><span class="text-2xl">Launching with Pronto</span>
       </h3>
     </Fragment>
 
@@ -146,7 +144,7 @@ const metadata = {
     items={[
       {
         title: 'Description:',
-        description: `For SaaS businesses, user experience is key. AstroWind enhances showcasing SaaS solutions intuitively. The template's Astro v6 and Tailwind CSS v4 integration guarantees user-friendly experience, mirroring your software's efficiency. Customize pages to communicate SaaS value and solutions for your audience.`,
+        description: `For SaaS businesses, user experience is key. Pronto enhances showcasing SaaS solutions intuitively. The template's Astro and Tailwind CSS integration guarantees user-friendly experience, mirroring your software's efficiency. Customize pages to communicate SaaS value and solutions for your audience.`,
       },
       {
         title: 'Benefits:',
@@ -177,7 +175,7 @@ const metadata = {
     items={[
       {
         title: 'Description:',
-        description: `Your portfolio is your masterpiece, and AstroWind is your canvas. Whether you're a designer, photographer, artist, or any other creative professional, AstroWind empowers you to showcase your work with elegance and sophistication. Tailored to highlight your creative projects, AstroWind's templates offer a visually immersive experience that lets your portfolio shine.`,
+        description: `Your portfolio is your masterpiece, and Pronto is your canvas. Whether you're a designer, photographer, artist, or any other creative professional, Pronto empowers you to showcase your work with elegance and sophistication. Tailored to highlight your creative projects, Pronto's templates offer a visually immersive experience that lets your portfolio shine.`,
       },
       {
         title: 'Benefits:',
@@ -206,7 +204,7 @@ const metadata = {
     items={[
       {
         title: 'Description:',
-        description: `For small businesses, a well-crafted website can be a game-changer. AstroWind empowers small businesses to not only establish a credible online presence but also convert visitors into loyal customers. The template's thoughtful design and optimization features ensure that your website doesn't just attract attention but also guides visitors through a seamless journey, ultimately leading to conversions.`,
+        description: `For small businesses, a well-crafted website can be a game-changer. Pronto empowers small businesses to not only establish a credible online presence but also convert visitors into loyal customers. The template's thoughtful design and optimization features ensure that your website doesn't just attract attention but also guides visitors through a seamless journey, ultimately leading to conversions.`,
       },
       {
         title: 'Benefits:',
@@ -278,24 +276,24 @@ const metadata = {
     title="Frequently Asked Questions"
     items={[
       {
-        title: 'Is AstroWind compatible with the latest versions of Astro and Tailwind CSS?',
+        title: 'Is Pronto compatible with the latest versions of Astro and Tailwind CSS?',
         description:
-          'Yes, AstroWind is designed to be compatible with the latest versions of both Astro and Tailwind CSS v4. This ensures that you can harness the full capabilities of these technologies while benefiting from the features offered by AstroWind.',
+          'Yes, Pronto is designed to be compatible with the latest versions of both Astro and Tailwind CSS. This ensures that you can harness the full capabilities of these technologies while benefiting from the features offered by Pronto.',
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Can I use AstroWind for both personal and commercial projects?',
-        description: `Certainly! AstroWind is versatile and can be used for a wide range of projects, including both personal and commercial endeavors. Whether you're building a professional portfolio, launching a startup, or creating a marketing website, AstroWind has you covered.`,
+        title: 'Can I use Pronto for both personal and commercial projects?',
+        description: `Certainly! Pronto is versatile and can be used for a wide range of projects, including both personal and commercial endeavors. Whether you're building a professional portfolio, launching a startup, or creating a marketing website, Pronto has you covered.`,
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'What level of coding knowledge is required to use AstroWind?',
+        title: 'What level of coding knowledge is required to use Pronto?',
         description:
-          'While some familiarity with HTML, CSS, and web development concepts is helpful, the user-friendly interface and customization options allow those with limited coding experience to create impressive websites. For more advanced users, AstroWind offers extensive customization capabilities.',
+          'While some familiarity with HTML, CSS, and web development concepts is helpful, the user-friendly interface and customization options allow those with limited coding experience to create impressive websites. For more advanced users, Pronto offers extensive customization capabilities.',
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Is customer support available for AstroWind users seeking guidance?',
+        title: 'Is customer support available for Pronto users seeking guidance?',
         description: `Absolutely, our dedicated customer support team is here to assist you with any questions or challenges you may encounter. Feel free to reach out to us through our support channels, and we'll be happy to provide the help you need.`,
         icon: 'tabler:chevrons-right',
       },
@@ -333,16 +331,4 @@ const metadata = {
       },
     ]}
   />
-
-  <!-- BlogLatestPost Widget **************** -->
-
-  <BlogLatestPosts
-    id="blog"
-    title="Stay informed with AstroWind's blog"
-    information={`Explore our collection of articles, guides, and tutorials on web development, design trends, and using AstroWind effectively for your projects.`}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </BlogLatestPosts>
 </Layout>
