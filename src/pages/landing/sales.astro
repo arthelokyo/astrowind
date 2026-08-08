@@ -2,10 +2,18 @@
 import Layout from '~/layouts/LandingLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Sales Landing Page Demo',
+  title: 'Long-form Sales Landing Page Demo',
 };
 ---
 
@@ -14,11 +22,11 @@ const metadata = {
 
   <Hero2
     tagline="Long-form Sales Demo"
-    title="Long-form Sales: Sell with a Story: The Long-form Way!"
-    subtitle="Dive deep into crafting a Landing Page that narrates, persuades, and converts."
+    title="Sell with a story: the long-form way"
+    subtitle="Every memorable brand is built on a story. This template shows how to stretch that story across a single page that earns attention, builds trust, and closes the sale."
     actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
+      { variant: 'primary', text: 'See pricing', href: '#pricing', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Learn more', href: '#benefits' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80',
@@ -26,9 +34,314 @@ const metadata = {
     }}
   />
 
+  <!-- Brands Widget ****************** -->
+
+  <Brands
+    title="Trusted by teams everywhere"
+    subtitle="Marketing, product, and founder-led teams use long-form pages to turn cold traffic into qualified buyers."
+    icons={[]}
+    images={[
+      { src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png', alt: 'Paypal' },
+      { src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png', alt: 'Visa' },
+      { src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png', alt: 'Ebay' },
+      { src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png', alt: 'Youtube' },
+      { src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png', alt: 'Microsoft' },
+      { src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png', alt: 'Node JS' },
+      { src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png', alt: 'Google' },
+      { src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png', alt: 'Meta' },
+      { src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png', alt: 'Yahoo' },
+    ]}
+  />
+
+  <!-- Content Widget: The problem *** -->
+
+  <Content
+    isReversed
+    tagline="The problem"
+    title="Short landing pages leave money on the table"
+    items={[
+      {
+        title: 'Generic templates say nothing specific',
+        description:
+          'Stock copy, vague promises, and a single above-the-fold CTA cannot carry a considered purchase. Visitors scroll once, learn nothing, and leave.',
+      },
+      {
+        title: 'Proof lives in pieces, not a narrative',
+        description:
+          'A logo wall and three testimonials cannot reverse skepticism on their own. Buyers need the story connecting the pain to the outcome.',
+      },
+      {
+        title: 'The decision gets deferred, then forgotten',
+        description:
+          'When a page only answers "what is it" and skips "why does it matter to me", the reader leaves without enough context to come back.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80',
+      alt: 'An empty notebook on a wooden desk',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget: The solution ** -->
+
+  <Content
+    isAfterContent
+    tagline="The solution"
+    title="A page that reads like a conversation"
+    items={[
+      {
+        title: 'Lead with the reader, not the product',
+        description:
+          "Open by naming the problem in the reader's own words. Earn the next paragraph before asking for anything.",
+      },
+      {
+        title: 'Layer proof where objections appear',
+        description:
+          'Testimonials, screenshots, and numbers work best when they answer the specific doubt in the section they sit beside.',
+      },
+      {
+        title: 'Ask for the sale when trust is built, not before',
+        description:
+          'Place the pricing section after the story, the method, and the proof. The close feels natural because it arrives on time.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80',
+      alt: 'Team gathered around a laptop in a conversation',
+    }}
+  />
+
+  <!-- Features Widget **************** -->
+
+  <Features
+    id="benefits"
+    title="Why long-form works"
+    subtitle="Six reasons a well-structured long page outperforms a short one on considered purchases."
+    columns={3}
+    items={[
+      {
+        title: 'Clarity',
+        description: 'More room to explain exactly who the product is for and what it changes.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Emotional resonance',
+        description: 'A narrative arc lets readers see themselves in the before-and-after.',
+        icon: 'tabler:heart',
+      },
+      {
+        title: 'Trust',
+        description: 'Room for credentials, case studies, and specifics that a hero section cannot carry.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Specificity',
+        description: 'Concrete numbers and quotes beat abstract adjectives at every scroll depth.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Momentum',
+        description: 'Each section resolves a doubt and hands the reader to the next with a reason to stay.',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        title: 'SEO depth',
+        description: 'More relevant content signals intent and earns rankings short pages cannot.',
+        icon: 'tabler:search',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="How to write one"
+    subtitle="Four steps from blank page to a long-form sales page that earns the click."
+    callToAction={{
+      text: 'Download the template',
+      href: 'https://github.com/arthelokyo/astrowind',
+    }}
+    items={[
+      {
+        title: 'Research the audience',
+        description:
+          'Interview five recent buyers. Capture their exact words for the problem, the turning point, and the result.',
+        icon: 'tabler:messages',
+      },
+      {
+        title: 'Draft the narrative arc',
+        description:
+          'Outline the page as hook, problem, solution, proof, offer, close. One idea per section, no filler.',
+        icon: 'tabler:list-numbers',
+      },
+      {
+        title: 'Assemble with existing widgets',
+        description:
+          'Drop in Hero, Content, Features, Stats, Testimonials, Pricing, FAQs, and CallToAction. Do not invent new components.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Measure and tighten',
+        description:
+          'Ship, watch scroll depth and CTA clicks, then cut the sections readers skip and expand the ones that convert.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+  />
+
+  <!-- Stats Widget ******************* -->
+
+  <Stats
+    title="Numbers from pages that do it well"
+    subtitle="Illustrative benchmarks for long-form sales pages against short-form equivalents. Your mileage will vary."
+    stats={[
+      { title: 'Conversion lift', amount: '+32%' },
+      { title: 'Time on page', amount: '2.4x' },
+      { title: 'Scroll depth', amount: '68%' },
+      { title: 'Return visits', amount: '+19%' },
+    ]}
+  />
+
+  <!-- Testimonials Widget ************ -->
+
+  <Testimonials
+    title="What teams say after switching"
+    subtitle="Three quick notes from marketing leads who swapped a short hero-only page for a long-form structure."
+    testimonials={[
+      {
+        testimonial:
+          'We stopped chasing tricks and let the page explain the product properly. Paid conversion went up the week we shipped it.',
+        name: 'Amelia Brooks',
+        job: 'Head of Growth',
+      },
+      {
+        testimonial:
+          'Sales stopped getting the same five questions on every call because the page finally answered them first.',
+        name: 'Marcus Chen',
+        job: 'Founder',
+      },
+      {
+        testimonial:
+          'The long page felt scary. Then we saw the scroll-depth numbers and realized readers wanted more, not less.',
+        name: 'Priya Shah',
+        job: 'Marketing Lead',
+      },
+    ]}
+  />
+
+  <!-- Pricing Widget ***************** -->
+
+  <Pricing
+    id="pricing"
+    title="Pick a plan"
+    subtitle="Demo pricing copy. Replace with your real offer and keep the same three-tier structure."
+    prices={[
+      {
+        title: 'Starter',
+        subtitle: 'For first-time buyers testing the fit',
+        price: '0',
+        period: '/ month',
+        items: [
+          { description: 'Core template access' },
+          { description: 'Community support' },
+          { description: 'Single-seat license' },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+      },
+      {
+        title: 'Pro',
+        subtitle: 'For teams ready to ship their long-form page',
+        price: '29',
+        period: '/ month',
+        items: [
+          { description: 'Everything in Starter' },
+          { description: 'Premium section variants' },
+          { description: 'Priority email support' },
+          { description: 'Team of up to 5 seats' },
+        ],
+        callToAction: {
+          text: 'Upgrade to Pro',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'Enterprise',
+        subtitle: 'For larger organizations with custom needs',
+        price: '99',
+        period: '/ month',
+        items: [
+          { description: 'Everything in Pro' },
+          { description: 'Dedicated onboarding' },
+          { description: 'SLAs and audit logs' },
+          { description: 'Unlimited seats' },
+        ],
+        callToAction: {
+          text: 'Contact sales',
+          href: '#',
+        },
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************** -->
+
+  <FAQs
+    title="Questions readers ask before they buy"
+    subtitle="Answer the real objections here. Generic placeholder questions waste the slot."
+    items={[
+      {
+        title: 'Is a long-form page not too much to read?',
+        description:
+          'Readers who are the right fit read every word. Readers who bounce at the fold were not going to buy a short version either. Length filters, it does not deter.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'When should I pick short-form instead?',
+        description:
+          'Low-commitment conversions, known brands, and transactional purchases. If the sale is impulse or the reader already knows the product, stay short.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How do I know which sections are working?',
+        description:
+          'Scroll-depth and section-level click tracking. Cut sections where readers drop off and expand sections where they linger or click.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do I need every widget on the page?',
+        description:
+          'No. Use the narrative arc as the spine: hook, problem, solution, proof, offer, close. Add widgets only where they advance the reader.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How long should the page actually be?',
+        description:
+          'Long enough to answer every objection a warm reader brings. That is usually 1,500 to 3,000 words, not an arbitrary number of pixels.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can I use this page for a product launch?',
+        description:
+          'Yes. Swap the testimonials for waitlist signups and the pricing for an email capture while you collect proof from early customers.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget ************ -->
+
   <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    title="Ship the page this week"
+    subtitle="Download the template, rewrite the copy, and publish. Every section you see above already lives in the repo."
     actions={[
       {
         variant: 'primary',
