@@ -28,7 +28,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       <label class="block">
         <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Buscar proyectos</span>
         <span class="relative block">
-          <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted" aria-hidden="true">
+          <span class="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-muted" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="7"></circle>
               <path d="m20 20-4-4"></path>
@@ -38,7 +38,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
             id="project-search"
             type="search"
             placeholder="Nombre, proyecto, país o supervisor"
-            class="w-full rounded-lg border border-slate-300 bg-white py-3 pl-10 pr-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+            class="w-full appearance-none rounded-lg border border-slate-300 bg-white py-3 pl-11 pr-3 text-default outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400"
           />
         </span>
       </label>
@@ -61,13 +61,11 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       <div class="overflow-x-auto">
         <table class="min-w-[1100px] w-full border-collapse text-left text-sm" aria-describedby="project-results">
           <caption class="sr-only">Registro de proyectos de investigación de Fondo Verde en América</caption>
-          <thead
-            class="bg-slate-100 text-xs uppercase tracking-wider text-slate-700 dark:bg-slate-800 dark:text-slate-200"
-          >
+          <thead class="bg-slate-900 text-xs uppercase tracking-wider text-white">
             <tr>
               <th scope="col" class="px-5 py-4">Nombre y apellidos</th>
-              <th scope="col" class="w-[30%] px-5 py-4">Proyecto de fin de máster (PFM)</th>
-              <th scope="col" class="px-5 py-4">Máster / MBA</th>
+              <th scope="col" class="w-[30%] px-5 py-4">Nombre del proyecto</th>
+              <th scope="col" class="px-5 py-4">Programa académico</th>
               <th scope="col" class="px-5 py-4">País y periodo de ejecución</th>
               <th scope="col" class="px-5 py-4">Becas / asociación</th>
               <th scope="col" class="px-5 py-4">Supervisión</th>
@@ -80,7 +78,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
                   data-project-row
                   data-search={`${project.student} ${project.project} ${project.program} ${project.location} ${project.association} ${project.supervision}`.toLocaleLowerCase()}
                   data-program={project.program}
-                  class="align-top text-muted transition hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/70"
+                  class="align-top text-muted transition-colors odd:bg-white even:bg-slate-50 hover:bg-primary/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800/70 dark:hover:bg-primary/20 dark:hover:text-white"
                 >
                   <td class="px-5 py-5 font-semibold text-default dark:text-white">{project.student}</td>
                   <td class="px-5 py-5 leading-relaxed">{project.project}</td>
