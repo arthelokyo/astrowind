@@ -37,8 +37,8 @@ const {
                     {...image}
                     />
                 )}
-                {/* Overlay gradient: Más oscuro en móviles para lectura, degradado suave en desktop */}
-                <div class="absolute inset-0 bg-slate-900/80 sm:bg-transparent sm:bg-gradient-to-r sm:from-slate-900 sm:via-slate-900/60 sm:to-slate-900/10 z-10"></div>
+                {/* Overlay: más claro en móviles y degradado suave en desktop */}
+                <div class="absolute inset-0 bg-slate-900/55 sm:bg-transparent sm:bg-gradient-to-r sm:from-slate-900 sm:via-slate-900/60 sm:to-slate-900/10 z-10"></div>
                 </div>
             )
             )}
@@ -48,7 +48,7 @@ const {
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-28 pb-16 md:pt-[120px]">
         <div class="text-left pb-1 max-w-4xl">
         {tagline && (
-            <div class="mb-6 flex items-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <div class="mb-6 flex items-center motion-safe:animate-fade">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-yellow-500 border border-orange-500/30 text-sm font-semibold tracking-wider uppercase">
                 <span class="relative flex h-2.5 w-2.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -60,19 +60,19 @@ const {
         )}
         {title && (
             <h1
-            class="text-4xl md:text-5xl lg:text-7xl font-bold leading-tighter tracking-tighter mb-6 font-heading text-white intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+            class="text-4xl md:text-5xl lg:text-7xl font-bold leading-tighter tracking-tighter mb-6 font-heading text-white motion-safe:animate-fade [animation-delay:100ms]"
             set:html={title}
             />
         )}
         <div class="max-w-2xl">
             {subtitle && (
             <p
-                class="text-lg md:text-xl text-gray-200 mb-8 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade font-medium leading-relaxed"
+                class="text-lg md:text-xl text-gray-200 mb-8 font-medium leading-relaxed motion-safe:animate-fade [animation-delay:200ms]"
                 set:html={subtitle}
             />
             )}
             {actions && (
-            <div class="flex flex-col sm:flex-row gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <div class="flex flex-col sm:flex-row gap-4 motion-safe:animate-fade [animation-delay:300ms]">
                 {Array.isArray(actions) ? (
                 actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
