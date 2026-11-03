@@ -1,0 +1,86 @@
+---
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Proyectos de Investigación Ambiental | Fondo Verde Institute',
+  description:
+    'Conoce los proyectos de fin de máster, proyectos terminales de maestría y proyectos de tesis doctorales de Fondo Verde Institute.',
+  keywords:
+    'proyectos ambientales, proyectos de fin de máster, PFM, proyectos terminales de maestría, PTM, tesis doctorales, PTD, Fondo Verde Institute',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Investigación"
+    image={{
+      src: '~/assets/images/fvi-proyectos-fondoverde.jpg',
+      alt: 'Proyecto de investigación ambiental de Fondo Verde Institute',
+    }}
+  >
+    <Fragment slot="title">
+      Proyectos
+      <span class="text-primary dark:text-accent"> Fondo Verde</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Una parte importante de la investigación en <strong>Fondo Verde Institute</strong> son los
+      <strong>Proyectos de Fin de Máster (PFM)</strong>, los
+      <strong>Proyectos Terminales de Maestría (PTM)</strong> y los
+      <strong>Proyectos de Tesis Doctorales (PTD)</strong>. Estos proyectos son realizados por los alumnos para
+      contribuir a que los países y la comunidad internacional respondan a sus necesidades en materia de desarrollo
+      sostenible.
+    </Fragment>
+  </Hero>
+
+  <Features
+    id="proyectos-investigacion"
+    tagline="Investigación medioambiental"
+    title="Proyectos por región"
+    subtitle="Consulta la información sobre los proyectos de investigación medioambiental desarrollados por nuestros alumnos."
+    columns={3}
+    classes={{
+      container: 'max-w-7xl',
+      items: {
+        panel:
+          'max-w-none w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-pageDark',
+        title: 'text-xl font-semibold dark:text-white',
+        description: 'dark:text-slate-300',
+        icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4',
+      },
+    }}
+    items={[
+      {
+        title: 'Proyectos en América',
+        description: 'Consulta los proyectos de investigación desarrollados en América.',
+        icon: 'tabler:world',
+        callToAction: {
+          text: 'Ver proyectos en América',
+          href: '/proyectos/america',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Proyectos en Asia',
+        description: 'Consulta los proyectos de investigación desarrollados en Asia.',
+        icon: 'tabler:world',
+        callToAction: {
+          text: 'Ver proyectos en Asia',
+          href: '/proyectos/asia',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Proyectos en Europa',
+        description: 'Consulta los proyectos de investigación desarrollados en Europa.',
+        icon: 'tabler:world',
+        callToAction: {
+          text: 'Ver proyectos en Europa',
+          href: '/proyectos/europa',
+          variant: 'link',
+        },
+      },
+    ]}
+  />
+</Layout>
