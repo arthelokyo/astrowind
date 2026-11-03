@@ -24,22 +24,22 @@ export const megaContent: Record<string, MegaContent> = {
   PostDoc: {
     label: 'PostDoc',
     description: 'Investigación avanzada para profesionales que convierten conocimiento en transformación.',
-    featureLabel: 'Investigación',
-    featureTitle: 'Una siguiente etapa para tu trayectoria',
+    featureLabel: 'Convocatoria 2026',
+    featureTitle: 'Conoce nuestros Programas de Postdoctorado',
     image: postdocImage,
   },
   PhD: {
     label: 'PhD',
     description: 'Programas doctorales para quienes investigan el cambio y sus posibilidades.',
-    featureLabel: 'Doctorados',
-    featureTitle: 'Investigar con perspectiva de futuro',
+    featureLabel: 'Convocatoria 2026',
+    featureTitle: 'Conoce nuestros Programas doctorales',
     image: phdImage,
   },
   Maestrías: {
     label: 'Maestrías',
     description: 'Formación de posgrado para transformar organizaciones y territorios.',
     featureLabel: 'Convocatoria 2026',
-    featureTitle: 'Maestría en Ciencias de la Sostenibilidad',
+    featureTitle: 'Conoce nuestros Programas de Maestrías',
     image: maestriaImage,
   },
   Diplomados: {
@@ -53,7 +53,7 @@ export const megaContent: Record<string, MegaContent> = {
     label: 'Proyectos',
     description: 'Iniciativas que convierten el conocimiento en soluciones sostenibles.',
     featureLabel: 'Impacto',
-    featureTitle: 'Conoce nuestros proyectos en América',
+    featureTitle: 'Conoce los proyectos de Fondo Verde Institute',
     image: instituteImage,
   },
 };
