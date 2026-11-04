@@ -61,7 +61,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       <div class="overflow-x-auto">
         <table class="min-w-[1100px] w-full border-collapse text-left text-sm" aria-describedby="project-results">
           <caption class="sr-only">Registro de proyectos de investigación de Fondo Verde en América</caption>
-          <thead class="bg-slate-900 text-xs uppercase tracking-wider text-white">
+          <thead class="bg-accent text-xs uppercase tracking-wider text-white">
             <tr>
               <th scope="col" class="px-5 py-4">Nombre y apellidos</th>
               <th scope="col" class="w-[30%] px-5 py-4">Nombre del proyecto</th>
@@ -78,11 +78,11 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
                   data-project-row
                   data-search={`${project.student} ${project.project} ${project.program} ${project.location} ${project.association} ${project.supervision}`.toLocaleLowerCase()}
                   data-program={project.program}
-                  class="align-top text-muted transition-colors odd:bg-white even:bg-slate-50 hover:bg-primary/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800/70 dark:hover:bg-primary/20 dark:hover:text-white"
+                  class="group align-top text-muted transition-colors odd:bg-white even:bg-slate-100 hover:bg-teal-500/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800 dark:hover:bg-teal-500/20 dark:hover:text-slate-200"
                 >
                   <td class="px-5 py-5 font-semibold text-default dark:text-white">{project.student}</td>
                   <td class="px-5 py-5 leading-relaxed">{project.project}</td>
-                  <td class="px-5 py-5">{project.program}</td>
+                  <td class="px-5 py-5 font-semibold text-primary dark:text-accent">{project.program}</td>
                   <td class="px-5 py-5">{project.location}</td>
                   <td class="px-5 py-5">{project.association}</td>
                   <td class="px-5 py-5">{project.supervision}</td>
