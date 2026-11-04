@@ -1,0 +1,173 @@
+---
+import type { AmericaProject } from '~/data/proyectos-america';
+
+interface Props {
+  projects: AmericaProject[];
+}
+
+const { projects } = Astro.props;
+const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b) => a.localeCompare(b));
+---
+
+<section id="registro-proyectos" class="bg-blue-50 dark:bg-pageDark">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mb-8 max-w-3xl">
+      <p class="text-sm font-bold uppercase tracking-wider text-secondary">Registro de proyectos</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight text-default dark:text-white md:text-4xl">
+        Proyectos de investigación en América
+      </h2>
+      <p class="mt-4 text-lg text-muted dark:text-slate-300">
+        Explora los proyectos por nombre, programa o ubicación. El listado se muestra en páginas para facilitar su
+        consulta a medida que se incorporen nuevos registros.
+      </p>
+    </div>
+
+    <div
+      class="mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900 md:grid-cols-[minmax(0,1fr)_minmax(16rem,24rem)]"
+    >
+      <label class="block">
+        <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Buscar proyectos</span>
+        <span class="relative block">
+          <span class="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-muted" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-4-4"></path>
+            </svg>
+          </span>
+          <input
+            id="project-search"
+            type="search"
+            placeholder="Nombre, proyecto, país o supervisor"
+            class="w-full appearance-none rounded-lg border border-slate-300 bg-white py-3 pl-11 pr-3 text-default outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400"
+          />
+        </span>
+      </label>
+
+      <label class="block">
+        <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Filtrar por programa</span>
+        <select
+          id="project-program"
+          class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+        >
+          <option value="">Todos los programas</option>
+          {programs.map((program) => <option value={program}>{program}</option>)}
+        </select>
+      </label>
+    </div>
+
+    <div
+      class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900"
+    >
+      <div class="overflow-x-auto">
+        <table class="min-w-[1100px] w-full border-collapse text-left text-sm" aria-describedby="project-results">
+          <caption class="sr-only">Registro de proyectos de investigación de Fondo Verde en América</caption>
+          <thead class="bg-accent text-xs uppercase tracking-wider text-white">
+            <tr>
+              <th scope="col" class="px-5 py-4">Nombre y apellidos</th>
+              <th scope="col" class="w-[30%] px-5 py-4">Nombre del proyecto</th>
+              <th scope="col" class="px-5 py-4">Programa académico</th>
+              <th scope="col" class="px-5 py-4">País y periodo de ejecución</th>
+              <th scope="col" class="px-5 py-4">Becas / asociación</th>
+              <th scope="col" class="px-5 py-4">Supervisión</th>
+            </tr>
+          </thead>
+          <tbody id="project-rows" class="divide-y divide-slate-200 dark:divide-slate-700">
+            {
+              projects.map((project) => (
+                <tr
+                  data-project-row
+                  data-search={`${project.student} ${project.project} ${project.program} ${project.location} ${project.association} ${project.supervision}`.toLocaleLowerCase()}
+                  data-program={project.program}
+                  class="group align-top text-muted transition-colors odd:bg-white even:bg-slate-100 hover:bg-teal-500/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800 dark:hover:bg-teal-500/20 dark:hover:text-slate-200"
+                >
+                  <td class="px-5 py-5 font-semibold text-default dark:text-white">{project.student}</td>
+                  <td class="px-5 py-5 leading-relaxed">{project.project}</td>
+                  <td class="px-5 py-5 font-semibold text-primary dark:text-accent">{project.program}</td>
+                  <td class="px-5 py-5">{project.location}</td>
+                  <td class="px-5 py-5">{project.association}</td>
+                  <td class="px-5 py-5">{project.supervision}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        class="flex flex-col gap-4 border-t border-slate-200 px-5 py-4 dark:border-slate-700 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p id="project-results" class="text-sm text-muted dark:text-slate-300" aria-live="polite"></p>
+        <nav id="project-pagination" class="flex flex-wrap gap-2" aria-label="Paginación de proyectos"></nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const searchInput = document.querySelector<HTMLInputElement>('#project-search');
+  const programSelect = document.querySelector<HTMLSelectElement>('#project-program');
+  const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('[data-project-row]'));
+  const results = document.querySelector<HTMLElement>('#project-results');
+  const pagination = document.querySelector<HTMLElement>('#project-pagination');
+  const pageSize = 10;
+  let currentPage = 1;
+
+  const getFilteredRows = () => {
+    const query = searchInput?.value.trim().toLocaleLowerCase() || '';
+    const program = programSelect?.value || '';
+
+    return rows.filter((row) => {
+      const matchesQuery = !query || row.dataset.search?.includes(query);
+      const matchesProgram = !program || row.dataset.program === program;
+      return matchesQuery && matchesProgram;
+    });
+  };
+
+  const render = () => {
+    const filteredRows = getFilteredRows();
+    const pageCount = Math.max(1, Math.ceil(filteredRows.length / pageSize));
+    currentPage = Math.min(currentPage, pageCount);
+    const firstRow = (currentPage - 1) * pageSize;
+    const visibleRows = new Set(filteredRows.slice(firstRow, firstRow + pageSize));
+
+    rows.forEach((row) => {
+      row.hidden = !visibleRows.has(row);
+    });
+
+    if (results) {
+      results.textContent = filteredRows.length
+        ? `Mostrando ${firstRow + 1}-${Math.min(firstRow + pageSize, filteredRows.length)} de ${filteredRows.length} proyectos`
+        : 'No se encontraron proyectos con esos criterios.';
+    }
+
+    if (pagination) {
+      pagination.replaceChildren();
+      for (let page = 1; page <= pageCount; page += 1) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = String(page);
+        button.setAttribute('aria-label', `Ir a la página ${page}`);
+        button.setAttribute('aria-current', page === currentPage ? 'page' : 'false');
+        button.className =
+          page === currentPage
+            ? 'rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white'
+            : 'rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-default hover:border-primary hover:text-primary dark:border-slate-600 dark:text-white';
+        button.addEventListener('click', () => {
+          currentPage = page;
+          render();
+        });
+        pagination.append(button);
+      }
+    }
+  };
+
+  searchInput?.addEventListener('input', () => {
+    currentPage = 1;
+    render();
+  });
+  programSelect?.addEventListener('change', () => {
+    currentPage = 1;
+    render();
+  });
+  render();
+</script>

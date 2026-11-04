@@ -1,0 +1,45 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import ProjectTable from '~/components/projects/ProjectTable.astro';
+import { americaProjects } from '~/data/proyectos-america';
+
+const metadata = {
+  title: 'Proyectos en América | Fondo Verde Institute',
+  description:
+    'Consulta los proyectos de investigación ambiental desarrollados por alumnos de Fondo Verde Institute en América.',
+  keywords:
+    'proyectos ambientales en América, proyectos de máster, PFM, Fondo Verde, investigación ambiental, sostenibilidad',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Proyectos de investigación"
+    image={{
+      src: '~/assets/images/fvi-proyectos-fondoverde.jpg',
+      alt: 'Proyectos de investigación ambiental de Fondo Verde en América',
+    }}
+  >
+    <Fragment slot="title">
+      Proyectos en
+      <span class="text-primary dark:text-accent"> América</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      La investigación de los alumnos de Fondo Verde cuenta con reconocimiento internacional y se nutre de la
+      vinculación y participación activa del claustro docente en entidades privadas, públicas y organizaciones de la
+      sociedad civil. Los alumnos son responsables de su implementación mediante consultas y visitas a terreno.
+    </Fragment>
+  </Hero>
+
+  <section class="mx-auto max-w-5xl px-4 pb-8 text-center sm:px-6 lg:px-8">
+    <p class="text-lg leading-relaxed text-muted dark:text-slate-300">
+      Las investigaciones derivan en <strong>Proyectos de Fin de Máster (PFM)</strong>,
+      <strong>Proyectos Terminales de Maestría (PTM)</strong> y
+      <strong>Proyectos de Tesis Doctorales (PTD)</strong>. Aquí encontrarás información general sobre los proyectos de
+      investigación ambiental de <strong>Fondo Verde</strong> en <strong>América</strong>.
+    </p>
+  </section>
+
+  <ProjectTable projects={americaProjects} />
+</Layout>
