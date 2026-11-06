@@ -279,6 +279,14 @@ Clone this repository on your own GitHub account and deploy it to Cloudflare Wor
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/arthelokyo/astrowind)
 
+#### Deploy on Deplo
+
+Copy this repository into your Git account and deploy it on your own [Deplo](https://deplo.build) instance:
+
+[![Deploy on Deplo](https://deplo.build/button.svg)](https://deplo.build/deploy?repo=https://github.com/arthelokyo/astrowind)
+
+Requires Deplo 0.8.2 or later. See the [deploy button guide](https://deplo.build/docs/guides/deploy/deploy-button) for details.
+
 <br>
 
 ## FAQ
