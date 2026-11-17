@@ -9,7 +9,29 @@ interface Props {
 }
 
 const { projects, region, showRegionColumn = false, showRegionFilter = false } = Astro.props;
-const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b) => a.localeCompare(b));
+const normalizeProgramName = (program: string) =>
+  program
+    .trim()
+    .toLocaleLowerCase('es')
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^\p{Letter}\p{Number}]+/gu, ' ')
+    .trim();
+
+const programAliases: Record<string, string> = {
+  [normalizeProgramName('Master en Energía Solar')]: 'Máster en Energía Solar',
+  [normalizeProgramName('M.B.A. en Negocios Ambientales')]: 'M.B.A en Negocios Ambientales',
+  [normalizeProgramName('Máster en Biomasa')]: 'Máster en Biomasa y Biocombustible',
+  [normalizeProgramName('Máster en Biomasa y Biocombustible')]: 'Máster en Biomasa y Biocombustible',
+};
+
+const getProgramGroup = (program: string) => programAliases[normalizeProgramName(program)] ?? program;
+const programOptions = new Map<string, string>();
+projects.forEach(({ program }) => {
+  const groupedProgram = getProgramGroup(program);
+  programOptions.set(normalizeProgramName(groupedProgram), groupedProgram);
+});
+const programs = [...programOptions.entries()].sort(([, first], [, second]) => first.localeCompare(second));
 const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
 ---
 
@@ -76,7 +98,7 @@ const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
           class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
         >
           <option value="">Todos los programas</option>
-          {programs.map((program) => <option value={program}>{program}</option>)}
+          {programs.map(([value, label]) => <option value={value}>{label}</option>)}
         </select>
       </label>
     </div>
@@ -115,7 +137,7 @@ const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
                 <tr
                   data-project-row
                   data-search={`${project.student} ${project.project} ${project.program} ${project.location} ${project.association} ${project.supervision}`.toLocaleLowerCase()}
-                  data-program={project.program}
+                  data-program={normalizeProgramName(getProgramGroup(project.program))}
                   data-region={'region' in project ? project.region : undefined}
                   class="group align-top text-muted transition-colors odd:bg-white even:bg-slate-100 hover:bg-teal-500/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800 dark:hover:bg-teal-500/20 dark:hover:text-slate-200"
                 >
