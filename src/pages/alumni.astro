@@ -15,6 +15,7 @@ const alumniCategories = [...new Set(alumniRecords.map(({ category }) => categor
   a.localeCompare(b, 'es')
 );
 const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a, b) => b - a);
+const sortedAlumniRecords = [...alumniRecords].sort((a, b) => b.year - a.year);
 ---
 
 <Layout metadata={metadata}>
@@ -24,16 +25,16 @@ const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a,
       <span class="text-primary dark:text-accent"> transformando el mundo</span>
     </Fragment>
     <Fragment slot="subtitle">
-      Quienes se han formado en <strong>Fondo Verde Institute</strong> comparten una misión: contribuir a la conservación
-      y protección del medio ambiente. Alumni es el vínculo que mantiene viva esa misión y conecta a graduados de distintas
-      generaciones y programas.
+      Quienes se han formado en <strong>Fondo Verde Institute</strong> comparten una misión:
+      <span class="font-semibold text-secondary"> contribuir a la conservación y protección del medio ambiente</span>. Alumni es el vínculo que mantiene
+      viva esa misión y conecta a graduados de distintas generaciones y programas.
     </Fragment>
   </Hero>
 
   <Features3
     tagline="Comunidad Alumni"
     title="Una misión compartida, sin fronteras"
-    subtitle="La comunidad Alumni representa el compromiso de Fondo Verde con la conservación y el desarrollo sostenible."
+    subtitle="La comunidad Alumni representa el compromiso de <strong>Fondo Verde</strong> con la conservación y el desarrollo sostenible."
     columns={3}
     items={[
       {
@@ -61,7 +62,7 @@ const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a,
     id="ventajas-alumni"
     tagline="Beneficios"
     title="Ventajas por ser Alumni"
-    subtitle="La web anterior de Fondo Verde recoge estos beneficios para sus egresados."
+    subtitle="Aquí encontrarás todos aquellos elementos tangibles e intangibles de los que puedes beneficiarte por ser Alumni de <strong>Fondo Verde</strong>."
     columns={2}
     items={[
       {
@@ -131,7 +132,7 @@ const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a,
 
       <ul id="alumni-records" class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {
-          alumniRecords.map((alumni) => (
+          sortedAlumniRecords.map((alumni) => (
             <li
               data-alumni-record
               data-name={alumni.name}
@@ -151,7 +152,7 @@ const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a,
               <h3 class="text-lg font-bold text-default dark:text-white">{alumni.name}</h3>
               <p class="mt-2 text-sm font-semibold text-primary dark:text-accent">{alumni.program}</p>
               <p class="mt-4 text-sm leading-relaxed text-muted dark:text-slate-300">
-                <strong class="font-semibold text-default dark:text-white">Proyecto:</strong> {alumni.project}
+                <strong class="font-semibold text-default dark:text-white">Proyecto:</strong> <em>{alumni.project}</em>
               </p>
             </li>
           ))
@@ -174,7 +175,7 @@ const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a,
           gestionará la solicitud y, si corresponde, se pondrá en contacto con la persona.
         </p>
         <a
-          href="/contact#form"
+          href="/contact"
           class="mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
           Contactar con el Instituto
