@@ -1,0 +1,271 @@
+---
+import Features from '~/components/widgets/Features.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { alumniRecords } from '~/data/alumni';
+
+const metadata = {
+  title: 'Alumni Fondo Verde',
+  description: 'Conoce la comunidad Alumni de Fondo Verde Institute, sus beneficios y los proyectos de sus graduados.',
+  keywords: 'Alumni Fondo Verde, graduados, egresados, proyectos ambientales, Máster, MBA, Fondo Verde Institute',
+};
+
+const alumniCategories = [...new Set(alumniRecords.map(({ category }) => category))].sort((a, b) =>
+  a.localeCompare(b, 'es')
+);
+const alumniYears = [...new Set(alumniRecords.map(({ year }) => year))].sort((a, b) => b - a);
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Alumni">
+    <Fragment slot="title">
+      Una comunidad que sigue
+      <span class="text-primary dark:text-accent"> transformando el mundo</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Quienes se han formado en <strong>Fondo Verde Institute</strong> comparten una misión: contribuir a la conservación
+      y protección del medio ambiente. Alumni es el vínculo que mantiene viva esa misión y conecta a graduados de distintas
+      generaciones y programas.
+    </Fragment>
+  </Hero>
+
+  <Features3
+    tagline="Comunidad Alumni"
+    title="Una misión compartida, sin fronteras"
+    subtitle="La comunidad Alumni representa el compromiso de Fondo Verde con la conservación y el desarrollo sostenible."
+    columns={3}
+    items={[
+      {
+        title: 'Un compromiso común',
+        description:
+          'Nuestros graduados comparten el propósito de contribuir a la conservación y protección del medio ambiente.',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Embajadores de Fondo Verde',
+        description:
+          'Cada Alumni lleva consigo el reto de difundir los valores y los fines fundacionales de Fondo Verde.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Una red internacional',
+        description:
+          'Inspirada en la naturaleza, la comunidad comparte el mensaje de Fondo Verde en distintos lugares del mundo.',
+        icon: 'tabler:world',
+      },
+    ]}
+  />
+
+  <Features
+    id="ventajas-alumni"
+    tagline="Beneficios"
+    title="Ventajas por ser Alumni"
+    subtitle="La web anterior de Fondo Verde recoge estos beneficios para sus egresados."
+    columns={2}
+    items={[
+      {
+        title: 'Descuentos en matrícula',
+        description:
+          'Descuentos de hasta un 10 % en los costes de matrícula, adicionales a la beca que Fondo Verde haya asignado.',
+        icon: 'tabler:discount-2',
+      },
+      {
+        title: 'Oportunidad de colaborar como tutor',
+        description:
+          'Los egresados con al menos tres años de experiencia en actividades relacionadas con su área pueden optar a incorporarse al claustro docente de Fondo Verde.',
+        icon: 'tabler:school',
+      },
+    ]}
+  />
+
+  <section id="directorio-alumni" class="bg-blue-50 dark:bg-pageDark">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mb-8 max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-secondary">Directorio</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-default dark:text-white md:text-4xl">
+          Graduados y sus proyectos
+        </h2>
+        <p class="mt-4 text-lg text-muted dark:text-slate-300">
+          Busca por nombre, programa o proyecto, y filtra por tipo de programa o año de graduación. El archivo histórico
+          disponible corresponde a Máster y MBA de 2012 a 2015. Incorporaremos graduados de Doctorados, Postdoctorados,
+          Maestrías y Diplomados a medida que recibamos y validemos esa información.
+        </p>
+      </div>
+
+      <div
+        class="mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900 md:grid-cols-[minmax(0,1fr)_minmax(12rem,16rem)_minmax(10rem,12rem)]"
+      >
+        <label class="block">
+          <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Buscar graduados</span>
+          <input
+            id="alumni-search"
+            type="search"
+            placeholder="Nombre, programa o proyecto"
+            class="w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400"
+          />
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Tipo de programa</span>
+          <select
+            id="alumni-category"
+            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          >
+            <option value="">Todos los programas</option>
+            {alumniCategories.map((category) => <option value={category}>{category}</option>)}
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Año de graduación</span>
+          <select
+            id="alumni-year"
+            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          >
+            <option value="">Todos los años</option>
+            {alumniYears.map((year) => <option value={year}>{year}</option>)}
+          </select>
+        </label>
+      </div>
+
+      <ul id="alumni-records" class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {
+          alumniRecords.map((alumni) => (
+            <li
+              data-alumni-record
+              data-name={alumni.name}
+              data-category={alumni.category}
+              data-year={alumni.year}
+              data-search={`${alumni.name} ${alumni.program} ${alumni.project}`}
+              class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+            >
+              <div class="mb-4 flex flex-wrap items-center gap-2">
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary dark:bg-primary/20 dark:text-accent">
+                  {alumni.category}
+                </span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-muted dark:bg-slate-800 dark:text-slate-300">
+                  {alumni.year}
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-default dark:text-white">{alumni.name}</h3>
+              <p class="mt-2 text-sm font-semibold text-primary dark:text-accent">{alumni.program}</p>
+              <p class="mt-4 text-sm leading-relaxed text-muted dark:text-slate-300">
+                <strong class="font-semibold text-default dark:text-white">Proyecto:</strong> {alumni.project}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div
+        class="mt-6 flex flex-col gap-4 border-t border-slate-200 pt-5 dark:border-slate-700 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p id="alumni-results" class="text-sm text-muted dark:text-slate-300" aria-live="polite">
+          {alumniRecords.length} graduados
+        </p>
+        <nav id="alumni-pagination" class="flex flex-wrap gap-2" aria-label="Paginación del directorio Alumni"></nav>
+      </div>
+
+      <div class="mt-10 rounded-2xl border border-primary/20 bg-white p-6 dark:bg-slate-900">
+        <h3 class="text-xl font-bold text-default dark:text-white">¿Quieres más información?</h3>
+        <p class="mt-2 text-muted dark:text-slate-300">
+          En el formulario de contacto, indica el nombre del graduado o del proyecto que te interesa. El Instituto
+          gestionará la solicitud y, si corresponde, se pondrá en contacto con la persona.
+        </p>
+        <a
+          href="/contact#form"
+          class="mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        >
+          Contactar con el Instituto
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const searchInput = document.querySelector<HTMLInputElement>('#alumni-search');
+    const categorySelect = document.querySelector<HTMLSelectElement>('#alumni-category');
+    const yearSelect = document.querySelector<HTMLSelectElement>('#alumni-year');
+    const records = Array.from(document.querySelectorAll<HTMLLIElement>('[data-alumni-record]'));
+    const results = document.querySelector<HTMLElement>('#alumni-results');
+    const pagination = document.querySelector<HTMLElement>('#alumni-pagination');
+    const pageSize = 12;
+    let currentPage = 1;
+
+    const normalize = (value: string) =>
+      value
+        .trim()
+        .toLocaleLowerCase('es')
+        .normalize('NFD')
+        .replace(/\p{Diacritic}/gu, '');
+
+    const getFilteredRecords = () => {
+      const query = normalize(searchInput?.value ?? '');
+      const category = categorySelect?.value ?? '';
+      const year = yearSelect?.value ?? '';
+
+      return records.filter((record) => {
+        const matchesQuery = !query || normalize(record.dataset.search ?? '').includes(query);
+        const matchesCategory = !category || record.dataset.category === category;
+        const matchesYear = !year || record.dataset.year === year;
+        return matchesQuery && matchesCategory && matchesYear;
+      });
+    };
+
+    const render = () => {
+      const filteredRecords = getFilteredRecords();
+      const pageCount = Math.max(1, Math.ceil(filteredRecords.length / pageSize));
+      currentPage = Math.min(currentPage, pageCount);
+      const firstRecord = (currentPage - 1) * pageSize;
+      const visibleRecords = new Set(filteredRecords.slice(firstRecord, firstRecord + pageSize));
+
+      records.forEach((record) => {
+        const isVisible = visibleRecords.has(record);
+        record.hidden = !isVisible;
+        record.classList.toggle('hidden', !isVisible);
+      });
+
+      if (results) {
+        results.textContent = filteredRecords.length
+          ? `Mostrando ${firstRecord + 1}-${Math.min(firstRecord + pageSize, filteredRecords.length)} de ${filteredRecords.length} graduados`
+          : 'No se encontraron graduados con esos criterios.';
+      }
+
+      if (pagination) {
+        pagination.replaceChildren();
+        for (let page = 1; page <= pageCount; page += 1) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = String(page);
+          button.setAttribute('aria-label', `Ir a la página ${page}`);
+          if (page === currentPage) {
+            button.setAttribute('aria-current', 'page');
+          }
+          button.className =
+            page === currentPage
+              ? 'rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white'
+              : 'rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-default hover:border-primary hover:text-primary dark:border-slate-600 dark:text-white';
+          button.addEventListener('click', () => {
+            currentPage = page;
+            render();
+          });
+          pagination.append(button);
+        }
+      }
+    };
+
+    const resetAndRender = () => {
+      currentPage = 1;
+      render();
+    };
+
+    searchInput?.addEventListener('input', resetAndRender);
+    categorySelect?.addEventListener('change', resetAndRender);
+    yearSelect?.addEventListener('change', resetAndRender);
+    render();
+  });
+</script>
