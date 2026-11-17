@@ -158,14 +158,10 @@ const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
       let currentPage = 1;
 
       if (regionSelect) {
-        const regionSlugs: Record<string, 'América' | 'Asia' | 'Europa'> = {
-          america: 'América',
-          asia: 'Asia',
-          europa: 'Europa',
-        };
-        const queryRegion = new URLSearchParams(window.location.search).get('region');
-        if (queryRegion && regionSlugs[queryRegion.toLocaleLowerCase()]) {
-          regionSelect.value = regionSlugs[queryRegion.toLocaleLowerCase()];
+        const url = new URL(window.location.href);
+        if (url.searchParams.has('region')) {
+          url.searchParams.delete('region');
+          window.history.replaceState({}, '', url);
         }
       }
 
@@ -239,22 +235,7 @@ const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
 
       searchInput?.addEventListener('input', resetAndRender);
       programSelect?.addEventListener('change', resetAndRender);
-      regionSelect?.addEventListener('change', () => {
-        const slugByRegion: Record<'América' | 'Asia' | 'Europa', string> = {
-          América: 'america',
-          Asia: 'asia',
-          Europa: 'europa',
-        };
-        const selectedRegion = regionSelect.value as 'América' | 'Asia' | 'Europa';
-        const url = new URL(window.location.href);
-        if (selectedRegion) {
-          url.searchParams.set('region', slugByRegion[selectedRegion]);
-        } else {
-          url.searchParams.delete('region');
-        }
-        window.history.replaceState({}, '', url);
-        resetAndRender();
-      });
+      regionSelect?.addEventListener('change', resetAndRender);
       render();
     });
   });
