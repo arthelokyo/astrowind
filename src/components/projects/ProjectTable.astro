@@ -1,13 +1,16 @@
 ---
-import type { ProjectRecord } from '~/data/proyectos-america';
+import type { ProjectRegion, ProjectRecord } from '~/data/proyectos-america';
 
 interface Props {
   projects: ProjectRecord[];
-  region: string;
+  region: ProjectRegion | 'Todas las regiones';
+  showRegionColumn?: boolean;
+  showRegionFilter?: boolean;
 }
 
-const { projects, region } = Astro.props;
+const { projects, region, showRegionColumn = false, showRegionFilter = false } = Astro.props;
 const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b) => a.localeCompare(b));
+const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
 ---
 
 <section id="registro-proyectos" data-project-table class="bg-blue-50 dark:bg-pageDark">
@@ -24,7 +27,12 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
     </div>
 
     <div
-      class="mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900 md:grid-cols-[minmax(0,1fr)_minmax(16rem,24rem)]"
+      class:list={[
+        'mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900',
+        showRegionFilter
+          ? 'md:grid-cols-[minmax(0,1fr)_minmax(12rem,16rem)_minmax(16rem,24rem)]'
+          : 'md:grid-cols-[minmax(0,1fr)_minmax(16rem,24rem)]',
+      ]}
     >
       <label class="block">
         <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Buscar proyectos</span>
@@ -44,6 +52,23 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
         </span>
       </label>
 
+      {
+        showRegionFilter && (
+          <label class="block">
+            <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Filtrar por región</span>
+            <select
+              data-project-region
+              class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+            >
+              <option value="">Todas las regiones</option>
+              {regions.map((projectRegion) => (
+                <option value={projectRegion}>{projectRegion}</option>
+              ))}
+            </select>
+          </label>
+        )
+      }
+
       <label class="block">
         <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Filtrar por programa</span>
         <select
@@ -60,13 +85,25 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900"
     >
       <div class="overflow-x-auto">
-        <table class="min-w-[1100px] w-full border-collapse text-left text-sm">
+        <table
+          class:list={[
+            'w-full border-collapse text-left text-sm',
+            showRegionColumn ? 'min-w-[1200px]' : 'min-w-[1100px]',
+          ]}
+        >
           <caption class="sr-only">Registro de proyectos de investigación de Fondo Verde en {region}</caption>
           <thead class="bg-accent text-xs uppercase tracking-wider text-white">
             <tr>
               <th scope="col" class="px-5 py-4">Nombre y apellidos</th>
               <th scope="col" class="w-[30%] px-5 py-4">Nombre del proyecto</th>
               <th scope="col" class="px-5 py-4">Programa académico</th>
+              {
+                showRegionColumn && (
+                  <th scope="col" class="px-5 py-4">
+                    Región
+                  </th>
+                )
+              }
               <th scope="col" class="px-5 py-4">País y periodo de ejecución</th>
               <th scope="col" class="px-5 py-4">Becas / asociación</th>
               <th scope="col" class="px-5 py-4">Supervisión</th>
@@ -79,11 +116,15 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
                   data-project-row
                   data-search={`${project.student} ${project.project} ${project.program} ${project.location} ${project.association} ${project.supervision}`.toLocaleLowerCase()}
                   data-program={project.program}
+                  data-region={'region' in project ? project.region : undefined}
                   class="group align-top text-muted transition-colors odd:bg-white even:bg-slate-100 hover:bg-teal-500/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800 dark:hover:bg-teal-500/20 dark:hover:text-slate-200"
                 >
                   <td class="px-5 py-5 font-semibold text-default dark:text-white">{project.student}</td>
                   <td class="px-5 py-5 leading-relaxed">{project.project}</td>
                   <td class="px-5 py-5 font-semibold text-primary dark:text-accent">{project.program}</td>
+                  {showRegionColumn && (
+                    <td class="px-5 py-5 font-semibold text-secondary">{'region' in project ? project.region : ''}</td>
+                  )}
                   <td class="px-5 py-5">{project.location}</td>
                   <td class="px-5 py-5">{project.association}</td>
                   <td class="px-5 py-5">{project.supervision}</td>
@@ -109,11 +150,24 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
     document.querySelectorAll<HTMLElement>('[data-project-table]').forEach((tableRoot) => {
       const searchInput = tableRoot.querySelector<HTMLInputElement>('[data-project-search]');
       const programSelect = tableRoot.querySelector<HTMLSelectElement>('[data-project-program]');
+      const regionSelect = tableRoot.querySelector<HTMLSelectElement>('[data-project-region]');
       const rows = Array.from(tableRoot.querySelectorAll<HTMLTableRowElement>('[data-project-row]'));
       const results = tableRoot.querySelector<HTMLElement>('[data-project-results]');
       const pagination = tableRoot.querySelector<HTMLElement>('[data-project-pagination]');
       const pageSize = 10;
       let currentPage = 1;
+
+      if (regionSelect) {
+        const regionSlugs: Record<string, 'América' | 'Asia' | 'Europa'> = {
+          america: 'América',
+          asia: 'Asia',
+          europa: 'Europa',
+        };
+        const queryRegion = new URLSearchParams(window.location.search).get('region');
+        if (queryRegion && regionSlugs[queryRegion.toLocaleLowerCase()]) {
+          regionSelect.value = regionSlugs[queryRegion.toLocaleLowerCase()];
+        }
+      }
 
       const normalize = (value: string) =>
         value
@@ -125,11 +179,13 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       const getFilteredRows = () => {
         const query = normalize(searchInput?.value ?? '');
         const program = programSelect?.value ?? '';
+        const selectedRegion = regionSelect?.value ?? '';
 
         return rows.filter((row) => {
           const matchesQuery = !query || normalize(row.dataset.search ?? '').includes(query);
           const matchesProgram = !program || row.dataset.program === program;
-          return matchesQuery && matchesProgram;
+          const matchesRegion = !selectedRegion || row.dataset.region === selectedRegion;
+          return matchesQuery && matchesProgram && matchesRegion;
         });
       };
 
@@ -183,6 +239,22 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
 
       searchInput?.addEventListener('input', resetAndRender);
       programSelect?.addEventListener('change', resetAndRender);
+      regionSelect?.addEventListener('change', () => {
+        const slugByRegion: Record<'América' | 'Asia' | 'Europa', string> = {
+          América: 'america',
+          Asia: 'asia',
+          Europa: 'europa',
+        };
+        const selectedRegion = regionSelect.value as 'América' | 'Asia' | 'Europa';
+        const url = new URL(window.location.href);
+        if (selectedRegion) {
+          url.searchParams.set('region', slugByRegion[selectedRegion]);
+        } else {
+          url.searchParams.delete('region');
+        }
+        window.history.replaceState({}, '', url);
+        resetAndRender();
+      });
       render();
     });
   });

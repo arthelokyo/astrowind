@@ -7,6 +7,12 @@ export interface ProjectRecord {
   supervision: string;
 }
 
+export type ProjectRegion = 'América' | 'Asia' | 'Europa';
+
+export type RegionalProject = ProjectRecord & {
+  region: ProjectRegion;
+};
+
 export const americaProjects: ProjectRecord[] = [
   {
     student: 'Mari Pili Mesa',

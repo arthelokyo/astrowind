@@ -2,6 +2,17 @@
 import Features from '~/components/widgets/Features.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import ProjectTable from '~/components/projects/ProjectTable.astro';
+import { americaProjects } from '~/data/proyectos-america';
+import { asiaProjects } from '~/data/proyectos-asia';
+import { europaProjects } from '~/data/proyectos-europa';
+import type { RegionalProject } from '~/data/proyectos-america';
+
+const allProjects: RegionalProject[] = [
+  ...americaProjects.map((project) => ({ ...project, region: 'América' as const })),
+  ...asiaProjects.map((project) => ({ ...project, region: 'Asia' as const })),
+  ...europaProjects.map((project) => ({ ...project, region: 'Europa' as const })),
+];
 
 const metadata = {
   title: 'Proyectos de Investigación Ambiental',
@@ -85,4 +96,6 @@ const metadata = {
       },
     ]}
   />
+
+  <ProjectTable projects={allProjects} region="Todas las regiones" showRegionColumn showRegionFilter />
 </Layout>
