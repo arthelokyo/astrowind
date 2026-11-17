@@ -1,4 +1,4 @@
-export interface AmericaProject {
+export interface ProjectRecord {
   student: string;
   project: string;
   program: string;
@@ -7,7 +7,7 @@ export interface AmericaProject {
   supervision: string;
 }
 
-export const americaProjects: AmericaProject[] = [
+export const americaProjects: ProjectRecord[] = [
   {
     student: 'Mari Pili Mesa',
     project:

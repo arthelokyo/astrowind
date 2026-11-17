@@ -1,8 +1,8 @@
 ---
-import type { AmericaProject } from '~/data/proyectos-america';
+import type { ProjectRecord } from '~/data/proyectos-america';
 
 interface Props {
-  projects: AmericaProject[];
+  projects: ProjectRecord[];
   region: string;
 }
 
@@ -10,7 +10,7 @@ const { projects, region } = Astro.props;
 const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b) => a.localeCompare(b));
 ---
 
-<section id="registro-proyectos" class="bg-blue-50 dark:bg-pageDark">
+<section id="registro-proyectos" data-project-table class="bg-blue-50 dark:bg-pageDark">
   <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="mb-8 max-w-3xl">
       <p class="text-sm font-bold uppercase tracking-wider text-secondary">Registro de proyectos</p>
@@ -36,7 +36,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
             </svg>
           </span>
           <input
-            id="project-search"
+            data-project-search
             type="search"
             placeholder="Nombre, proyecto, país o supervisor"
             class="w-full appearance-none rounded-lg border border-slate-300 bg-white py-3 pl-11 pr-3 text-default outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400"
@@ -47,7 +47,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       <label class="block">
         <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Filtrar por programa</span>
         <select
-          id="project-program"
+          data-project-program
           class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
         >
           <option value="">Todos los programas</option>
@@ -60,7 +60,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900"
     >
       <div class="overflow-x-auto">
-        <table class="min-w-[1100px] w-full border-collapse text-left text-sm" aria-describedby="project-results">
+        <table class="min-w-[1100px] w-full border-collapse text-left text-sm">
           <caption class="sr-only">Registro de proyectos de investigación de Fondo Verde en {region}</caption>
           <thead class="bg-accent text-xs uppercase tracking-wider text-white">
             <tr>
@@ -97,8 +97,8 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       <div
         class="flex flex-col gap-4 border-t border-slate-200 px-5 py-4 dark:border-slate-700 sm:flex-row sm:items-center sm:justify-between"
       >
-        <p id="project-results" class="text-sm text-muted dark:text-slate-300" aria-live="polite"></p>
-        <nav id="project-pagination" class="flex flex-wrap gap-2" aria-label="Paginación de proyectos"></nav>
+        <p data-project-results class="text-sm text-muted dark:text-slate-300" aria-live="polite"></p>
+        <nav data-project-pagination class="flex flex-wrap gap-2" aria-label="Paginación de proyectos"></nav>
       </div>
     </div>
   </div>
@@ -106,71 +106,84 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    const searchInput = document.querySelector<HTMLInputElement>('#project-search');
-    const programSelect = document.querySelector<HTMLSelectElement>('#project-program');
-    const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('[data-project-row]'));
-    const results = document.querySelector<HTMLElement>('#project-results');
-    const pagination = document.querySelector<HTMLElement>('#project-pagination');
-    const pageSize = 10;
-    let currentPage = 1;
+    document.querySelectorAll<HTMLElement>('[data-project-table]').forEach((tableRoot) => {
+      const searchInput = tableRoot.querySelector<HTMLInputElement>('[data-project-search]');
+      const programSelect = tableRoot.querySelector<HTMLSelectElement>('[data-project-program]');
+      const rows = Array.from(tableRoot.querySelectorAll<HTMLTableRowElement>('[data-project-row]'));
+      const results = tableRoot.querySelector<HTMLElement>('[data-project-results]');
+      const pagination = tableRoot.querySelector<HTMLElement>('[data-project-pagination]');
+      const pageSize = 10;
+      let currentPage = 1;
 
-    const getFilteredRows = () => {
-      const query = searchInput?.value.trim().toLocaleLowerCase() || '';
-      const program = programSelect?.value || '';
+      const normalize = (value: string) =>
+        value
+          .trim()
+          .toLocaleLowerCase('es')
+          .normalize('NFD')
+          .replace(/\p{Diacritic}/gu, '');
 
-      return rows.filter((row) => {
-        const matchesQuery = !query || row.dataset.search?.includes(query);
-        const matchesProgram = !program || row.dataset.program === program;
-        return matchesQuery && matchesProgram;
-      });
-    };
+      const getFilteredRows = () => {
+        const query = normalize(searchInput?.value ?? '');
+        const program = programSelect?.value ?? '';
 
-    const render = () => {
-      const filteredRows = getFilteredRows();
-      const pageCount = Math.max(1, Math.ceil(filteredRows.length / pageSize));
-      currentPage = Math.min(currentPage, pageCount);
-      const firstRow = (currentPage - 1) * pageSize;
-      const visibleRows = new Set(filteredRows.slice(firstRow, firstRow + pageSize));
+        return rows.filter((row) => {
+          const matchesQuery = !query || normalize(row.dataset.search ?? '').includes(query);
+          const matchesProgram = !program || row.dataset.program === program;
+          return matchesQuery && matchesProgram;
+        });
+      };
 
-      rows.forEach((row) => {
-        row.hidden = !visibleRows.has(row);
-      });
+      const render = () => {
+        const filteredRows = getFilteredRows();
+        const pageCount = Math.ceil(filteredRows.length / pageSize);
+        currentPage = Math.min(currentPage, Math.max(1, pageCount));
+        const firstRow = (currentPage - 1) * pageSize;
+        const visibleRows = new Set(filteredRows.slice(firstRow, firstRow + pageSize));
 
-      if (results) {
-        results.textContent = filteredRows.length
-          ? `Mostrando ${firstRow + 1}-${Math.min(firstRow + pageSize, filteredRows.length)} de ${filteredRows.length} proyectos`
-          : 'No se encontraron proyectos con esos criterios.';
-      }
+        rows.forEach((row) => {
+          row.hidden = !visibleRows.has(row);
+        });
 
-      if (pagination) {
-        pagination.replaceChildren();
-        for (let page = 1; page <= pageCount; page += 1) {
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = String(page);
-          button.setAttribute('aria-label', `Ir a la página ${page}`);
-          button.setAttribute('aria-current', page === currentPage ? 'page' : 'false');
-          button.className =
-            page === currentPage
-              ? 'rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white'
-              : 'rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-default hover:border-primary hover:text-primary dark:border-slate-600 dark:text-white';
-          button.addEventListener('click', () => {
-            currentPage = page;
-            render();
-          });
-          pagination.append(button);
+        if (results) {
+          results.textContent = filteredRows.length
+            ? `Mostrando ${firstRow + 1}-${Math.min(firstRow + pageSize, filteredRows.length)} de ${filteredRows.length} proyectos`
+            : 'No se encontraron proyectos con esos criterios.';
         }
-      }
-    };
 
-    searchInput?.addEventListener('input', () => {
-      currentPage = 1;
+        if (pagination) {
+          pagination.replaceChildren();
+          pagination.hidden = pageCount <= 1;
+
+          for (let page = 1; page <= pageCount; page += 1) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = String(page);
+            button.setAttribute('aria-label', `Ir a la página ${page}`);
+            if (page === currentPage) {
+              button.setAttribute('aria-current', 'page');
+            }
+            button.className =
+              page === currentPage
+                ? 'rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white'
+                : 'rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-default hover:border-primary hover:text-primary dark:border-slate-600 dark:text-white';
+            button.addEventListener('click', () => {
+              currentPage = page;
+              render();
+              tableRoot.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            pagination.append(button);
+          }
+        }
+      };
+
+      const resetAndRender = () => {
+        currentPage = 1;
+        render();
+      };
+
+      searchInput?.addEventListener('input', resetAndRender);
+      programSelect?.addEventListener('change', resetAndRender);
       render();
     });
-    programSelect?.addEventListener('change', () => {
-      currentPage = 1;
-      render();
-    });
-    render();
   });
 </script>
