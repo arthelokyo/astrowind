@@ -1,16 +1,41 @@
 ---
-import type { AmericaProject } from '~/data/proyectos-america';
+import type { ProjectRegion, ProjectRecord } from '~/data/proyectos-america';
 
 interface Props {
-  projects: AmericaProject[];
-  region: string;
+  projects: ProjectRecord[];
+  region: ProjectRegion | 'Todas las regiones';
+  showRegionColumn?: boolean;
+  showRegionFilter?: boolean;
 }
 
-const { projects, region } = Astro.props;
-const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b) => a.localeCompare(b));
+const { projects, region, showRegionColumn = false, showRegionFilter = false } = Astro.props;
+const normalizeProgramName = (program: string) =>
+  program
+    .trim()
+    .toLocaleLowerCase('es')
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^\p{Letter}\p{Number}]+/gu, ' ')
+    .trim();
+
+const programAliases: Record<string, string> = {
+  [normalizeProgramName('Master en Energía Solar')]: 'Máster en Energía Solar',
+  [normalizeProgramName('M.B.A. en Negocios Ambientales')]: 'M.B.A en Negocios Ambientales',
+  [normalizeProgramName('Máster en Biomasa')]: 'Máster en Biomasa y Biocombustible',
+  [normalizeProgramName('Máster en Biomasa y Biocombustible')]: 'Máster en Biomasa y Biocombustible',
+};
+
+const getProgramGroup = (program: string) => programAliases[normalizeProgramName(program)] ?? program;
+const programOptions = new Map<string, string>();
+projects.forEach(({ program }) => {
+  const groupedProgram = getProgramGroup(program);
+  programOptions.set(normalizeProgramName(groupedProgram), groupedProgram);
+});
+const programs = [...programOptions.entries()].sort(([, first], [, second]) => first.localeCompare(second));
+const regions: ProjectRegion[] = ['América', 'Asia', 'Europa'];
 ---
 
-<section id="registro-proyectos" class="bg-blue-50 dark:bg-pageDark">
+<section id="registro-proyectos" data-project-table class="bg-blue-50 dark:bg-pageDark">
   <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="mb-8 max-w-3xl">
       <p class="text-sm font-bold uppercase tracking-wider text-secondary">Registro de proyectos</p>
@@ -24,7 +49,12 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
     </div>
 
     <div
-      class="mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900 md:grid-cols-[minmax(0,1fr)_minmax(16rem,24rem)]"
+      class:list={[
+        'mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900',
+        showRegionFilter
+          ? 'md:grid-cols-[minmax(0,1fr)_minmax(12rem,16rem)_minmax(16rem,24rem)]'
+          : 'md:grid-cols-[minmax(0,1fr)_minmax(16rem,24rem)]',
+      ]}
     >
       <label class="block">
         <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Buscar proyectos</span>
@@ -36,7 +66,7 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
             </svg>
           </span>
           <input
-            id="project-search"
+            data-project-search
             type="search"
             placeholder="Nombre, proyecto, país o supervisor"
             class="w-full appearance-none rounded-lg border border-slate-300 bg-white py-3 pl-11 pr-3 text-default outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400"
@@ -44,14 +74,31 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
         </span>
       </label>
 
+      {
+        showRegionFilter && (
+          <label class="block">
+            <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Filtrar por región</span>
+            <select
+              data-project-region
+              class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+            >
+              <option value="">Todas las regiones</option>
+              {regions.map((projectRegion) => (
+                <option value={projectRegion}>{projectRegion}</option>
+              ))}
+            </select>
+          </label>
+        )
+      }
+
       <label class="block">
         <span class="mb-2 block text-sm font-semibold text-default dark:text-white">Filtrar por programa</span>
         <select
-          id="project-program"
+          data-project-program
           class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-default outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
         >
           <option value="">Todos los programas</option>
-          {programs.map((program) => <option value={program}>{program}</option>)}
+          {programs.map(([value, label]) => <option value={value}>{label}</option>)}
         </select>
       </label>
     </div>
@@ -60,13 +107,25 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900"
     >
       <div class="overflow-x-auto">
-        <table class="min-w-[1100px] w-full border-collapse text-left text-sm" aria-describedby="project-results">
+        <table
+          class:list={[
+            'w-full border-collapse text-left text-sm',
+            showRegionColumn ? 'min-w-[1200px]' : 'min-w-[1100px]',
+          ]}
+        >
           <caption class="sr-only">Registro de proyectos de investigación de Fondo Verde en {region}</caption>
           <thead class="bg-accent text-xs uppercase tracking-wider text-white">
             <tr>
               <th scope="col" class="px-5 py-4">Nombre y apellidos</th>
               <th scope="col" class="w-[30%] px-5 py-4">Nombre del proyecto</th>
               <th scope="col" class="px-5 py-4">Programa académico</th>
+              {
+                showRegionColumn && (
+                  <th scope="col" class="px-5 py-4">
+                    Región
+                  </th>
+                )
+              }
               <th scope="col" class="px-5 py-4">País y periodo de ejecución</th>
               <th scope="col" class="px-5 py-4">Becas / asociación</th>
               <th scope="col" class="px-5 py-4">Supervisión</th>
@@ -78,12 +137,16 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
                 <tr
                   data-project-row
                   data-search={`${project.student} ${project.project} ${project.program} ${project.location} ${project.association} ${project.supervision}`.toLocaleLowerCase()}
-                  data-program={project.program}
+                  data-program={normalizeProgramName(getProgramGroup(project.program))}
+                  data-region={'region' in project ? project.region : undefined}
                   class="group align-top text-muted transition-colors odd:bg-white even:bg-slate-100 hover:bg-teal-500/10 hover:text-default dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800 dark:hover:bg-teal-500/20 dark:hover:text-slate-200"
                 >
                   <td class="px-5 py-5 font-semibold text-default dark:text-white">{project.student}</td>
                   <td class="px-5 py-5 leading-relaxed">{project.project}</td>
                   <td class="px-5 py-5 font-semibold text-primary dark:text-accent">{project.program}</td>
+                  {showRegionColumn && (
+                    <td class="px-5 py-5 font-semibold text-secondary">{'region' in project ? project.region : ''}</td>
+                  )}
                   <td class="px-5 py-5">{project.location}</td>
                   <td class="px-5 py-5">{project.association}</td>
                   <td class="px-5 py-5">{project.supervision}</td>
@@ -97,8 +160,8 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
       <div
         class="flex flex-col gap-4 border-t border-slate-200 px-5 py-4 dark:border-slate-700 sm:flex-row sm:items-center sm:justify-between"
       >
-        <p id="project-results" class="text-sm text-muted dark:text-slate-300" aria-live="polite"></p>
-        <nav id="project-pagination" class="flex flex-wrap gap-2" aria-label="Paginación de proyectos"></nav>
+        <p data-project-results class="text-sm text-muted dark:text-slate-300" aria-live="polite"></p>
+        <nav data-project-pagination class="flex flex-wrap gap-2" aria-label="Paginación de proyectos"></nav>
       </div>
     </div>
   </div>
@@ -106,71 +169,96 @@ const programs = [...new Set(projects.map(({ program }) => program))].sort((a, b
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    const searchInput = document.querySelector<HTMLInputElement>('#project-search');
-    const programSelect = document.querySelector<HTMLSelectElement>('#project-program');
-    const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('[data-project-row]'));
-    const results = document.querySelector<HTMLElement>('#project-results');
-    const pagination = document.querySelector<HTMLElement>('#project-pagination');
-    const pageSize = 10;
-    let currentPage = 1;
+    document.querySelectorAll<HTMLElement>('[data-project-table]').forEach((tableRoot) => {
+      const searchInput = tableRoot.querySelector<HTMLInputElement>('[data-project-search]');
+      const programSelect = tableRoot.querySelector<HTMLSelectElement>('[data-project-program]');
+      const regionSelect = tableRoot.querySelector<HTMLSelectElement>('[data-project-region]');
+      const rows = Array.from(tableRoot.querySelectorAll<HTMLTableRowElement>('[data-project-row]'));
+      const results = tableRoot.querySelector<HTMLElement>('[data-project-results]');
+      const pagination = tableRoot.querySelector<HTMLElement>('[data-project-pagination]');
+      const pageSize = 10;
+      let currentPage = 1;
 
-    const getFilteredRows = () => {
-      const query = searchInput?.value.trim().toLocaleLowerCase() || '';
-      const program = programSelect?.value || '';
-
-      return rows.filter((row) => {
-        const matchesQuery = !query || row.dataset.search?.includes(query);
-        const matchesProgram = !program || row.dataset.program === program;
-        return matchesQuery && matchesProgram;
-      });
-    };
-
-    const render = () => {
-      const filteredRows = getFilteredRows();
-      const pageCount = Math.max(1, Math.ceil(filteredRows.length / pageSize));
-      currentPage = Math.min(currentPage, pageCount);
-      const firstRow = (currentPage - 1) * pageSize;
-      const visibleRows = new Set(filteredRows.slice(firstRow, firstRow + pageSize));
-
-      rows.forEach((row) => {
-        row.hidden = !visibleRows.has(row);
-      });
-
-      if (results) {
-        results.textContent = filteredRows.length
-          ? `Mostrando ${firstRow + 1}-${Math.min(firstRow + pageSize, filteredRows.length)} de ${filteredRows.length} proyectos`
-          : 'No se encontraron proyectos con esos criterios.';
-      }
-
-      if (pagination) {
-        pagination.replaceChildren();
-        for (let page = 1; page <= pageCount; page += 1) {
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = String(page);
-          button.setAttribute('aria-label', `Ir a la página ${page}`);
-          button.setAttribute('aria-current', page === currentPage ? 'page' : 'false');
-          button.className =
-            page === currentPage
-              ? 'rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white'
-              : 'rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-default hover:border-primary hover:text-primary dark:border-slate-600 dark:text-white';
-          button.addEventListener('click', () => {
-            currentPage = page;
-            render();
-          });
-          pagination.append(button);
+      if (regionSelect) {
+        const url = new URL(window.location.href);
+        if (url.searchParams.has('region')) {
+          url.searchParams.delete('region');
+          window.history.replaceState({}, '', url);
         }
       }
-    };
 
-    searchInput?.addEventListener('input', () => {
-      currentPage = 1;
+      const normalize = (value: string) =>
+        value
+          .trim()
+          .toLocaleLowerCase('es')
+          .normalize('NFD')
+          .replace(/\p{Diacritic}/gu, '');
+
+      const getFilteredRows = () => {
+        const query = normalize(searchInput?.value ?? '');
+        const program = programSelect?.value ?? '';
+        const selectedRegion = regionSelect?.value ?? '';
+
+        return rows.filter((row) => {
+          const matchesQuery = !query || normalize(row.dataset.search ?? '').includes(query);
+          const matchesProgram = !program || row.dataset.program === program;
+          const matchesRegion = !selectedRegion || row.dataset.region === selectedRegion;
+          return matchesQuery && matchesProgram && matchesRegion;
+        });
+      };
+
+      const render = () => {
+        const filteredRows = getFilteredRows();
+        const pageCount = Math.ceil(filteredRows.length / pageSize);
+        currentPage = Math.min(currentPage, Math.max(1, pageCount));
+        const firstRow = (currentPage - 1) * pageSize;
+        const visibleRows = new Set(filteredRows.slice(firstRow, firstRow + pageSize));
+
+        rows.forEach((row) => {
+          row.hidden = !visibleRows.has(row);
+        });
+
+        if (results) {
+          results.textContent = filteredRows.length
+            ? `Mostrando ${firstRow + 1}-${Math.min(firstRow + pageSize, filteredRows.length)} de ${filteredRows.length} proyectos`
+            : 'No se encontraron proyectos con esos criterios.';
+        }
+
+        if (pagination) {
+          pagination.replaceChildren();
+          pagination.hidden = pageCount <= 1;
+
+          for (let page = 1; page <= pageCount; page += 1) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = String(page);
+            button.setAttribute('aria-label', `Ir a la página ${page}`);
+            if (page === currentPage) {
+              button.setAttribute('aria-current', 'page');
+            }
+            button.className =
+              page === currentPage
+                ? 'rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white'
+                : 'rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-default hover:border-primary hover:text-primary dark:border-slate-600 dark:text-white';
+            button.addEventListener('click', () => {
+              currentPage = page;
+              render();
+              tableRoot.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            pagination.append(button);
+          }
+        }
+      };
+
+      const resetAndRender = () => {
+        currentPage = 1;
+        render();
+      };
+
+      searchInput?.addEventListener('input', resetAndRender);
+      programSelect?.addEventListener('change', resetAndRender);
+      regionSelect?.addEventListener('change', resetAndRender);
       render();
     });
-    programSelect?.addEventListener('change', () => {
-      currentPage = 1;
-      render();
-    });
-    render();
   });
 </script>

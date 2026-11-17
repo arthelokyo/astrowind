@@ -1,6 +1,6 @@
-import type { AmericaProject } from '~/data/proyectos-america';
+import type { ProjectRecord } from '~/data/proyectos-america';
 
-export const europaProjects: AmericaProject[] = [
+export const europaProjects: ProjectRecord[] = [
   {
     student: 'Ivan Enguix Domenech',
     project: 'Instalación de un Sistema Fotovoltáico en el Complejo Turístico rural "EL CAMPITO"',
