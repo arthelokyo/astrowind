@@ -27,7 +27,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <a
           href={href}
           class:list={[
-            'hover:text-gray-200 transition-colors whitespace-nowrap',
+            'capitalize hover:text-gray-200 transition-colors whitespace-nowrap',
             {
               'font-semibold': href === currentPath,
             },

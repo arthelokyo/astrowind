@@ -3,11 +3,10 @@ import { getPermalink, getAsset } from './utils/permalinks';
 // Barra secundaria debajo del navbar principal
 export const secondaryNavData = {
   leftLinks: [
+    { text: 'Alumni', href: getPermalink('/alumni') },
     { text: 'Títulos', href: getPermalink('/titulos') },
     { text: 'Promotores', href: getPermalink('/promotores') },
-    { text: 'Empleo', href: getPermalink('/empleo') },
     { text: 'FAQs', href: getPermalink('/faqs') },
-    { text: 'Contactos', href: getPermalink('/contactos') },
   ],
 };
 
