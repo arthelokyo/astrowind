@@ -1,183 +1,146 @@
 ---
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Content from '~/components/widgets/Content.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Brands from '~/components/widgets/Brands.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Promotores',
   description:
-    'Conoce a Fondo Verde, organización promotora de la conservación ambiental, la justicia y la solidaridad, y promotora académica de Fondo Verde Institute.',
+    'Conoce a Fondo Verde, organización peruana sin fines de lucro dedicada a la conservación y el manejo sostenible de los recursos naturales.',
   keywords:
-    'Fondo Verde, promotores, conservación ambiental, cooperación internacional, educación ambiental, IUCN, OEA',
+    'Fondo Verde, promotores, conservación ambiental, manejo sostenible, justicia, solidaridad, cooperación internacional, OEA, UICN, APCI',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline="El Instituto"
-    image={{
-      src: '~/assets/images/fvi-conservacion-solidaridad.webp',
-      alt: 'Trabajo comunitario y conservación ambiental promovido por Fondo Verde',
-    }}
-  >
+  <HeroText tagline="El Instituto">
     <Fragment slot="title">
-      Promotores del
-      <span class="text-primary dark:text-accent"> cambio ambiental</span>
+      Fondo Verde,
+      <span class="text-primary dark:text-accent"> promotor ambiental</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="font-semibold text-primary">Fondo Verde</span> impulsa desde Perú una visión de formación,
-      cooperación y acción ambiental basada en la conservación sostenible de los recursos naturales y la
-      justicia social.
+      Organización peruana sin fines de lucro fundada en 2003, dedicada a la conservación y al manejo sostenible
+      de los recursos naturales y del medio ambiente desde la justicia y la solidaridad.
     </Fragment>
-  </Hero>
+  </HeroText>
 
-  <Stats
-    stats={[
-      {
-        amount: '2003',
-        title: 'Fundación en Perú',
-        icon: 'tabler:calendar-event',
-      },
-      {
-        amount: 'OEA',
-        title: 'Entidad socia',
-        icon: 'tabler:world',
-      },
-      {
-        amount: 'PAEC',
-        title: 'Alianza educativa',
-        icon: 'tabler:affiliate',
-      },
-      {
-        amount: 'UICN',
-        title: 'Miembro reconocido',
-        icon: 'tabler:leaf',
-      },
-    ]}
-  />
-
-  <Brands
-    title="Una organización con identidad propia"
-    subtitle="Fondo Verde combina trayectoria institucional, formación virtual y cooperación internacional para promover soluciones ambientales con impacto real."
-    images={[
-      {
-        src: '~/assets/images/logo_fvi.svg',
-        alt: 'Fondo Verde Institute',
-      },
-    ]}
-  />
-
-  <Content
-    isReversed
-    tagline="Fondo Verde"
-    title="Conservación, justicia y solidaridad"
-    items={[
-      {
-        title: 'Conservación sostenible',
-        description:
-          'Participación en proyectos estratégicos para el manejo responsable de los recursos naturales y el medio ambiente.',
-        icon: 'tabler:trees',
-      },
-      {
-        title: 'Justicia y solidaridad',
-        description:
-          'Una finalidad social orientada a contribuir al desarrollo ambiental desde el ámbito local, nacional e internacional.',
-        icon: 'tabler:heart-handshake',
-      },
-      {
-        title: 'Formación y cooperación',
-        description:
-          'Experiencia en capacitación virtual y vínculos académicos y comerciales en América y Europa.',
-        icon: 'tabler:world',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/fvi-compromiso-sociedad.webp',
-      alt: 'Equipos locales trabajando por la conservación y el desarrollo sostenible',
-    }}
-  >
-    <Fragment slot="content">
-      <p class="mb-4">
-        Fundación peruana sin fines de lucro creada en 2003, Fondo Verde contribuye a la conservación y al manejo
-        sostenible de los recursos naturales desde la justicia y la solidaridad.
-      </p>
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
       <p>
-        Su trayectoria en capacitación virtual le permite garantizar una oferta académica seria, internacional y
-        orientada a las necesidades reales de las comunidades y profesionales del medio ambiente.
+        <a
+          href="http://www.fondoverde.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-bold text-primary hover:text-secondary underline underline-offset-2"
+        >
+          Fondo Verde
+        </a>
+        , fundada en Perú en 2003, es una organización sin fines de lucro que tiene por finalidad contribuir a la
+        conservación y al manejo sostenible de los recursos naturales y del medio ambiente desde la justicia y la
+        solidaridad. Participa en la ejecución y administración de proyectos estratégicos de desarrollo ambiental
+        en el ámbito local, nacional e internacional.
       </p>
-    </Fragment>
-  </Content>
+
+      <p>
+        Fondo Verde es una organización líder en capacitación, especialmente en capacitación virtual. Cuenta con
+        experiencia en el rubro y mantiene relaciones académicas y comerciales en América y Europa, lo que respalda
+        la seriedad y trayectoria de su oferta académica.
+      </p>
+    </div>
+  </section>
 
   <Features2
-    title="Reconocimientos que respaldan nuestra trayectoria"
-    tagline="Alianzas institucionales"
-    columns={4}
+    title="Reconocimientos y alianzas"
+    tagline="Trayectoria institucional"
+    columns={3}
     items={[
       {
         title: 'Desde 2008',
         description:
-          'Entidad socia de la Organización de Estados Americanos en su Programa de Becas de Desarrollo Profesional.',
-        icon: 'tabler:building-community',
+          'Entidad socia de la Organización de Estados Americanos (OEA) en el Programa de Becas de Desarrollo Profesional.',
+        icon: 'tabler:world',
       },
       {
         title: 'PAEC - OEA',
         description:
-          'Participación en el Programa de Alianzas para Educación y Capacitación de la Organización de Estados Americanos.',
+          'Forma parte del Programa de Alianzas para Educación y Capacitación de la Organización de Estados Americanos.',
         icon: 'tabler:school',
       },
       {
         title: 'Desde 2014',
         description:
-          'Admisión ante el Consejo de la Unión Internacional para la Conservación de la Naturaleza (UICN).',
+          'Admitida por el Consejo de la Unión Internacional para la Conservación de la Naturaleza (UICN).',
         icon: 'tabler:leaf',
-      },
-      {
-        title: 'Desde 2016',
-        description:
-          'Inscripción ante la Agencia Peruana de Cooperación Internacional mediante Resolución Directoral N.º 673-2016/APCI-DOC.',
-        icon: 'tabler:certificate',
       },
     ]}
   />
 
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+    <div class="rounded-xl border border-gray-200 dark:border-slate-700 bg-blue-50 dark:bg-pageDark p-6 sm:p-8">
+      <p class="mb-4 text-base sm:text-lg text-muted dark:text-slate-300">
+        En Perú, Fondo Verde está inscrita ante la
+        <strong>Agencia Peruana de Cooperación Internacional (APCI)</strong>
+        mediante la Resolución Directoral N.º <strong>673-2016/APCI-DOC</strong>.
+      </p>
+
+      <dl class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+        <div>
+          <dt class="text-sm font-bold uppercase tracking-wide text-primary">Naturaleza jurídica</dt>
+          <dd class="mt-1 text-muted dark:text-slate-300">
+            Asociación Civil sin fines de lucro, inscrita en el Registro Nacional de Asociaciones con el número
+            11176278 de la Superintendencia Nacional de Registros Públicos.
+          </dd>
+        </div>
+        <div>
+          <dt class="text-sm font-bold uppercase tracking-wide text-primary">Fecha de registro</dt>
+          <dd class="mt-1 text-muted dark:text-slate-300">Octubre de 2003</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-bold uppercase tracking-wide text-primary">Registro APCI</dt>
+          <dd class="mt-1 text-muted dark:text-slate-300">Noviembre de 2016</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-bold uppercase tracking-wide text-primary">R.U.C.</dt>
+          <dd class="mt-1 text-muted dark:text-slate-300">20603993170</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
   <Features2
-    title="Fondo Verde"
-    tagline="Datos institucionales"
+    title="Oficina principal"
+    tagline="Fondo Verde"
     columns={4}
     items={[
       {
-        title: 'Naturaleza jurídica',
-        description:
-          'Asociación Civil sin fines de lucro, inscrita en el Registro Nacional de Asociaciones con el número 11176278.',
-        icon: 'tabler:building',
-      },
-      {
-        title: 'Registro',
-        description: 'Octubre de 2003.',
-        icon: 'tabler:calendar',
-      },
-      {
-        title: 'Registro APCI',
-        description: 'Noviembre de 2016.',
-        icon: 'tabler:file-certificate',
-      },
-      {
-        title: 'Oficina principal',
-        description:
-          'Calle Santa Lucía 305, Urb. San Antonio, Huancayo, Perú. Teléfono: (+51) 935 544 232.',
+        title: 'Dirección',
+        description: 'Calle Santa Lucía 305, Urb. San Antonio, Huancayo, Perú.',
         icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Contacto',
+        description: 'Juan Gamarra Ramos',
+        icon: 'tabler:user',
+      },
+      {
+        title: 'Teléfono',
+        description: '(+51) 935544232',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Correo electrónico',
+        description:
+          '<a class="text-primary hover:text-secondary underline underline-offset-2" href="mailto:juan.gamarra@fondoverde.org">juan.gamarra@fondoverde.org</a>',
+        icon: 'tabler:mail',
       },
     ]}
   />
 
   <CallToAction
-    title="Conoce la formación ambiental que impulsa nuestro ecosistema"
-    subtitle="Explora nuestra oferta internacional de posgrado y encuentra el programa que se alinee con tus objetivos profesionales."
+    title="Conoce la formación ambiental de Fondo Verde Institute"
+    subtitle="Explora los programas de posgrado orientados a la conservación, la sostenibilidad y el desarrollo profesional."
     actions={[
       {
         variant: 'primary',
