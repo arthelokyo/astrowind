@@ -1,0 +1,196 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Promotores',
+  description:
+    'Conoce a Fondo Verde, organización promotora de la conservación ambiental, la justicia y la solidaridad, y promotora académica de Fondo Verde Institute.',
+  keywords:
+    'Fondo Verde, promotores, conservación ambiental, cooperación internacional, educación ambiental, IUCN, OEA',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="El Instituto"
+    image={{
+      src: '~/assets/images/fvi-conservacion-solidaridad.webp',
+      alt: 'Trabajo comunitario y conservación ambiental promovido por Fondo Verde',
+    }}
+  >
+    <Fragment slot="title">
+      Promotores del
+      <span class="text-primary dark:text-accent"> cambio ambiental</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="font-semibold text-primary">Fondo Verde</span> impulsa desde Perú una visión de formación,
+      cooperación y acción ambiental basada en la conservación sostenible de los recursos naturales y la
+      justicia social.
+    </Fragment>
+  </Hero>
+
+  <Stats
+    stats={[
+      {
+        amount: '2003',
+        title: 'Fundación en Perú',
+        icon: 'tabler:calendar-event',
+      },
+      {
+        amount: 'OEA',
+        title: 'Entidad socia',
+        icon: 'tabler:world',
+      },
+      {
+        amount: 'PAEC',
+        title: 'Alianza educativa',
+        icon: 'tabler:affiliate',
+      },
+      {
+        amount: 'UICN',
+        title: 'Miembro reconocido',
+        icon: 'tabler:leaf',
+      },
+    ]}
+  />
+
+  <Brands
+    title="Una organización con identidad propia"
+    subtitle="Fondo Verde combina trayectoria institucional, formación virtual y cooperación internacional para promover soluciones ambientales con impacto real."
+    images={[
+      {
+        src: '~/assets/images/logo_fvi.svg',
+        alt: 'Fondo Verde Institute',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Fondo Verde"
+    title="Conservación, justicia y solidaridad"
+    items={[
+      {
+        title: 'Conservación sostenible',
+        description:
+          'Participación en proyectos estratégicos para el manejo responsable de los recursos naturales y el medio ambiente.',
+        icon: 'tabler:trees',
+      },
+      {
+        title: 'Justicia y solidaridad',
+        description:
+          'Una finalidad social orientada a contribuir al desarrollo ambiental desde el ámbito local, nacional e internacional.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: 'Formación y cooperación',
+        description:
+          'Experiencia en capacitación virtual y vínculos académicos y comerciales en América y Europa.',
+        icon: 'tabler:world',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/fvi-compromiso-sociedad.webp',
+      alt: 'Equipos locales trabajando por la conservación y el desarrollo sostenible',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        Fundación peruana sin fines de lucro creada en 2003, Fondo Verde contribuye a la conservación y al manejo
+        sostenible de los recursos naturales desde la justicia y la solidaridad.
+      </p>
+      <p>
+        Su trayectoria en capacitación virtual le permite garantizar una oferta académica seria, internacional y
+        orientada a las necesidades reales de las comunidades y profesionales del medio ambiente.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Features2
+    title="Reconocimientos que respaldan nuestra trayectoria"
+    tagline="Alianzas institucionales"
+    columns={4}
+    items={[
+      {
+        title: 'Desde 2008',
+        description:
+          'Entidad socia de la Organización de Estados Americanos en su Programa de Becas de Desarrollo Profesional.',
+        icon: 'tabler:building-community',
+      },
+      {
+        title: 'PAEC - OEA',
+        description:
+          'Participación en el Programa de Alianzas para Educación y Capacitación de la Organización de Estados Americanos.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Desde 2014',
+        description:
+          'Admisión ante el Consejo de la Unión Internacional para la Conservación de la Naturaleza (UICN).',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Desde 2016',
+        description:
+          'Inscripción ante la Agencia Peruana de Cooperación Internacional mediante Resolución Directoral N.º 673-2016/APCI-DOC.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Fondo Verde"
+    tagline="Datos institucionales"
+    columns={4}
+    items={[
+      {
+        title: 'Naturaleza jurídica',
+        description:
+          'Asociación Civil sin fines de lucro, inscrita en el Registro Nacional de Asociaciones con el número 11176278.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Registro',
+        description: 'Octubre de 2003.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Registro APCI',
+        description: 'Noviembre de 2016.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: 'Oficina principal',
+        description:
+          'Calle Santa Lucía 305, Urb. San Antonio, Huancayo, Perú. Teléfono: (+51) 935 544 232.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Conoce la formación ambiental que impulsa nuestro ecosistema"
+    subtitle="Explora nuestra oferta internacional de posgrado y encuentra el programa que se alinee con tus objetivos profesionales."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Ver maestrías',
+        href: '/maestria',
+        icon: 'tabler:school',
+      },
+      {
+        variant: 'secondary',
+        text: 'Ver doctorados',
+        href: '/phd',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
+</Layout>
