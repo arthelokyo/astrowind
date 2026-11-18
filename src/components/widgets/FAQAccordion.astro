@@ -55,18 +55,18 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
                 open={index === 0}
                 class="group scroll-mt-32 rounded-lg border border-transparent transition-colors duration-200 open:border-primary/20 open:bg-primary/[0.04] dark:open:bg-primary/[0.08]"
               >
-                <summary class="grid cursor-pointer list-none grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-x-3 rounded-lg px-4 py-4 text-left text-lg font-semibold text-slate-800 marker:content-none transition-colors duration-200 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary group-open:text-primary dark:text-slate-100 dark:hover:text-white dark:group-open:text-primary">
+                <summary class="grid cursor-pointer list-none grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-x-3 rounded-lg px-4 py-4 text-left text-lg font-semibold text-slate-800 marker:content-none transition-colors duration-200 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary group-open:text-primary dark:text-slate-100 dark:hover:text-white dark:group-open:text-primary">
                   <Icon
                     name="tabler:chevron-right"
                     aria-hidden="true"
-                    class="mt-1 h-5 w-5 text-primary transition-transform duration-200 group-open:rotate-90"
+                    class="mt-1 h-6 w-6 text-green-800 transition-transform duration-200 group-open:rotate-90 dark:text-green-400"
                   />
                   <span>{item.question}</span>
                 </summary>
-                <div class="grid grid-cols-[1.25rem_minmax(0,1fr)] gap-x-3 px-4 pb-5">
+                <div class="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-3 px-4 pb-5">
                   <span aria-hidden="true" />
                   <div
-                    class="prose prose-base max-w-none text-muted dark:prose-invert dark:text-slate-300"
+                    class="faq-answer prose prose-base max-w-none text-muted dark:prose-invert dark:text-slate-300"
                     set:html={item.answer}
                   />
                 </div>
@@ -78,3 +78,47 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
     }
   </div>
 </WidgetWrapper>
+
+<style>
+  .faq-answer :global(ul) {
+    list-style-type: disc;
+    margin-block: 1em;
+    padding-inline-start: 1.625em;
+  }
+
+  .faq-answer :global(ol) {
+    list-style-type: decimal;
+    margin-block: 1em;
+    padding-inline-start: 1.625em;
+  }
+
+  .faq-answer :global(li) {
+    padding-inline-start: 0.25em;
+  }
+
+  .faq-answer :global(ul > li::marker) {
+    color: var(--aw-color-primary);
+  }
+
+  details[open] .faq-answer {
+    animation: faq-answer-reveal 220ms ease-out both;
+  }
+
+  @keyframes faq-answer-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-0.25rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    details[open] .faq-answer {
+      animation: none;
+    }
+  }
+</style>
