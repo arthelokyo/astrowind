@@ -1,7 +1,7 @@
 ---
-import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -142,7 +142,7 @@ const programs = [
       <span class="text-primary dark:text-accent"> reconocimiento académico</span>
     </Fragment>
     <Fragment slot="subtitle">
-      <strong>Fondo Verde Institute</strong> imparte programas de estudios en español y 100 % online, ofrecidos por la
+      <strong class="text-primary dark:text-accent">Fondo Verde Institute</strong> imparte programas de estudios en español y 100 % online, ofrecidos por la
       <a
         href="https://www.unicepes.edu.mx/"
         target="_blank"
@@ -151,36 +151,30 @@ const programs = [
       >
         Universidad Centro Panamericano de Estudios Superiores (UNICEPES)
       </a>
-      de México.
-    </Fragment>
-  </Hero>
-
-  <section class="bg-blue-50 dark:bg-pageDark">
-    <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <p class="text-lg leading-relaxed text-muted dark:text-slate-300">
-        Las personas que cursen y finalicen con éxito un programa en <strong>Fondo Verde Institute</strong> recibirán un
-        <strong class="text-primary dark:text-accent">Título Oficial</strong> de la
+      de México.<br>
+      
+        Las personas que cursen y finalicen con éxito un programa en <strong class="text-primary dark:text-accent">Fondo Verde Institute</strong> recibirán un
+        <strong class="text-primary dark:text-accent">Título Oficial</strong> de
         <a
           href="https://www.unicepes.edu.mx/"
           target="_blank"
           rel="noreferrer"
           class="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary dark:text-accent"
         >
-          Universidad Centro Panamericano de Estudios Superiores (UNICEPES)
-        </a>. La universidad ha obtenido los acuerdos de Reconocimiento de Validez Oficial de Estudios (<strong
-          >RVOE</strong
+          UNICEPES
+        </a>. La universidad ha obtenido los acuerdos de <strong class="text-secondary">Reconocimiento de Validez Oficial de Estudios</strong> (<strong class="text-secondary">RVOE</strong
         >) para sus programas de posgrado, incluidos en el <strong>Sistema Educativo Nacional</strong>. Por tanto, la <strong
           >Secretaría de Educación Pública (SEP)</strong
         > garantiza el reconocimiento internacional de nuestros títulos.
-      </p>
-    </div>
-  </section>
+    
+    </Fragment>
+  </Hero>
 
   <section id="programas-con-rvoe" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="mb-8 max-w-3xl">
       <p class="text-sm font-bold uppercase tracking-wider text-secondary">Programas de posgrado</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight text-default dark:text-white md:text-4xl">
-        Reconocimiento de Validez Oficial de Estudios
+        Reconocimiento de Validez Oficial de Estudios (RVOE)
       </h2>
       <p class="mt-4 text-lg text-muted dark:text-slate-300">
         Consulta el programa y accede al documento de reconocimiento correspondiente.
@@ -195,7 +189,7 @@ const programs = [
         <thead class="bg-accent text-xs uppercase tracking-wider text-white">
           <tr>
             <th scope="col" class="px-5 py-4">Programas de posgrado</th>
-            <th scope="col" class="px-5 py-4">Reconocimiento de Validez Oficial de Estudios (RVOE)</th>
+            <th scope="col" class="px-5 py-4">Documento RVOE</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
@@ -264,40 +258,33 @@ const programs = [
     </ul>
   </section>
 
-  <Content
-    tagline="Calidad educativa"
-    title="Acreditaciones y reconocimiento"
-    image={{
-      src: '~/assets/images/fvi-respaldo-institucional.webp',
-      alt: 'Reconocimiento institucional de Fondo Verde Institute',
-    }}
-  >
-    <Fragment slot="content">
-      <p class="mb-5 text-muted dark:text-slate-300">
-        En <strong>setiembre de 2018</strong>, <strong>UNICEPES</strong> fue aceptada como miembro del
-        <strong> Consejo Mexicano de Estudios de Posgrados (COMEPO)</strong>. Fundado en 2001, este organismo es un
-        espacio de interlocución de los posgrados con el Consejo Nacional de Ciencia y Tecnología (CONACYT), la
-        Subsecretaría de Educación Superior, la Dirección General de Educación Superior Universitaria, la Asociación
-        Nacional de Universidades e Instituciones de Educación Superior y otras organizaciones nacionales e
-        internacionales.
-      </p>
-      <p class="mb-5 text-muted dark:text-slate-300">
-        En <strong>2020</strong>, <strong>UNICEPES</strong> se convirtió en la primera universidad privada en México en recibir
-        la <strong>certificación ISO 21001:2018</strong>, otorgada por el organismo certificador
-        <strong> ACCM América</strong>, para los doctorados en Proyectos, Sostenibilidad y Conservación y Restauración
-        del Medio Natural en modalidad a distancia. La certificación está avalada por la Entidad Mexicana de
-        Acreditación (EMA), el Foro Internacional de Acreditación (IAF) y la Organización Internacional de Normalización
-        (ISO).
-      </p>
-      <p class="text-muted dark:text-slate-300">
-        Hacia <strong>junio de 2021</strong>, <strong>UNICEPES</strong> obtuvo la acreditación de los
-        <strong>Comités Interinstitucionales para la Evaluación de la Educación Superior (CIEES)</strong> para el Doctorado
-        en Proyectos. Mediante una metodología de cinco ejes, doce categorías y 49 indicadores, CIEES verifica los propósitos
-        formativos de los programas y las condiciones para alcanzarlos. Esta acreditación reconoce las prácticas y los estándares
-        que respaldan la formación de sus estudiantes de posgrado.
-      </p>
-    </Fragment>
-  </Content>
+<!-- Hitos de Acreditación — versión Steps2 (comparativa) ************** -->
+  <Steps2
+    title="Hitos de acreditación y calidad"
+    subtitle="A lo largo de los años, <strong>Fondo Verde Institute</strong> ha acumulado reconocimientos que certifican la excelencia de sus programas ante organismos nacionales e internacionales."
+    colLeft="md:w-1/3"
+    colRight="md:w-2/3"
+    items={[
+      {
+        title: 'COMEPO — Miembro desde 2018',
+        description:
+          'En septiembre de 2018, UNICEPES fue aceptado como miembro del Consejo Mexicano de Estudios de Posgrados (COMEPO), el organismo de interlocución de los posgrados con CONACYT y la Subsecretaría de Educación Superior.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Certificación ISO 21001:2018 — Primera universidad privada en México',
+        description:
+          'En 2020, UNICEPES se convirtió en la primera universidad privada en México en recibir la certificación ISO 21001:2018, avalada por la Entidad Mexicana de Acreditación (EMA), el Foro Internacional de Acreditación (IAF) y la Organización Internacional de Normalización ISO.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'CIEES — Acreditación del Doctorado en Proyectos (2021)',
+        description:
+          'En junio de 2021, UNICEPES obtuvo la acreditación de los Comités Interinstitucionales para la Evaluación de la Educación Superior (CIEES) para el programa de Doctorado en Proyectos, verificando mediante 5 ejes, 12 categorías y 49 indicadores el cumplimiento de los propósitos formativos.',
+        icon: 'tabler:medal',
+      },
+    ]}
+  />
 
   <Features
     id="oferta-formativa"
