@@ -1,5 +1,6 @@
 ---
 import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -21,14 +22,14 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Organización peruana sin fines de lucro fundada en 2003, dedicada a la conservación y al manejo sostenible
-      de los recursos naturales y del medio ambiente desde la justicia y la solidaridad.
+      Organización peruana sin fines de lucro fundada en 2003, dedicada a la conservación y al manejo sostenible de los
+      recursos naturales y del medio ambiente desde la justicia y la solidaridad.
     </Fragment>
   </HeroText>
 
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-    <div class="prose prose-lg dark:prose-invert max-w-none">
-      <p>
+  <Content tagline="Fondo Verde" title="Conservación, justicia y solidaridad">
+    <Fragment slot="content">
+      <p class="mb-4 text-lg text-muted dark:text-slate-400">
         <a
           href="http://www.fondoverde.org/"
           target="_blank"
@@ -37,19 +38,19 @@ const metadata = {
         >
           Fondo Verde
         </a>
-        , fundada en Perú en 2003, es una organización sin fines de lucro que tiene por finalidad contribuir a la
-        conservación y al manejo sostenible de los recursos naturales y del medio ambiente desde la justicia y la
-        solidaridad. Participa en la ejecución y administración de proyectos estratégicos de desarrollo ambiental
-        en el ámbito local, nacional e internacional.
+        , fundada en Perú en 2003, es una organización sin fines de lucro que tiene por finalidad contribuir a la conservación
+        y al manejo sostenible de los recursos naturales y del medio ambiente desde la justicia y la solidaridad. Participa
+        en la ejecución y administración de proyectos estratégicos de desarrollo ambiental en el ámbito local, nacional e
+        internacional.
       </p>
 
-      <p>
+      <p class="text-lg text-muted dark:text-slate-400">
         Fondo Verde es una organización líder en capacitación, especialmente en capacitación virtual. Cuenta con
-        experiencia en el rubro y mantiene relaciones académicas y comerciales en América y Europa, lo que respalda
-        la seriedad y trayectoria de su oferta académica.
+        experiencia en el rubro y mantiene relaciones académicas y comerciales en América y Europa, lo que respalda la
+        seriedad y trayectoria de su oferta académica.
       </p>
-    </div>
-  </section>
+    </Fragment>
+  </Content>
 
   <Features2
     title="Reconocimientos y alianzas"
@@ -70,44 +71,48 @@ const metadata = {
       },
       {
         title: 'Desde 2014',
-        description:
-          'Admitida por el Consejo de la Unión Internacional para la Conservación de la Naturaleza (UICN).',
+        description: 'Admitida por el Consejo de la Unión Internacional para la Conservación de la Naturaleza (UICN).',
         icon: 'tabler:leaf',
       },
     ]}
   />
 
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 md:py-12">
-    <div class="rounded-xl border border-gray-200 dark:border-slate-700 bg-blue-50 dark:bg-pageDark p-6 sm:p-8">
-      <p class="mb-4 text-base sm:text-lg text-muted dark:text-slate-300">
+  <Content
+    tagline="Datos institucionales"
+    title="Registro en Perú"
+    columns={2}
+    items={[
+      {
+        title: 'Naturaleza jurídica',
+        description:
+          'Asociación Civil sin fines de lucro, inscrita en el Registro Nacional de Asociaciones con el número 11176278 de la Superintendencia Nacional de Registros Públicos.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Fecha de registro',
+        description: 'Octubre de 2003.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Registro APCI',
+        description: 'Noviembre de 2016.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: 'R.U.C.',
+        description: '20603993170.',
+        icon: 'tabler:id',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <p class="mb-8 text-lg text-muted dark:text-slate-400">
         En Perú, Fondo Verde está inscrita ante la
         <strong>Agencia Peruana de Cooperación Internacional (APCI)</strong>
         mediante la Resolución Directoral N.º <strong>673-2016/APCI-DOC</strong>.
       </p>
-
-      <dl class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
-        <div>
-          <dt class="text-sm font-bold uppercase tracking-wide text-primary">Naturaleza jurídica</dt>
-          <dd class="mt-1 text-muted dark:text-slate-300">
-            Asociación Civil sin fines de lucro, inscrita en el Registro Nacional de Asociaciones con el número
-            11176278 de la Superintendencia Nacional de Registros Públicos.
-          </dd>
-        </div>
-        <div>
-          <dt class="text-sm font-bold uppercase tracking-wide text-primary">Fecha de registro</dt>
-          <dd class="mt-1 text-muted dark:text-slate-300">Octubre de 2003</dd>
-        </div>
-        <div>
-          <dt class="text-sm font-bold uppercase tracking-wide text-primary">Registro APCI</dt>
-          <dd class="mt-1 text-muted dark:text-slate-300">Noviembre de 2016</dd>
-        </div>
-        <div>
-          <dt class="text-sm font-bold uppercase tracking-wide text-primary">R.U.C.</dt>
-          <dd class="mt-1 text-muted dark:text-slate-300">20603993170</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
+    </Fragment>
+  </Content>
 
   <Features2
     title="Oficina principal"
