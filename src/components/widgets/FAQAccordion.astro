@@ -36,10 +36,10 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
     }
   </nav>
 
-  <div class="mx-auto max-w-4xl space-y-14">
+  <div class="mx-auto max-w-4xl space-y-20">
     {
       sections.map((section) => (
-        <section id={section.id} aria-labelledby={`faq-section-${section.id}`} class="scroll-mt-24">
+        <section id={section.id} aria-labelledby={`faq-section-${section.id}`} class="scroll-mt-32">
           <h2
             id={`faq-section-${section.id}`}
             class="mb-6 border-b border-primary/20 pb-3 text-2xl font-bold tracking-tight text-primary dark:text-accent sm:text-3xl"
@@ -47,26 +47,29 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
             {section.title}
           </h2>
 
-          <div class="grid gap-3 lg:grid-cols-2 lg:gap-x-6 lg:gap-y-2">
+          <div class="grid gap-3">
             {section.items.map((item, index) => (
               <details
                 id={item.id}
                 name={`faq-${section.id}`}
                 open={index === 0}
-                class="group scroll-mt-24 rounded-lg border border-transparent transition-colors duration-200 open:border-primary/20 open:bg-primary/[0.04] dark:open:bg-primary/[0.08]"
+                class="group scroll-mt-32 rounded-lg border border-transparent transition-colors duration-200 open:border-primary/20 open:bg-primary/[0.04] dark:open:bg-primary/[0.08]"
               >
-                <summary class="flex cursor-pointer list-none items-start gap-3 rounded-lg px-4 py-4 text-left text-lg font-semibold text-slate-800 marker:content-none transition-colors duration-200 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary group-open:text-slate-950 dark:text-slate-100 dark:hover:text-white dark:group-open:text-white">
+                <summary class="grid cursor-pointer list-none grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-x-3 rounded-lg px-4 py-4 text-left text-lg font-semibold text-slate-800 marker:content-none transition-colors duration-200 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary group-open:text-primary dark:text-slate-100 dark:hover:text-white dark:group-open:text-primary">
                   <Icon
                     name="tabler:chevron-right"
                     aria-hidden="true"
-                    class="mt-1 h-5 w-5 shrink-0 text-emerald-700 transition-transform duration-200 group-open:rotate-90 dark:text-emerald-400"
+                    class="mt-1 h-5 w-5 text-primary transition-transform duration-200 group-open:rotate-90"
                   />
                   <span>{item.question}</span>
                 </summary>
-                <div
-                  class="prose prose-base max-w-none px-4 pb-5 pl-12 text-muted dark:prose-invert dark:text-slate-300"
-                  set:html={item.answer}
-                />
+                <div class="grid grid-cols-[1.25rem_minmax(0,1fr)] gap-x-3 px-4 pb-5">
+                  <span aria-hidden="true" />
+                  <div
+                    class="prose prose-base max-w-none text-muted dark:prose-invert dark:text-slate-300"
+                    set:html={item.answer}
+                  />
+                </div>
               </details>
             ))}
           </div>
