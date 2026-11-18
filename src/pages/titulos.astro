@@ -1,5 +1,4 @@
 ---
-import Features from '~/components/widgets/Features.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -133,6 +132,17 @@ const programs = [
     rvoeHref: 'https://drive.google.com/file/d/1O4FTTr0hL-oVd0gUsWOcrPqF_VZmcOSl/view',
   },
 ];
+
+const programGroups = [
+  {
+    title: 'Doctorados',
+    programs: programs.filter(({ level }) => level === 'Doctorado en'),
+  },
+  {
+    title: 'Maestrías',
+    programs: programs.filter(({ level }) => level === 'Maestría en'),
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -152,7 +162,7 @@ const programs = [
       >
         Universidad Centro Panamericano de Estudios Superiores (UNICEPES)
       </a>
-      de México.<br />
+      de México.<br /><br />
 
       Las personas que cursen y finalicen con éxito un programa en <strong class="text-primary dark:text-accent"
         >Fondo Verde Institute</strong
@@ -194,72 +204,88 @@ const programs = [
           <thead class="bg-accent text-xs uppercase tracking-wider text-white">
             <tr>
               <th scope="col" class="w-[72%] whitespace-nowrap px-5 py-4">Programas de posgrado</th>
-              <th scope="col" class="whitespace-nowrap px-5 py-4">Documento RVOE</th>
+              <th scope="col" class="whitespace-nowrap px-5 py-4">Reconocimiento RVOE</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
-            {
-              programs.map((program) => (
-                <tr class="align-top text-muted odd:bg-white even:bg-slate-50 dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800">
-                  <td class="whitespace-nowrap px-5 py-4">
-                    <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-secondary">
-                      {program.level}
-                    </span>
-                    <a
-                      href={program.href}
-                      class="text-base font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
-                    >
-                      {program.name}
-                    </a>
-                  </td>
-                  <td class="whitespace-nowrap px-5 py-4">
-                    <a
-                      href={program.rvoeHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      class="font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
-                      title={`Abrir documento ${program.rvoe}`}
-                    >
-                      {program.rvoe}
-                      <span class="sr-only"> (abre en una pestaña nueva)</span>
-                    </a>
-                  </td>
+          {
+            programGroups.map((group) => (
+              <tbody class="divide-y divide-slate-300 dark:divide-slate-700">
+                <tr>
+                  <th
+                    scope="rowgroup"
+                    colspan="2"
+                    class="border-y border-slate-300 bg-slate-200 px-5 py-3 text-left text-sm font-bold uppercase tracking-wider text-default dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  >
+                    {group.title}
+                  </th>
                 </tr>
-              ))
-            }
-          </tbody>
+                {group.programs.map((program) => (
+                  <tr class="align-top text-muted odd:bg-white even:bg-slate-100 dark:text-slate-300 dark:odd:bg-slate-900 dark:even:bg-slate-800">
+                    <td class="whitespace-nowrap px-5 py-4">
+                      <span class="mr-1 text-base font-semibold tracking-wide text-secondary">{program.level}</span>
+                      <a
+                        href={program.href}
+                        class="text-base font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
+                      >
+                        {program.name}
+                      </a>
+                    </td>
+                    <td class="whitespace-nowrap px-5 py-4">
+                      <a
+                        href={program.rvoeHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
+                        title={`Abrir documento ${program.rvoe}`}
+                      >
+                        {program.rvoe}
+                        <span class="sr-only"> (abre en una pestaña nueva)</span>
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            ))
+          }
         </table>
       </div>
 
       <ul class="grid gap-4 md:hidden">
         {
-          programs.map((program) => (
-            <li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <p class="text-xs font-bold uppercase tracking-wider text-secondary">{program.level}</p>
-              <h3 class="mt-2 text-lg font-bold leading-snug text-default dark:text-white">
-                <a
-                  href={program.href}
-                  class="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
-                >
-                  {program.name}
-                </a>
-              </h3>
-              <div class="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700">
-                <p class="text-xs font-semibold uppercase tracking-wide text-muted dark:text-slate-400">
-                  Reconocimiento (RVOE)
-                </p>
-                <a
-                  href={program.rvoeHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  class="mt-1 inline-flex font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
-                  title={`Abrir documento ${program.rvoe}`}
-                >
-                  {program.rvoe}
-                  <span class="sr-only"> (abre en una pestaña nueva)</span>
-                </a>
-              </div>
-            </li>
+          programGroups.map((group) => (
+            <Fragment>
+              <li class="col-span-full border-b border-slate-300 pb-2 pt-4 text-sm font-bold uppercase tracking-wider text-default dark:border-slate-700 dark:text-white">
+                {group.title}
+              </li>
+              {group.programs.map((program) => (
+                <li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+                  <p class="text-lg font-bold tracking-wider text-secondary">{program.level}</p>
+                  <h3 class="mt-2 text-lg font-bold leading-snug text-default dark:text-white">
+                    <a
+                      href={program.href}
+                      class="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
+                    >
+                      {program.name}
+                    </a>
+                  </h3>
+                  <div class="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-muted dark:text-slate-400">
+                      Reconocimiento (RVOE)
+                    </p>
+                    <a
+                      href={program.rvoeHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="mt-1 inline-flex font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary dark:text-accent"
+                      title={`Abrir documento ${program.rvoe}`}
+                    >
+                      {program.rvoe}
+                      <span class="sr-only"> (abre en una pestaña nueva)</span>
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </Fragment>
           ))
         }
       </ul>
@@ -293,39 +319,5 @@ const programs = [
       },
     ]}
   />
-
-  <Features
-    id="oferta-formativa"
-    tagline="Continúa tu formación"
-    title="Conoce nuestros programas"
-    columns={2}
-    items={[
-      {
-        title: 'Master of Science',
-        description:
-          'El programa de Maestría aspira a ser una referencia en la formación de profesionales para la protección del medio ambiente.',
-        icon: 'tabler:school',
-        callToAction: {
-          text: 'Ver programas de Maestría',
-          href: '/maestria',
-          title: 'Ver programas de Maestría',
-          variant: 'secondary',
-          icon: 'tabler:arrow-right',
-        },
-      },
-      {
-        title: 'PhD en Medio Ambiente',
-        description:
-          'Una oferta doctoral altamente especializada, orientada al desarrollo y crecimiento de la comunidad.',
-        icon: 'tabler:certificate',
-        callToAction: {
-          text: 'Ver programas de Doctorado',
-          href: '/phd',
-          title: 'Ver programas de Doctorado',
-          variant: 'secondary',
-          icon: 'tabler:arrow-right',
-        },
-      },
-    ]}
-  />
+  
 </Layout>
