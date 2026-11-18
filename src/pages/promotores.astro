@@ -1,9 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import logoFvi from '~/assets/images/logo_fvi.svg';
+import logoFviDark from '~/assets/images/logo_fvi_dark.svg';
 
 const metadata = {
   title: 'Promotores',
@@ -24,10 +27,25 @@ const metadata = {
     <Fragment slot="subtitle">
       Organización peruana sin fines de lucro fundada en 2003, dedicada a la conservación y al manejo sostenible de los
       recursos naturales y del medio ambiente desde la justicia y la solidaridad.
+      <br />
+      <Image
+        src={logoFvi}
+        alt="Fondo Verde Institute"
+        width={320}
+        height={80}
+        class="logo-light mx-auto mt-6 w-[280px] sm:w-[320px] lg:w-[560px] h-auto"
+      />
+      <Image
+        src={logoFviDark}
+        alt="Fondo Verde Institute"
+        width={320}
+        height={80}
+        class="logo-dark mx-auto mt-6 w-[280px] sm:w-[320px] lg:w-[560px] h-auto"
+      />
     </Fragment>
   </HeroText>
 
-  <Content tagline="Fondo Verde" title="Conservación, justicia y solidaridad">
+  <Content title="Conservación, justicia y solidaridad">
     <Fragment slot="content">
       <p class="mb-4 text-lg text-muted dark:text-slate-400">
         <a
@@ -36,10 +54,11 @@ const metadata = {
           rel="noopener noreferrer"
           class="font-bold text-primary hover:text-secondary"
         >
-          Fondo Verde</a>, fundada en Perú en 2003, es una organización sin fines de lucro que tiene por finalidad contribuir a la conservación
-        y al manejo sostenible de los recursos naturales y del medio ambiente desde la justicia y la solidaridad. Participa
-        en la ejecución y administración de proyectos estratégicos de desarrollo ambiental en el ámbito local, nacional e
-        internacional.
+          Fondo Verde</a
+        >, fundada en Perú en 2003, es una organización sin fines de lucro que tiene por finalidad contribuir a la
+        conservación y al manejo sostenible de los recursos naturales y del medio ambiente desde la justicia y la
+        solidaridad. Participa en la ejecución y administración de proyectos estratégicos de desarrollo ambiental en el
+        ámbito local, nacional e internacional.
       </p>
 
       <p class="text-lg text-muted dark:text-slate-400">
@@ -50,9 +69,9 @@ const metadata = {
           class="font-bold text-primary hover:text-secondary"
         >
           Fondo Verde
-        </a> es una organización líder en capacitación, especialmente en capacitación virtual. Cuenta con
-        experiencia en el rubro y mantiene relaciones académicas y comerciales en América y Europa, lo que respalda la
-        seriedad y trayectoria de su oferta académica.
+        </a> es una organización líder en capacitación, especialmente en capacitación virtual. Cuenta con experiencia en el
+        rubro y mantiene relaciones académicas y comerciales en América y Europa, lo que respalda la seriedad y trayectoria
+        de su oferta académica.
       </p>
     </Fragment>
   </Content>
@@ -76,7 +95,8 @@ const metadata = {
       },
       {
         title: 'UICN',
-        description: 'Desde 2014, fue admitida por el <strong>Consejo de la Unión Internacional para la Conservación de la Naturaleza</strong> (<strong>UICN</strong>).',
+        description:
+          'Desde 2014, fue admitida por el <strong>Consejo de la Unión Internacional para la Conservación de la Naturaleza</strong> (<strong>UICN</strong>).',
         icon: 'tabler:leaf',
       },
     ]}
