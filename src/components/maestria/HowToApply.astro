@@ -1,11 +1,32 @@
 ---
+import Features3 from '~/components/widgets/Features3.astro';
 import HeroSection from '~/components/widgets/HeroSection.astro';
 import AdmissionTimeline from '~/components/maestria/AdmissionTimeline.astro';
 ---
 {/* 12. COMO APLICAR (commond) */}
+<Features3
+    id="como-aplicar"
+    tagline="¿Cómo aplicar?"
+    title="Proceso de Admisión"
+    subtitle="Todo candidato para ser admitido a Fondo Verde, deberá cumplir con los reglamentos, políticas y criterios vigentes de admisión establecidos por la institución."
+    columns={2}
+    items={[
+    {
+        title: 'Determinación de Elegibilidad',
+        description:
+        'El Departamento de Admisiones, o en su caso el Comité de Admisiones, determinará a discreción la elegibilidad de los candidatos.',
+        icon: 'tabler:user-check',
+    },
+    {
+        title: 'Reserva de Criterios de Elegibilidad',
+        description: 'El Instituto, se reserva el derecho de revelar los criterios de elegibilidad de los candidatos.',
+        icon: 'tabler:lock',
+    },
+    ]}
+    classes={{ container: 'max-w-4xl' }}
+/>
 <HeroSection
     id="aplicar"
-    tagline="¿Cómo aplicar?"
     title="Las fases del proceso de admisión"
     subtitle='El proceso para la inscripción al programa de maestría es el siguiente:'
     >
