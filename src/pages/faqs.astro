@@ -1,5 +1,6 @@
 ---
 import FAQAccordion from '~/components/widgets/FAQAccordion.astro';
+import CallToAction2 from '~/components/widgets/CallToAction2.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -282,4 +283,24 @@ const sections = [
   </HeroText>
 
   <FAQAccordion sections={sections} />
+
+  <CallToAction2
+    tagline="Formación ambiental"
+    title="Conoce la formación ambiental de Fondo Verde Institute"
+    subtitle="Explora los programas de posgrado orientados a la conservación, la sostenibilidad y el desarrollo profesional."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Ver maestrías',
+        href: '/maestria',
+        icon: 'tabler:school',
+      },
+      {
+        variant: 'secondary',
+        text: 'Ver doctorados',
+        href: '/phd',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
 </Layout>

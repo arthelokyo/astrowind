@@ -67,11 +67,10 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
             </h2>
 
             <div class="grid gap-3">
-              {section.items.map((item, index) => (
+              {section.items.map((item) => (
                 <details
                   id={item.id}
                   name={`faq-${section.id}`}
-                  open={index === 0}
                   class="group scroll-mt-32 rounded-lg border border-transparent transition-colors duration-200 open:border-primary/20 open:bg-primary/[0.04] dark:open:bg-primary/[0.08]"
                 >
                   <summary class="grid cursor-pointer list-none grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-x-3 rounded-lg px-4 py-4 text-left text-lg font-semibold text-slate-800 marker:content-none transition-colors duration-200 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary group-open:text-primary dark:text-slate-100 dark:hover:text-white dark:group-open:text-primary">
