@@ -29,7 +29,7 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
       role="tablist"
       aria-label="Categorías de preguntas frecuentes"
       aria-orientation="horizontal"
-      class="mx-auto mb-8 grid max-w-4xl grid-cols-3 border-b border-slate-200 dark:border-slate-700"
+      class="mx-auto mb-0 grid max-w-4xl grid-cols-3 border-b border-slate-300 dark:border-slate-700 md:flex"
     >
       {
         sections.map((section, index) => (
@@ -40,7 +40,7 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
             aria-selected={index === 0}
             aria-controls={section.id}
             tabindex={index === 0 ? 0 : -1}
-            class="faq-tab min-w-0 rounded-t-md border-b-2 border-transparent px-1 py-3 text-center text-xs font-semibold leading-tight text-slate-600 transition-colors hover:bg-slate-100 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary aria-selected:border-primary aria-selected:text-primary dark:text-slate-300 dark:hover:bg-slate-800 sm:px-3 sm:text-sm"
+            class="faq-tab min-w-0 border-x border-t-4 border-b-0 border-slate-300 border-t-primary bg-white px-1 py-3 text-center text-xs font-semibold leading-tight text-primary transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:border-slate-700 dark:bg-slate-800 dark:text-primary dark:hover:bg-slate-700 sm:px-3 sm:text-sm md:flex-none md:rounded-t-sm md:px-4"
           >
             {section.tabTitle ?? section.title}
           </button>
@@ -57,7 +57,7 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
             aria-labelledby={`faq-tab-${section.id}`}
             tabindex={0}
             hidden={index !== 0}
-            class="scroll-mt-32 rounded-xl bg-gray-50 p-4 sm:p-6 dark:bg-pageDark"
+            class="scroll-mt-32 rounded-b-xl border border-t-0 border-slate-200 bg-blue-50 p-4 sm:p-6 dark:border-slate-700 dark:bg-pageDark"
           >
             <h2
               id={`faq-section-${section.id}`}
@@ -100,14 +100,22 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
 </WidgetWrapper>
 
 <style>
+  .faq-tab:not([aria-selected='true']) {
+    border-top-color: var(--aw-color-primary);
+  }
+
   .faq-tab[aria-selected='true'] {
-    background-color: rgb(41 141 108 / 12%);
-    background-color: color-mix(in srgb, var(--aw-color-primary) 12%, transparent);
+    position: relative;
+    z-index: 1;
+    margin-bottom: -1px;
+    border-color: var(--aw-color-secondary);
+    border-bottom-color: rgb(239 246 255);
+    background-color: rgb(239 246 255);
   }
 
   :global(.dark) .faq-tab[aria-selected='true'] {
-    background-color: rgb(41 141 108 / 24%);
-    background-color: color-mix(in srgb, var(--aw-color-primary) 24%, transparent);
+    border-bottom-color: var(--aw-color-bg-page-dark);
+    background-color: var(--aw-color-bg-page-dark);
   }
 
   .faq-answer :global(ul) {
