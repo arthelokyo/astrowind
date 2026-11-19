@@ -44,33 +44,36 @@ import Steps2 from '../widgets/Steps2.astro';
         </Fragment>                
 </Steps>
 <!-- Compatibilidad de Becas y Solicitud -->
-<Steps2
-    colLeft="lg:w-1/3"
-    colRight="lg:w-2/3"
-    title="Compatibilidad de Becas y Solicitud"
-    subtitle="Ambas becas son compatibles y pueden ser solicitadas por el mismo alumno. Para optar a estos beneficios, debe dirigir su solicitud al <strong>Comité de Becas</strong>, adjuntar la documentación necesaria y completar los siguientes <strong>3 pasos</strong>:"
-    items={[
+<!-- Procedimiento para Solicitar la Beca -->
+      <Steps
+        title="Procedimiento para Solicitar la Beca"
+        subtitle="Ambas becas son compatibles y pueden ser solicitadas por el mismo alumno. Para optar a estos beneficios, debe dirigir su solicitud al <strong>Comité de Becas</strong>, adjuntar la documentación necesaria y completar los siguientes <strong>3 pasos</strong>:"
+        items={[
         {
             title: 'Enviar los siguientes documentos a: <span class="text-secondary">scholarships@fondoverde.org</span>',
             description:
                 '<ul class="list-disc ml-5 space-y-1"><li>Ambas solicitudes de beca.</li><li>Título de Licenciatura.</li><li>Certificado de estudios de Licenciatura.</li><li>Acta de nacimiento.</li><li>Identificación oficial, cédula de ciudadanía o DNI.</li><li>Curriculum Vitae.</li><li>Carta de Motivación Académica.</li><li>Fotografía tamaño infantil.</li><li>Solicitud de inscripción.</li></ul>',
+             icon: 'tabler:mail',
         },
         {
-            title: 'Seguir a Fondo Verde en Facebook y X',
+            title: 'Seguir a Fondo Verde en Facebook y X (Twitter):',
             description:
-                '» <a href="https://www.facebook.com/fondoverde" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Fondo Verde en Facebook</a> <br> » <a href="https://twitter.com/fondoverde" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Fondo Verde en X (Twitter)</a>',
+              '<ul class="list-disc ml-6 mt-2 space-y-1 text-muted"><li><a href="https://www.facebook.com/fondoverde" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary hover:text-secondary underline underline-offset-2 mr-4"> facebook.com/fondoverde </a></li> <li> <a href="https://x.com/fondoverde" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary hover:text-secondary underline underline-offset-2"> x.com/fondoverde </a></li></ul>',
+            icon: 'tabler:social',
         },
         {
             title: 'Difundir la Maestría en LinkedIn',
             description:
                 'Realiza una publicación en tu perfil de <strong>LinkedIn</strong> compartiendo la maestría de tu interés y etiqueta a <span class="text-primary">@Fondo Verde Internacional</span>.',
+            icon: 'tabler:share',
         },
     ]}
->
-    <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-pageDark"></div>
-    </Fragment>  
-</Steps2>
+
+      >
+        <Fragment slot="bg">
+          <div class="absolute inset-0 bg-blue-50 dark:bg-pageDark"></div>
+        </Fragment>
+      </Steps>
 
 <WidgetWrapper containerClass="max-w-5xl mx-auto py-0 md:py-0 pb-12 md:pb-10">
     <Alert variant="warning" title="Importante">
