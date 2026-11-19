@@ -29,7 +29,7 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
       role="tablist"
       aria-label="Categorías de preguntas frecuentes"
       aria-orientation="horizontal"
-      class="mx-auto mb-0 grid max-w-4xl grid-cols-3 border-b border-slate-300 dark:border-slate-700 md:flex"
+      class="mx-auto mb-0 grid max-w-4xl grid-cols-3 border-b border-slate-300 dark:border-slate-700 md:flex md:justify-center"
     >
       {
         sections.map((section, index) => (
@@ -57,7 +57,7 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
             aria-labelledby={`faq-tab-${section.id}`}
             tabindex={0}
             hidden={index !== 0}
-            class="scroll-mt-32 rounded-b-xl border border-t-0 border-slate-200 bg-blue-50 p-4 sm:p-6 dark:border-slate-700 dark:bg-pageDark"
+            class="scroll-mt-32 rounded-b-xl border border-t-0 border-slate-200 bg-gray-50 p-4 sm:p-6 dark:border-slate-700 dark:bg-pageDark"
           >
             <h2
               id={`faq-section-${section.id}`}
@@ -108,12 +108,13 @@ const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.
     position: relative;
     z-index: 1;
     margin-bottom: -1px;
-    border-color: var(--aw-color-secondary);
-    border-bottom-color: rgb(239 246 255);
-    background-color: rgb(239 246 255);
+    border-color: rgb(26 112 83);
+    border-bottom-color: rgb(249 250 251);
+    background-color: rgb(249 250 251);
   }
 
   :global(.dark) .faq-tab[aria-selected='true'] {
+    border-color: rgb(88 180 136);
     border-bottom-color: var(--aw-color-bg-page-dark);
     background-color: var(--aw-color-bg-page-dark);
   }
