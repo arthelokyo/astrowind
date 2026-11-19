@@ -3,9 +3,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Headline from '~/components/ui/Headline.astro';
-import Button from '~/components/ui/Button.astro';
+import CallToAction2 from '~/components/widgets/CallToAction2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -19,200 +17,185 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-    <Hero
-        tagline="El Instituto"
-        image={{
-            src: '~/assets/images/fvi-accion-social.webp',
-            alt: 'Fondo Verde y su acción social — compromiso con la sociedad y el planeta',
-        }}
-        >
-        <Fragment slot="title">
-            Fondo Verde y su
-            <span class="text-primary dark:text-accent"> acción social</span>
-        </Fragment>
+  <Hero
+    tagline="El Instituto"
+    image={{
+      src: '~/assets/images/fvi-accion-social.webp',
+      alt: 'Fondo Verde y su acción social — compromiso con la sociedad y el planeta',
+    }}
+  >
+    <Fragment slot="title">
+      Fondo Verde y su
+      <span class="text-primary dark:text-accent"> acción social</span>
+    </Fragment>
 
-        <Fragment slot="subtitle">
-            En <span class="font-semibold text-primary">Fondo Verde</span>{' '}
-            <span class="font-semibold text-secondary">Institute</span> entendemos que la educación ambiental es inseparable
-            de la responsabilidad social. Apoyamos el talento, promovemos iniciativas de carácter ambiental y generamos
-            conocimiento para dar nuevas respuestas a los desafíos del planeta, vinculando{' '}
-            <strong>prioridades locales</strong> a <strong>desafíos globales</strong>.
-        </Fragment>
-    </Hero>
+    <Fragment slot="subtitle">
+      En <span class="font-semibold text-primary">Fondo Verde</span>{' '}
+      <span class="font-semibold text-secondary">Institute</span> entendemos que la educación ambiental es inseparable de
+      la responsabilidad social. Apoyamos el talento, promovemos iniciativas de carácter ambiental y generamos conocimiento
+      para dar nuevas respuestas a los desafíos del planeta, vinculando{' '}
+      <strong>prioridades locales</strong> a <strong>desafíos globales</strong>.
+    </Fragment>
+  </Hero>
 
   <!-- Compromiso social ******************* -->
-    <Content
-        title="Nuestro compromiso con la sociedad"
-        subtitle="Tres ejes de acción articulan nuestra labor: el acceso al conocimiento, la defensa del medio ambiente y la generación de ciencia con impacto real."
-        tagline="Compromiso"
-        items={[
-            {
-            title: 'Apoyamos el talento',
-            description:
-                'Nuestros programas de becas hacen accesible la formación ambiental de alto nivel a quienes más lo necesitan, sin importar su lugar de origen.',
-            icon: 'tabler:award',
-            },
-            {
-            title: 'Impulsamos iniciativas ambientales',
-            description:
-                'Promovemos, participamos, estimulamos e intervenimos en iniciativas de carácter ambiental con el fin de potenciar y desarrollar estilos de vida sostenibles.',
-            icon: 'tabler:plant-2',
-            },
-            {
-            title: 'Fomentamos la investigación',
-            description:
-                'Apostamos por la excelencia en la investigación para dar nuevas respuestas a los desafíos ambientales en todo el planeta.',
-            icon: 'tabler:microscope',
-            },
-        ]}    
-        image={{
-            src: '~/assets/images/fvi-compromiso-sociedad.webp',
-            alt: 'Compromiso social y ambiental de Fondo Verde Institute',
-        }}    
-    >
+  <Content
+    title="Nuestro compromiso con la sociedad"
+    subtitle="Tres ejes de acción articulan nuestra labor: el acceso al conocimiento, la defensa del medio ambiente y la generación de ciencia con impacto real."
+    tagline="Compromiso"
+    items={[
+      {
+        title: 'Apoyamos el talento',
+        description:
+          'Nuestros programas de becas hacen accesible la formación ambiental de alto nivel a quienes más lo necesitan, sin importar su lugar de origen.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Impulsamos iniciativas ambientales',
+        description:
+          'Promovemos, participamos, estimulamos e intervenimos en iniciativas de carácter ambiental con el fin de potenciar y desarrollar estilos de vida sostenibles.',
+        icon: 'tabler:plant-2',
+      },
+      {
+        title: 'Fomentamos la investigación',
+        description:
+          'Apostamos por la excelencia en la investigación para dar nuevas respuestas a los desafíos ambientales en todo el planeta.',
+        icon: 'tabler:microscope',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/fvi-compromiso-sociedad.webp',
+      alt: 'Compromiso social y ambiental de Fondo Verde Institute',
+    }}
+  >
     <Fragment slot="content">
-        <p class="text-lg dark:text-slate-400">
+      <p class="text-lg dark:text-slate-400">
         En Fondo Verde Institute tenemos un compromiso profundo con la sociedad. Apoyamos el talento allá donde esté,
-        promovemos iniciativas ambientales transformadoras y fomentamos la generación de conocimiento de excelencia
-        para dar nuevas respuestas a los desafíos ambientales en todo el planeta. Nos especializamos en{' '}
+        promovemos iniciativas ambientales transformadoras y fomentamos la generación de conocimiento de excelencia para
+        dar nuevas respuestas a los desafíos ambientales en todo el planeta. Nos especializamos en{' '}
         <strong>vincular las prioridades locales a los desafíos globales</strong>.
-        </p>
+      </p>
     </Fragment>
 
     <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-pageDark"></div>
+      <div class="absolute inset-0 bg-blue-50 dark:bg-pageDark"></div>
     </Fragment>
-    </Content>
+  </Content>
 
   <!-- Estadísticas de impacto ******************* -->
-    <Stats
+  <Stats
     title="Nuestro impacto en cifras"
     subtitle="Resultados concretos de años de trabajo comprometido con la sociedad y el medioambiente."
     stats={[
-        {
+      {
         amount: '+2.000',
         title: 'Becas otorgadas en los últimos 5 años',
         icon: 'tabler:medal',
-        },
-        {
+      },
+      {
         amount: '14',
         title: 'Iniciativas ambientales patrocinadas',
         icon: 'tabler:leaf',
-        },
-        {
+      },
+      {
         amount: '10',
         title: 'Proyectos de investigación activos',
         icon: 'tabler:flask',
-        },
+      },
     ]}
-    >
-    </Stats>
+  />
 
   <!-- Fondo Verde ONGDI ******************* -->
-    <Content
+  <Content
     isReversed
     isAfterContent
     title="Fondo Verde ONGDI"
     items={[
-        {
+      {
         title: 'Ámbito local',
         description:
-            'Intervenimos en comunidades y territorios con proyectos de desarrollo ambiental adaptados a las realidades y necesidades de cada contexto.',
+          'Intervenimos en comunidades y territorios con proyectos de desarrollo ambiental adaptados a las realidades y necesidades de cada contexto.',
         icon: 'tabler:map-pin',
-        },
-        {
+      },
+      {
         title: 'Ámbito nacional',
         description:
-            'Coordinamos con instituciones y organismos públicos de cada país para maximizar el alcance e impacto de nuestras iniciativas.',
+          'Coordinamos con instituciones y organismos públicos de cada país para maximizar el alcance e impacto de nuestras iniciativas.',
         icon: 'tabler:building',
-        },
-        {
+      },
+      {
         title: 'Ámbito internacional',
         description:
-            'Ejecutamos y administramos proyectos estratégicos de desarrollo ambiental en red con socios de Latinoamérica, la Unión Europea y el resto del mundo.',
+          'Ejecutamos y administramos proyectos estratégicos de desarrollo ambiental en red con socios de Latinoamérica, la Unión Europea y el resto del mundo.',
         icon: 'tabler:world',
-        },
+      },
     ]}
     image={{
-        src: '~/assets/images/fvi-conservacion-solidaridad.webp',
-        alt: 'Fondo Verde ONGDI — conservación y manejo sostenible de los recursos naturales',
+      src: '~/assets/images/fvi-conservacion-solidaridad.webp',
+      alt: 'Fondo Verde ONGDI — conservación y manejo sostenible de los recursos naturales',
     }}
-    >
+  >
     <Fragment slot="content">
-        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         Conservación desde la justicia y la solidaridad
-        </h3>
-        <p class="text-lg dark:text-slate-400 mt-4">
-        En <strong>Fondo Verde ONGDI</strong> trabajamos por la conservación y manejo sostenible de los recursos
-        naturales y del medio ambiente desde la justicia y la solidaridad, participando en la ejecución y
-        administración de proyectos estratégicos de desarrollo ambiental en el ámbito local, nacional e
-        internacional.
-        </p>
+      </h3>
+      <p class="text-lg dark:text-slate-400 mt-4">
+        En <strong>Fondo Verde ONGDI</strong> trabajamos por la conservación y manejo sostenible de los recursos naturales
+        y del medio ambiente desde la justicia y la solidaridad, participando en la ejecución y administración de proyectos
+        estratégicos de desarrollo ambiental en el ámbito local, nacional e internacional.
+      </p>
     </Fragment>
-    </Content>
+  </Content>
 
-    <!-- Tres Pilares de la Acción Social ******************* -->
-    <Features3
-        title="Tres pilares de nuestra acción"
-        subtitle="Cada pilar representa un compromiso concreto de Fondo Verde con las personas y el planeta."
-        tagline="Pilares"
-        columns={3}
-        items={[
-            {
-            title: 'Becas y acceso al conocimiento',
-            description:
-                'Ofrecemos becas parciales a estudiantes con talento y vocación ambiental, eliminando las barreras económicas y geográficas que impiden el acceso a la formación de posgrado.',
-            icon: 'tabler:school',
-            },
-            {
-            title: 'Iniciativas ambientales',
-            description:
-                'Patrocinamos y co-ejecutamos proyectos de reforestación, educación ambiental, agricultura urbana y energías renovables que transforman comunidades en todo el continente.',
-            icon: 'tabler:trees',
-            },
-            {
-            title: 'Investigación con impacto',
-            description:
-                'Vinculamos a investigadores, profesionales y comunidades para producir ciencia aplicada que responda a los retos ambientales más urgentes a nivel local y global.',
-            icon: 'tabler:bulb',
-            },
-        ]}
-    />
+  <!-- Tres Pilares de la Acción Social ******************* -->
+  <Features3
+    title="Tres pilares de nuestra acción"
+    subtitle="Cada pilar representa un compromiso concreto de Fondo Verde con las personas y el planeta."
+    tagline="Pilares"
+    columns={3}
+    items={[
+      {
+        title: 'Becas y acceso al conocimiento',
+        description:
+          'Ofrecemos becas parciales a estudiantes con talento y vocación ambiental, eliminando las barreras económicas y geográficas que impiden el acceso a la formación de posgrado.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Iniciativas ambientales',
+        description:
+          'Patrocinamos y co-ejecutamos proyectos de reforestación, educación ambiental, agricultura urbana y energías renovables que transforman comunidades en todo el continente.',
+        icon: 'tabler:trees',
+      },
+      {
+        title: 'Investigación con impacto',
+        description:
+          'Vinculamos a investigadores, profesionales y comunidades para producir ciencia aplicada que responda a los retos ambientales más urgentes a nivel local y global.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
 
-    <WidgetWrapper containerClass="max-w-4xl mx-auto mt-2 text-center">
-        <Headline
-            tagline="Acción Social"
-            title="Más sobre la acción social de Fondo Verde"
-            subtitle="Descubre todos los proyectos, iniciativas y programas con los que Fondo Verde trabaja por un planeta más sostenible y justo."
-        />
-        <div class="flex flex-wrap justify-center gap-4 mt-2">
-            <Button
-                variant="primary"
-                text="Cooperación Internacional"
-                href="https://www.fondoverde.org/cooperacion"
-                target="_blank"
-                rel="noopener noreferrer"
-                icon="tabler:external-link"
-            />
-            <Button
-                variant="secondary"
-                text="Nuestros Proyectos"
-                href="https://www.fondoverde.org/proyectos"
-                target="_blank"
-                rel="noopener noreferrer"
-                icon="tabler:award"
-            />
-        </div>
-
-        <Fragment slot="bg">            
-            <!-- Fondo modo claro -->
-            <div class="absolute inset-0 -z-10 h-full w-full dark:hidden bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
-                <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#c6e8e6,transparent)]"></div>
-            </div>
-            <!-- Fondo modo oscuro -->
-            <div class="absolute inset-0 -z-10 h-full w-full hidden dark:block bg-slate-900 bg-[linear-gradient(to_right,#1e3535_1px,transparent_1px),linear-gradient(to_bottom,#1e3535_1px,transparent_1px)] bg-[size:6rem_4rem]">
-                <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#042f2e,transparent)]"></div>
-            </div>
-        </Fragment>
-    </WidgetWrapper>
+  <CallToAction2
+    tagline="Acción Social"
+    title="Más sobre la acción social de Fondo Verde"
+    subtitle="Descubre todos los proyectos, iniciativas y programas con los que Fondo Verde trabaja por un planeta más sostenible y justo."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Cooperación Internacional',
+        href: 'https://www.fondoverde.org/cooperacion',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:external-link',
+      },
+      {
+        variant: 'secondary',
+        text: 'Nuestros Proyectos',
+        href: 'https://www.fondoverde.org/proyectos',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
 </Layout>

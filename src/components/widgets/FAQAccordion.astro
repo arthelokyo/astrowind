@@ -1,0 +1,222 @@
+---
+import { Icon } from 'astro-icon/components';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
+
+interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+interface FAQSection {
+  id: string;
+  title: string;
+  tabTitle?: string;
+  items: FAQItem[];
+}
+
+interface Props extends Widget {
+  sections: FAQSection[];
+}
+
+const { sections = [], id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div data-faq-tabs>
+    <div
+      role="tablist"
+      aria-label="Categorías de preguntas frecuentes"
+      aria-orientation="horizontal"
+      class="mx-auto mb-0 grid max-w-4xl grid-cols-3 border-b border-slate-300 dark:border-slate-700 md:flex md:justify-start"
+    >
+      {
+        sections.map((section, index) => (
+          <button
+            id={`faq-tab-${section.id}`}
+            type="button"
+            role="tab"
+            aria-selected={index === 0}
+            aria-controls={section.id}
+            tabindex={index === 0 ? 0 : -1}
+            class="faq-tab min-w-0 border-x border-t-4 border-b-0 border-slate-300 border-t-primary bg-white px-1 py-3 text-center text-xs font-semibold leading-tight text-primary transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:border-slate-700 dark:bg-slate-800 dark:text-primary dark:hover:bg-slate-700 sm:px-3 sm:text-sm md:flex-none md:rounded-t-sm md:px-4 md:text-base lg:text-lg"
+          >
+            {section.tabTitle ?? section.title}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="mx-auto max-w-4xl">
+      {
+        sections.map((section, index) => (
+          <section
+            id={section.id}
+            role="tabpanel"
+            aria-labelledby={`faq-tab-${section.id}`}
+            tabindex={0}
+            hidden={index !== 0}
+            class="scroll-mt-32 rounded-b-xl border border-t-0 border-slate-200 bg-gray-50 p-4 sm:p-6 dark:border-slate-700 dark:bg-pageDark"
+          >
+            <h2
+              id={`faq-section-${section.id}`}
+              class="mb-6 border-b border-primary/20 pb-3 text-2xl font-bold tracking-tight text-primary dark:text-accent sm:text-3xl"
+            >
+              {section.title}
+            </h2>
+
+            <div class="grid gap-3">
+              {section.items.map((item) => (
+                <details
+                  id={item.id}
+                  name={`faq-${section.id}`}
+                  class="group scroll-mt-32 rounded-lg border border-transparent transition-colors duration-200 open:border-primary/20 open:bg-primary/[0.04] dark:open:bg-primary/[0.08]"
+                >
+                  <summary class="grid cursor-pointer list-none grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-x-3 rounded-lg px-4 py-4 text-left text-lg font-semibold text-slate-800 marker:content-none transition-colors duration-200 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary group-open:text-primary dark:text-slate-100 dark:hover:text-white dark:group-open:text-primary">
+                    <Icon
+                      name="tabler:chevron-right"
+                      aria-hidden="true"
+                      class="mt-1 h-6 w-6 text-primary transition-transform duration-200 group-open:rotate-90"
+                    />
+                    <span>{item.question}</span>
+                  </summary>
+                  <div class="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-3 px-4 pb-5">
+                    <span aria-hidden="true" />
+                    <div
+                      class="faq-answer prose prose-base max-w-none text-muted dark:prose-invert dark:text-slate-300"
+                      set:html={item.answer}
+                    />
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</WidgetWrapper>
+
+<style>
+  .faq-tab:not([aria-selected='true']) {
+    border-top-color: var(--aw-color-primary);
+  }
+
+  .faq-tab[aria-selected='true'] {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -1px;
+    border-color: rgb(26 112 83);
+    border-bottom-color: rgb(249 250 251);
+    background-color: rgb(249 250 251);
+  }
+
+  :global(.dark) .faq-tab[aria-selected='true'] {
+    border-color: rgb(88 180 136);
+    border-bottom-color: var(--aw-color-bg-page-dark);
+    background-color: var(--aw-color-bg-page-dark);
+  }
+
+  .faq-answer :global(ul) {
+    list-style-type: disc;
+    margin-block: 1em;
+    padding-inline-start: 1.625em;
+  }
+
+  .faq-answer :global(ol) {
+    list-style-type: decimal;
+    margin-block: 1em;
+    padding-inline-start: 1.625em;
+  }
+
+  .faq-answer :global(li) {
+    padding-inline-start: 0.25em;
+  }
+
+  .faq-answer :global(ul > li::marker) {
+    color: var(--aw-color-primary);
+  }
+
+  details[open] .faq-answer {
+    animation: faq-answer-reveal 220ms ease-out both;
+  }
+
+  @keyframes faq-answer-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-0.25rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    details[open] .faq-answer {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const initFaqTabs = () => {
+    document.querySelectorAll<HTMLElement>('[data-faq-tabs]').forEach((root) => {
+      if (root.dataset.faqTabsReady === 'true') return;
+
+      const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+      const panels = Array.from(root.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+
+      if (tabs.length === 0 || tabs.length !== panels.length) return;
+
+      const activateTab = (activeTab: HTMLButtonElement) => {
+        tabs.forEach((tab, index) => {
+          const isActive = tab === activeTab;
+          const panel = panels[index];
+
+          tab.setAttribute('aria-selected', String(isActive));
+          tab.tabIndex = isActive ? 0 : -1;
+          if (panel) panel.hidden = !isActive;
+        });
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', (event) => {
+          let nextIndex: number | undefined;
+
+          switch (event.key) {
+            case 'ArrowRight':
+              nextIndex = (index + 1) % tabs.length;
+              break;
+            case 'ArrowLeft':
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+              break;
+            case 'Home':
+              nextIndex = 0;
+              break;
+            case 'End':
+              nextIndex = tabs.length - 1;
+              break;
+          }
+
+          if (nextIndex === undefined) return;
+
+          event.preventDefault();
+          const nextTab = tabs[nextIndex];
+          if (!nextTab) return;
+
+          activateTab(nextTab);
+          nextTab.focus();
+        });
+      });
+
+      root.dataset.faqTabsReady = 'true';
+    });
+  };
+
+  initFaqTabs();
+  document.addEventListener('astro:after-swap', initFaqTabs);
+</script>

@@ -12,7 +12,7 @@ const { isFullWidth = false } = Astro.props;
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
 
-<div class="relative z-10 bg-primary text-white text-xs p-1 border-t border-b border-teal-700 shadow-lg">
+<div class="relative z-10 bg-primary dark:bg-accent text-white text-xs p-1 border-t border-b border-teal-700 shadow-lg">
   <div
     class:list={[
       'flex items-center justify-between py-1 px-3 md:px-6 mx-auto',
@@ -23,33 +23,40 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   >
     {/* Opciones izquierda */}
     <div class="flex items-center gap-4">
-      {secondaryNavData.leftLinks.map(({ text, href }) => (
-        <a
-          href={href}
-          class:list={[
-            'capitalize hover:text-gray-200 transition-colors whitespace-nowrap',
-            {
-              'font-semibold': href === currentPath,
-            },
-          ]}
-        >
-          {text}
-        </a>
-      ))}
+      {
+        secondaryNavData.leftLinks.map(({ text, href }) => (
+          <a
+            href={href}
+            class:list={[
+              'capitalize whitespace-nowrap transition-colors hover:text-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
+              {
+                'font-medium text-green-300 underline decoration-1 underline-offset-4': href === currentPath,
+              },
+            ]}
+            aria-current={href === currentPath ? 'page' : undefined}
+          >
+            {text}
+          </a>
+        ))
+      }
     </div>
-    
+
     <div class="hidden md:flex items-center gap-3">
-      {footerData.socialLinks.filter(({ icon }) => icon !== 'tabler:rss').map(({ ariaLabel, href, icon }) => (
-        <a
-          aria-label={ariaLabel}
-          href={href}
-          target={href?.startsWith('http') ? '_blank' : undefined}
-          rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-          class="inline-flex items-center justify-center text-white/90 transition-colors duration-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/60"
-        >
-          {icon && <Icon name={icon} class="h-5 w-5" />}
-        </a>
-      ))}
+      {
+        footerData.socialLinks
+          .filter(({ icon }) => icon !== 'tabler:rss')
+          .map(({ ariaLabel, href, icon }) => (
+            <a
+              aria-label={ariaLabel}
+              href={href}
+              target={href?.startsWith('http') ? '_blank' : undefined}
+              rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="inline-flex items-center justify-center text-white/90 transition-colors duration-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/60"
+            >
+              {icon && <Icon name={icon} class="h-5 w-5" />}
+            </a>
+          ))
+      }
     </div>
   </div>
 </div>

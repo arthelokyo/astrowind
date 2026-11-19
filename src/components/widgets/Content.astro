@@ -41,9 +41,9 @@ const {
       subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
     }}
   />
-  <div class="mx-auto max-w-7xl p-4 md:px-8">
-    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
-      <div class="md:basis-1/2 self-center">
+  <div class={`mx-auto p-4 md:px-8 ${image ? 'max-w-7xl' : 'max-w-5xl'}`}>
+    <div class:list={[image && 'md:flex md:gap-16', image && isReversed && 'md:flex-row-reverse']}>
+      <div class:list={[image ? 'md:basis-1/2 self-center' : 'w-full']}>
         {content && <div class="text-muted mb-12 text-lg dark:text-slate-400" set:html={content} />}
 
         {
@@ -68,9 +68,9 @@ const {
           }}
         />
       </div>
-      <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
-        {
-          image && (
+      {
+        image && (
+          <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
             <div class="relative m-auto max-w-4xl">
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
@@ -86,9 +86,9 @@ const {
                 />
               )}
             </div>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </WidgetWrapper>

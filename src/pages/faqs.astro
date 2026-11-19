@@ -1,0 +1,306 @@
+---
+import FAQAccordion from '~/components/widgets/FAQAccordion.astro';
+import CallToAction2 from '~/components/widgets/CallToAction2.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Preguntas frecuentes',
+  description: 'Resuelve tus dudas sobre las becas, matrícula y metodología de estudio de Fondo Verde Institute.',
+  keywords:
+    'preguntas frecuentes, FAQs, becas Fondo Verde, matrícula, admisión, metodología de estudio, posgrados ambientales',
+};
+
+const sections = [
+  {
+    id: 'becas',
+    title: 'Becas',
+    items: [
+      {
+        id: 'que-son-las-becas-de-estudio',
+        question: '¿Qué son las Becas de Estudio?',
+        answer:
+          '<p>Este tipo de beca es una ayuda económica para aquellos alumnos que, independientemente de su nacionalidad, desean cursar un posgrado en línea en <strong>Fondo Verde Institute</strong>, con un <strong>50 % de descuento</strong>.</p>',
+      },
+      {
+        id: 'que-requisitos-debes-reunir',
+        question: '¿Qué requisitos debes reunir?',
+        answer: `
+          <strong>Estudios postdoctorales</strong>
+          <ul>
+            <li><a href="/docs/PostDoc-Solicitud-Inscripcion.pdf">Solicitud de inscripción</a>.</li>
+            <li>Copia del título doctoral (doctorado de nivel internacional, PhD o similar).</li>
+            <li><a href="/docs/PostDoc-Carta-Intencion.doc">Carta de intención</a> con la motivación para postular al postdoctorado (400 palabras).</li>
+            <li><a href="/docs/PostDoc-Carta-Recomendacion.pdf">Carta de recomendación</a> de un profesor o investigador del área científica, nacional o internacional.</li>
+            <li>Breve currículum vítae que destaque la producción académica.</li>
+          </ul>
+          <strong>Programas de Doctorado</strong>
+          <ul>
+            <li>Título de Maestría.</li>
+            <li>Certificado de estudios de Maestría.</li>
+            <li>Acta de nacimiento.</li>
+            <li>Identificación oficial, cédula de ciudadanía o DNI.</li>
+            <li>Currículum vítae.</li>
+            <li><a href="/docs/Carta-de-Motivacion.doc">Carta de Motivación Académica</a>.</li>
+            <li>Seis fotografías tamaño infantil.</li>
+            <li><a href="/docs/Formulario-de-Postulacion-FV.xls">Formulario de Postulación</a>.</li>
+          </ul>
+          <strong>Programas de Maestría</strong>
+          <ul>
+            <li>Título de Licenciatura.</li>
+            <li>Certificado de estudios de Licenciatura.</li>
+            <li>Acta de nacimiento.</li>
+            <li>Identificación oficial, cédula de ciudadanía o DNI.</li>
+            <li>Currículum vítae.</li>
+            <li>Carta de Motivación Académica.</li>
+            <li>Fotografía tamaño infantil.</li>
+            <li>Solicitud de inscripción.</li>
+          </ul>
+          <p>Los documentos deben escanearse y enviarse por correo electrónico al <strong>Departamento de Becas de Fondo Verde</strong>: <a href="mailto:scholarships@fondoverde.org">scholarships@fondoverde.org</a>.</p>
+          <p><a href="/becas/becas-fondo-verde">Leer más sobre Becas Fondo Verde</a>.</p>
+        `,
+      },
+      {
+        id: 'cuanto-es-el-importe-de-la-beca',
+        question: '¿Cuánto es el importe de la beca?',
+        answer:
+          '<p>La ayuda que otorga <strong>Fondo Verde</strong> corresponde al <strong>50 % del importe total del programa</strong>. A quienes realicen el pago al contado se les aplicará un 5 % de descuento sobre el importe total. También se ofrece una opción de pago en cuotas.</p>',
+      },
+      {
+        id: 'cuales-son-los-plazos-de-solicitud-y-resolucion',
+        question: '¿Cuáles son los plazos de solicitud y resolución?',
+        answer:
+          '<p>Puedes solicitar la beca desde la fecha de convocatoria <strong>hasta el cierre de matrícula</strong>. El cupo es limitado y las becas se otorgan a medida que llegan las solicitudes que cumplen los requisitos. Cuanto antes la presentes, más posibilidades tendrás de obtenerla.</p>',
+      },
+      {
+        id: 'donde-tengo-que-entregar-la-solicitud-y-la-documentacion',
+        question: '¿Dónde tengo que entregar la solicitud y la documentación?',
+        answer:
+          '<p>Debes enviar toda la documentación por correo electrónico al <strong>Departamento de Becas de Fondo Verde</strong>: <a href="mailto:scholarships@fondoverde.org">scholarships@fondoverde.org</a>.</p>',
+      },
+      {
+        id: 'en-que-casos-la-beca-puede-ser-revocada',
+        question: '¿En qué casos la beca puede ser revocada?',
+        answer: `
+          <p><strong>Fondo Verde</strong> otorga estas ayudas para facilitar el acceso a una formación de calidad a alumnos con menos recursos económicos y buen expediente académico. Las becas son limitadas y la demanda es alta; por ello, quienes las reciben adquieren un compromiso con <strong>Fondo Verde</strong>. La beca puede revocarse en los siguientes casos:</p>
+          <ul>
+            <li>No cursar satisfactoriamente todas las asignaturas del programa.</li>
+            <li>Incumplir más del 30 % de las actividades programadas.</li>
+            <li>Si se eligió el pago a plazos, no estar al corriente de los pagos correspondientes.</li>
+            <li>Presentar información o documentación que no sea veraz.</li>
+          </ul>
+        `,
+      },
+    ],
+  },
+  {
+    id: 'matricula',
+    title: 'Matrícula y admisión',
+    tabTitle: 'Matrícula',
+    items: [
+      {
+        id: 'que-es-fondo-verde-institute',
+        question: '¿Qué es Fondo Verde Institute?',
+        answer: `
+          <p><strong>Fondo Verde Institute</strong> se funda en el entorno de <a href="https://www.fondoverde.org/" target="_blank" rel="noopener noreferrer"><strong>Fondo Verde</strong></a>, una ONGD internacional miembro de la <strong>UICN</strong> (Unión Internacional para la Conservación de la Naturaleza). Fondo Verde es una organización líder en formación ambiental con más de 16 años de experiencia. Esta experiencia ha permitido apostar por la innovación mediante una oferta educativa que genera un impacto positivo en el mundo.</p>
+          <p>El Instituto ofrece un ecosistema vinculante entre la sociedad civil, el mercado, el gobierno y los ecologistas, con contenido de formación ambiental y certificaciones de prestigio en el sector. Sus actividades teóricas y prácticas se orientan a la conservación y al manejo sostenible de los recursos naturales y del medio ambiente.</p>
+        `,
+      },
+      {
+        id: 'a-quienes-estan-dirigidos-los-posgrados',
+        question: '¿A quiénes están dirigidos los posgrados?',
+        answer: `
+          <ul>
+            <li>Los programas de postdoctorado están dirigidos a doctores de toda Iberoamérica.</li>
+            <li>Los doctorados están dirigidos a profesionales con perspectiva interdisciplinaria de lo ambiental, que acrediten competencias y experiencia relacionadas con la gestión ambiental y el desarrollo. También pueden postular profesionales de otras disciplinas interesados en el objeto de formación del doctorado.</li>
+            <li>Las maestrías están dirigidas preferentemente a personas con título de Licenciatura, Ingeniería, Arquitectura, Geografía, Ciencias Naturales o Ambientales, que acrediten competencias y experiencia relacionadas con la gestión ambiental y el desarrollo. También pueden postular profesionales de otras disciplinas interesados en el objeto de formación del posgrado.</li>
+          </ul>
+        `,
+      },
+      {
+        id: 'sobre-la-homologacion',
+        question: '¿Sobre la homologación?',
+        answer: `
+          <p><strong>Fondo Verde Institute</strong> imparte en español y en modalidad 100 % en línea los programas de estudio ofrecidos por la <a href="https://www.unicepes.edu.mx/" target="_blank" rel="noopener noreferrer">Universidad Centro Panamericano de Estudios Superiores (UNICEPES)</a>, de México.</p>
+          <p>Quienes cursen y finalicen con éxito un programa recibirán un <strong>título oficial</strong> de UNICEPES. La universidad cuenta con acuerdos de Reconocimiento de Validez Oficial de Estudios (RVOE) para sus programas de posgrado, incluidos en el Sistema Educativo Nacional. La Secretaría de Educación Pública de México (SEP) garantiza el reconocimiento internacional de sus títulos.</p>
+        `,
+      },
+      {
+        id: 'cuando-puedo-matricularme',
+        question: '¿Cuándo puedo matricularme?',
+        answer:
+          '<p>Los programas académicos de <strong>Fondo Verde Institute</strong> tienen fechas determinadas de inicio y fin. Para consultar las próximas fechas de matrícula, puedes escribir al Departamento de Admisiones: info@fondoverde.org.</p>',
+      },
+      {
+        id: 'los-posgrados-tienen-una-duracion-determinada',
+        question: '¿Los posgrados tienen una duración determinada?',
+        answer: `
+          <ul>
+            <li>El programa de <strong>Postdoctorado</strong> tiene una duración mínima de 6 meses en su versión intensiva y máxima de 1 año en su formato flexible, ampliable hasta un trimestre.</li>
+            <li>El <strong>Doctorado</strong> es un programa multidisciplinario de 24 meses (8 trimestres), estructurado en un periodo de formación, un periodo de investigación, el Proyecto de Tesis Doctoral y un artículo científico, con un total de 1.440 horas lectivas (90 créditos).</li>
+            <li>La <strong>Maestría</strong> dura seis trimestres (2 años), con un total de 1.440 horas lectivas (90 créditos). El plan de estudios comprende tres trimestres de formación básica con nueve cursos; durante el cuarto y quinto trimestres se desarrolla el Proyecto Terminal de Maestría, y en el sexto se acredita la opción terminal de titulación y se realizan los trámites de graduación correspondientes.</li>
+          </ul>
+        `,
+      },
+      {
+        id: 'debemos-estar-siempre-conectados-a-internet-para-seguir-el-master',
+        question: '¿Debemos estar siempre conectados a Internet para seguir el máster?',
+        answer:
+          '<p>No siempre. Algunas actividades pueden realizarse sin conexión, como consultar materiales descargados, redactar mensajes al tutor y leer mensajes descargados. Para otras se necesita conexión a Internet, por ejemplo, entrar y participar en foros, leer intervenciones y enviar o recibir archivos.</p>',
+      },
+      {
+        id: 'estudiare-solo',
+        question: '¿Estudiaré solo?',
+        answer:
+          '<p>Te relacionarás con las personas que participan en tu formación. Contarás con el apoyo del administrador, que informa, asesora y ayuda con los equipos y la comunicación telemática; además, tendrás un tutor o tutora que resolverá tus dudas, evaluará y dará seguimiento a tu aprendizaje.</p><p>También podrás contactar con tus compañeros y compañeras de posgrado mediante los distintos medios de comunicación telemática.</p>',
+      },
+      {
+        id: 'el-precio-de-la-matricula-incluye-los-materiales-didacticos',
+        question: '¿El precio de la matrícula incluye los materiales didácticos?',
+        answer:
+          '<p>Todas las personas matriculadas tienen acceso a los recursos formativos en línea y pueden descargar los materiales para consultarlos sin conexión a Internet. El administrador del aula puede facilitar y completar esta información.</p>',
+      },
+      {
+        id: 'necesito-un-ordenador-con-conexion-a-internet-y-el-programa-del-master',
+        question: '¿Necesito un ordenador con conexión a Internet para cursar el programa?',
+        answer:
+          '<p>Toda persona que decida estudiar necesitará un ordenador con conexión a Internet.</p>',
+      },
+      {
+        id: 'quien-es-el-tutor',
+        question: '¿Quién es el tutor?',
+        answer:
+          '<p>El tutor es una persona especializada en los contenidos del programa de posgrado, con experiencia docente y dominio de las aplicaciones telemáticas por Internet. Su labor es apoyar, evaluar y realizar un seguimiento individualizado del aprendizaje, así como fomentar la interacción entre las personas matriculadas para crear una dinámica de aula.</p>',
+      },
+      {
+        id: 'cuando-recibire-la-respuesta-del-tutor',
+        question: '¿Cuándo recibiré la respuesta del tutor?',
+        answer:
+          '<p>El tutor o la tutora atiende diariamente y responde las consultas en un plazo no superior a 48 horas.</p>',
+      },
+      {
+        id: 'se-puede-uno-matricular-en-mas-de-un-master-a-la-vez',
+        question: '¿Se puede uno matricular en más de un máster a la vez?',
+        answer: '<p>Según las políticas de la Secretaría de Educación Pública de México, esta opción no es viable.</p>',
+      },
+      {
+        id: 'quien-es-el-administrador',
+        question: '¿Quién es el administrador?',
+        answer:
+          '<p>Es la persona responsable del funcionamiento del aula, del asesoramiento y de la matrícula de los alumnos en los distintos másteres. También apoya en el manejo de equipos y conexiones telemáticas. En cuanto a la orientación del posgrado, facilita el aprendizaje y apoya la comunicación con el tutor.</p>',
+      },
+      {
+        id: 'que-es-el-aula-virtual',
+        question: '¿Qué es el aula virtual?',
+        answer:
+          '<p>Es el entorno virtual desde el que se accede a los materiales de formación y ejercicios, al grupo de noticias del posgrado y a la tutoría telemática. Incluye herramientas para la formación en línea y la interacción entre alumnos y tutores. Su estructura es constante en todos los másteres para facilitar el uso a quienes ya conocen el sistema.</p>',
+      },
+      {
+        id: 'se-expide-algun-tipo-de-certificacion-al-terminar-el-posgrado',
+        question: '¿Se expide algún tipo de certificación al terminar el posgrado?',
+        answer: `
+          <strong>Diploma Postdoctoral</strong>
+          <p>Una vez evaluado el Informe del Plan de Actividades y superado el Trabajo Final de Investigación, se expedirá un diploma que acredita haber cursado el Programa de Postdoctorado. Lo expide <a href="https://www.fondoverde.org/">Fondo Verde</a>, inscrito en el Registro de Entidades Colaboradoras de la Junta de Castilla y León (España) en materia de Formación Profesional Ocupacional, con el número 11001.</p>
+          <strong>Título de Doctor</strong>
+          <p>La <a href="https://www.unicepes.edu.mx/" target="_blank" rel="noopener noreferrer">Universidad Centro Panamericano de Estudios Superiores (UNICEPES)</a> otorga el grado de Doctor con Reconocimiento de Validez Oficial de Estudios (RVOE) de la Secretaría de Educación del Gobierno del Estado de Michoacán (RVOE N.º DOC160402; clave D.G.P. Dirección General de Profesiones N.º 620604), y reconocimiento en los países con los que México haya suscrito el Convenio de La Haya (1961).</p>
+          <strong>Título de Maestría</strong>
+          <p>Quienes superen todas las materias y contenidos básicos, así como el Proyecto Terminal de Maestría, obtendrán el grado de maestría.</p>
+          <p>El título lo expide la <a href="https://www.unicepes.edu.mx/" target="_blank" rel="noopener noreferrer">Universidad Centro Panamericano de Estudios Superiores (UNICEPES)</a>, con Reconocimiento de Validez Oficial (Acuerdo de Incorporación N.º MAES180407) de la Dirección de Educación Superior de la Secretaría de Educación Pública.</p>
+        `,
+      },
+    ],
+  },
+  {
+    id: 'metodologia',
+    title: 'Metodología',
+    items: [
+      {
+        id: 'que-materiales-se-encuentran-disponibles',
+        question: '¿Qué materiales se encuentran disponibles?',
+        answer: `
+          <p>El programa consta de:</p>
+          <ul>
+            <li>Módulos académicos.</li>
+            <li>Lecturas adicionales.</li>
+            <li>Ejercicios evaluativos por cada módulo.</li>
+            <li>Foros de debate.</li>
+            <li>Videoclases, entre otros.</li>
+          </ul>
+        `,
+      },
+      {
+        id: 'cual-es-la-metodologia-de-los-posgrados',
+        question: '¿Cuál es la metodología de los posgrados?',
+        answer: `
+          <p>Cada programa se realiza a través de la plataforma formativa <a href="https://moodle.org/" target="_blank" rel="noopener noreferrer">Moodle</a>.</p>
+          <p>El alumnado dispone de un tiempo determinado para completar el programa y accede mediante una clave y contraseña. Durante ese tiempo puede realizar consultas sobre los contenidos y debe completar y superar los ejercicios evaluativos teóricos y prácticos, que corrige y valora el profesorado.</p>
+          <p>Las preguntas pueden ser de distintos tipos: verdadero o falso, elección múltiple y respuestas abiertas. Una vez cursados los módulos, el alumnado debe elaborar el proyecto.</p>
+          <p>Hay dos tipos de programas:</p>
+          <ul>
+            <li>Programas cuyo material y ejercicios están disponibles en su totalidad desde el día de inicio.</li>
+            <li>Programas cuyos contenidos se habilitan por etapas, con periodos concretos. Cada módulo tiene una fecha de activación y un plazo para realizarlo; durante ese tiempo no se puede acceder a los módulos posteriores.</li>
+          </ul>
+          <p>Consulta la información específica de cada programa.</p>
+        `,
+      },
+      {
+        id: 'cuales-son-los-plazos-y-cuando-comienza-un-posgrado',
+        question: '¿Cuáles son los plazos y cuándo comienza un posgrado?',
+        answer:
+          '<p>Cada programa tiene un plazo de realización determinado en función de las horas reconocidas. Para maestrías y doctorados hay cuatro convocatorias anuales, en febrero, mayo, agosto y noviembre. Para formalizar la matrícula e iniciar el programa, se envía la constancia del abono bancario; posteriormente se envían por correo las claves de acceso a la plataforma virtual.</p>',
+      },
+      {
+        id: 'como-son-los-materiales-de-capacitacion',
+        question: '¿Cómo son los materiales de capacitación?',
+        answer:
+          '<p>Los materiales de formación se presentan en formato electrónico y pueden imprimirse para facilitar el estudio. Se complementan con lecturas de apoyo disponibles para el alumnado matriculado. El aula virtual ofrece materiales actualizados, ejercicios prácticos, evaluaciones en línea y herramientas telemáticas como el correo del tutor, foros y tablones de intercambio.</p>',
+      },
+      {
+        id: 'con-que-apoyo-cuento',
+        question: '¿Con qué apoyo cuento?',
+        answer: `
+          <ol>
+            <li>La persona responsable del aula, también denominada administrador de cursos, facilita la formación a distancia, resuelve problemas tecnológicos, mantiene la relación con los tutores e informa de incidencias.</li>
+            <li>La tutoría se realiza a distancia por Internet, mediante correo electrónico. Puedes consultar dudas, enviar las prácticas exigidas y recibir respuesta en un plazo no superior a 48 horas. La tutoría está disponible de lunes a viernes.</li>
+          </ol>
+        `,
+      },
+    ],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Fondo Verde Institute">
+    <Fragment slot="title">
+      Preguntas
+      <span class="text-primary dark:text-accent"> frecuentes</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Encuentra respuestas sobre becas, matrícula, admisión y metodología de los programas.
+    </Fragment>
+  </HeroText>
+
+  <FAQAccordion sections={sections} />
+
+  <CallToAction2
+    tagline="Formación ambiental"
+    title="Conoce la formación ambiental de Fondo Verde Institute"
+    subtitle="Explora los programas de posgrado orientados a la conservación, la sostenibilidad y el desarrollo profesional."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Ver maestrías',
+        href: '/maestria',
+        icon: 'tabler:school',
+      },
+      {
+        variant: 'secondary',
+        text: 'Ver doctorados',
+        href: '/phd',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
+</Layout>
