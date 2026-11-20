@@ -113,7 +113,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             ) : (
               <a
                 class:list={[
-                  'px-4 md:px-3 py-2.5 rounded flex items-center whitespace-nowrap transition-colors',
+                  'px-4 md:px-3 py-2 rounded flex items-center whitespace-nowrap transition-colors',
                   {
                     'is-active': href === currentPath,
                     'nav-widget-link': text === 'Widgets',
