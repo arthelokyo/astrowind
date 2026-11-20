@@ -168,6 +168,10 @@ export const headerData = {
       href: getPermalink('/diplomados'),
     },
     {
+      text: 'Becas',
+      href: getPermalink('/becas'),
+    },
+    {
       text: 'Proyectos',
       href: getPermalink('/proyectos'),
       links: [
