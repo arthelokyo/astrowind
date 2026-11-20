@@ -246,7 +246,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 #header nav > ul > li > a::after {
   position: absolute;
   right: 0.75rem;
-  bottom: 0;
+  bottom: -1.0rem;
   left: 0.75rem;
   height: 4px;
   border-radius: 999px;
