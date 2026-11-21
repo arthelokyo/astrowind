@@ -10,6 +10,8 @@ import { UI } from 'astrowind:config';
   // `astro:after-swap` listener so the theme is re-applied on client-side
   // navigations with <ClientRouter />. Toggling the theme is owned by the
   // <aw-theme-toggle> custom element (see ToggleTheme.astro).
+  const systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
   function applyTheme(theme) {
     document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
   }
@@ -18,16 +20,16 @@ import { UI } from 'astrowind:config';
     if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
       return defaultTheme.replace(':only', '');
     }
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && systemColorScheme.matches)) {
       return 'dark';
     }
     return 'light';
   }
 
   applyTheme(resolveTheme());
+
+  // Read the saved preference again so a manual choice made after load still takes precedence.
+  systemColorScheme.addEventListener('change', () => applyTheme(resolveTheme()));
 
   // `document` persists across view transitions, so this listener (registered
   // once on first load) keeps re-applying the theme on every navigation.
