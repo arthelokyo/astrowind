@@ -645,6 +645,28 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   }
 }
 
+@media (max-width: 1023px) and (min-width: 832px) {
+  #header .header-utility-links {
+    display: flex;
+  }
+}
+
+@media (max-width: 841px) and (min-width: 768px) {
+  #header .header-main {
+    flex-wrap: wrap;
+  }
+
+  #header .header-actions {
+    flex: 0 0 100%;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  #header .header-utility-links {
+    display: flex;
+  }
+}
+
 @media (max-width: 900px) and (min-width: 768px) {
   #header .header-brand .logo-light,
   #header .header-brand .logo-dark {
@@ -659,7 +681,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   }
 }
 
-@media (max-width: 864px) and (min-width: 768px) {
+@media (max-width: 960px) and (min-width: 768px) {
   #header .header-download {
     display: none;
   }
