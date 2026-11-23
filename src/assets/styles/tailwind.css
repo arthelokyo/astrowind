@@ -200,7 +200,9 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
-  transition: opacity 220ms ease, transform 220ms ease;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
 }
 
 #header[data-mega-secondary='true'] .mega-panel {
@@ -246,7 +248,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 #header nav > ul > li > a::after {
   position: absolute;
   right: 0.75rem;
-  bottom: -1.0rem;
+  bottom: -1rem;
   left: 0.75rem;
   height: 4px;
   border-radius: 999px;
@@ -314,6 +316,25 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 .dark .nav-widget-link:focus-visible {
   background: rgb(62, 66, 66);
   color: white;
+}
+
+#header nav > ul > li > a.nav-becas-link {
+  border: 1px solid rgb(41 141 108 / 32%);
+  background: rgb(41 141 108 / 10%);
+  color: var(--aw-color-primary);
+  font-weight: 600;
+}
+
+#header nav > ul > li > a.nav-becas-link::after {
+  display: none;
+}
+
+#header nav > ul > li > a.nav-becas-link:hover,
+#header nav > ul > li > a.nav-becas-link:focus-visible,
+#header nav > ul > li > a.nav-becas-link.is-active {
+  border-color: var(--aw-color-primary);
+  background: var(--aw-color-primary);
+  color: rgb(255 255 255);
 }
 
 .mega-chevron {
@@ -396,7 +417,9 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   padding: 0.85rem 0.65rem;
   border-radius: 0.5rem;
   color: var(--aw-color-text-heading);
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .mega-link:hover,
@@ -416,7 +439,9 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   margin-top: 0.42rem;
   border: 1px solid var(--aw-color-primary);
   border-radius: 999px;
-  transition: background-color 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
 .mega-link:hover .mega-dot,
@@ -540,7 +565,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 
   #header .header-brand .logo-light,
   #header .header-brand .logo-dark {
-    width: 10.5rem;
+    width: 7.5rem;
     height: 2.75rem;
   }
 
@@ -561,9 +586,9 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 
   #header .header-main > nav .mega-trigger,
   #header .header-main > nav > ul > li > a {
-    padding-right: 0.55rem;
-    padding-left: 0.55rem;
-    font-size: 0.875rem;
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+    font-size: 0.8rem;
   }
 
   #header .header-actions {
@@ -606,7 +631,14 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 @media (max-width: 900px) and (min-width: 768px) {
   #header .header-brand .logo-light,
   #header .header-brand .logo-dark {
-    width: 8.5rem;
+    width: 7.5rem;
+  }
+
+  #header .header-main > nav .mega-trigger,
+  #header .header-main > nav > ul > li > a {
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -743,6 +775,20 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   .mega-link {
     gap: 1rem;
     padding: 0.75rem 0.65rem;
+  }
+
+  #header nav > ul > li > a.nav-becas-link.is-active {
+    border-color: rgb(41 141 108 / 18%);
+    border-left: 3px solid var(--aw-color-primary);
+    background: rgb(41 141 108 / 10%);
+    color: var(--aw-color-primary);
+  }
+
+  .dark #header nav > ul > li > a.nav-becas-link.is-active {
+    border-color: rgb(52 211 153 / 18%);
+    border-left-color: rgb(52 211 153);
+    background: rgb(16 185 129 / 12%);
+    color: rgb(110 231 183);
   }
 }
 

@@ -27,7 +27,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   aria-label="Main navigation"
 >
   <ul
-    class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-base md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center md:gap-1"
+    class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-base md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center md:gap-0"
   >
     {
       links.map(({ text, href, links: childLinks }) => {
@@ -122,6 +122,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   },
                 ]}
                 href={href}
+                aria-current={href === currentPath ? 'page' : undefined}
               >
                 {text}
               </a>
