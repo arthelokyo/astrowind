@@ -289,7 +289,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 
 @media (min-width: 768px) {
   #header nav > ul > li > a.nav-becas-link::after {
-    bottom: -0.5rem;
+    bottom: -1rem;
   }
 }
 
