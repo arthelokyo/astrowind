@@ -645,13 +645,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   }
 }
 
-@media (max-width: 1023px) and (min-width: 832px) {
-  #header .header-utility-links {
-    display: flex;
-  }
-}
-
-@media (max-width: 841px) and (min-width: 768px) {
+@media (max-width: 839px) and (min-width: 768px) {
   #header .header-main {
     flex-wrap: wrap;
   }
@@ -662,8 +656,8 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
     justify-content: flex-end;
   }
 
-  #header .header-utility-links {
-    display: flex;
+  #header .header-download {
+    display: inline-flex;
   }
 }
 
@@ -681,9 +675,23 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   }
 }
 
-@media (max-width: 960px) and (min-width: 768px) {
-  #header .header-download {
+@media (max-width: 959px) and (min-width: 920px) {
+  #header .header-utility-links {
+    display: flex;
+  }
+
+  #header .header-utility-links a[aria-label='RSS Feed'] {
     display: none;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 958px) {
+  #header .header-utility-links {
+    display: flex;
+  }
+
+  #header .header-utility-links a[aria-label='RSS Feed'] {
+    display: flex;
   }
 }
 
