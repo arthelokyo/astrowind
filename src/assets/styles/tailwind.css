@@ -289,6 +289,46 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   color: var(--aw-color-primary);
 }
 
+#header .header-utility-links [data-tooltip] {
+  position: relative;
+}
+
+#header .header-utility-links [data-tooltip]::after {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 120;
+  width: max-content;
+  max-width: 14rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgb(148 163 184 / 24%);
+  border-radius: 0.45rem;
+  background: rgb(15 23 42);
+  box-shadow: 0 8px 20px rgb(3 6 32 / 22%);
+  color: rgb(248 250 252);
+  content: attr(data-tooltip);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.2rem);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+}
+
+#header .header-utility-links [data-tooltip]:hover::after,
+#header .header-utility-links [data-tooltip]:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 @media (min-width: 768px) {
   #header nav > ul > li > a.nav-becas-link::after {
     bottom: -1rem;
@@ -850,7 +890,8 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   .mega-panel,
   .mega-link,
   .mega-dot,
-  .mega-feature img {
+  .mega-feature img,
+  #header .header-utility-links [data-tooltip]::after {
     transition: none;
   }
 }
