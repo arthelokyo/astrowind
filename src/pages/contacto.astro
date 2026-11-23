@@ -1,0 +1,58 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Contacto',
+  description:
+    'Contacta con Fondo Verde Institute. Encuentra el correo adecuado para consultas generales, becas y programas de posgrado.',
+  keywords: 'contacto Fondo Verde Institute, información, admisiones, becas, programas de posgrado',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Contacto"
+    title="Hablemos"
+    subtitle="Escríbenos y te ayudaremos a encontrar el equipo adecuado para tu consulta."
+  />
+
+  <Features2
+    title="¿En qué podemos ayudarte?"
+    subtitle="Elige el área que mejor se ajuste a tu consulta."
+    columns={3}
+    items={[
+      {
+        title: 'Consultas generales',
+        description: 'Información sobre admisiones, programas y otros servicios del Instituto.',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: 'Escribir a admisiones',
+          href: 'mailto:info@fondoverde.org',
+          variant: 'primary',
+        },
+      },
+      {
+        title: 'Becas',
+        description: 'Consultas sobre requisitos, convocatorias y solicitudes de beca.',
+        icon: 'tabler:certificate',
+        callToAction: {
+          text: 'Escribir al área de becas',
+          href: 'mailto:scholarships@fondoverde.org',
+          variant: 'primary',
+        },
+      },
+      {
+        title: 'Postdoctorados',
+        description: 'Orientación sobre la oferta académica y los procesos de postulación.',
+        icon: 'tabler:microscope',
+        callToAction: {
+          text: 'Escribir a postdoctorados',
+          href: 'mailto:postdoc@fondoverde.org',
+          variant: 'primary',
+        },
+      },
+    ]}
+  />
+</Layout>

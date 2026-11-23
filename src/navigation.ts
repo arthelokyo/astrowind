@@ -196,9 +196,8 @@ export const headerData = {
   ],
   actions: [
     {
-      text: 'Descargar',
-      href: 'https://github.com/arthelokyo/astrowind',
-      target: '_blank',
+      text: 'Contacto',
+      href: getPermalink('/contacto'),
       variant: 'primary' as const,
     },
   ],
