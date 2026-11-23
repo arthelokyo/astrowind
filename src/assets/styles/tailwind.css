@@ -287,6 +287,12 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   color: var(--aw-color-primary);
 }
 
+@media (min-width: 768px) {
+  #header nav > ul > li > a.nav-becas-link::after {
+    bottom: -0.5rem;
+  }
+}
+
 .nav-widget-link {
   background: rgb(213, 227, 223);
   color: white;
