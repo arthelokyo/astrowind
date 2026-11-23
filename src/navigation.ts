@@ -1,4 +1,4 @@
-import { getPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 // Barra secundaria debajo del navbar principal
 export const secondaryNavData = {
@@ -259,7 +259,11 @@ export const footerData = {
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/fondoverde' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://twitter.com/fondoverde' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/fondo.verde/' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+    {
+      ariaLabel: 'Noticias de Fondo Verde',
+      icon: 'tabler:blockquote',
+      href: 'https://www.fondoverde.org/noticias',
+    },
   ],
   footNote: `
   ©2003 <span class="text-gray-500">FONDOVERDE</span>. Todos los derechos Reservados.

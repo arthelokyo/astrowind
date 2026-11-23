@@ -44,7 +44,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     <div class="hidden md:flex items-center gap-3">
       {
         footerData.socialLinks
-          .filter(({ icon }) => icon !== 'tabler:rss')
+          .filter(({ icon }) => icon !== 'tabler:blockquote')
           .map(({ ariaLabel, href, icon }) => (
             <a
               aria-label={ariaLabel}
