@@ -1,0 +1,226 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Becas y financiamiento',
+  description:
+    'Conoce las becas Fondo Verde, las opciones de financiamiento y cómo solicitar apoyo para estudiar en Fondo Verde Institute.',
+  keywords:
+    'becas Fondo Verde, financiamiento, becas de posgrado, cómo solicitar una beca, maestrías, doctorados, postdoctorados',
+};
+
+const whatsappMessage =
+  'Hola, quisiera recibir información sobre las becas y el proceso de postulación de Fondo Verde Institute. ¿Podrían orientarme?';
+const whatsappUrl = `https://wa.me/51935544232?text=${encodeURIComponent(whatsappMessage)}`;
+
+const programLevels = [
+  {
+    title: 'Maestrías',
+    description: 'Consulta las modalidades de beca, los requisitos y las opciones de pago de cada maestría.',
+    href: '/maestria',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'Doctorados PhD',
+    description: 'Revisa las condiciones de beca y los compromisos académicos en la ficha del doctorado.',
+    href: '/phd',
+    icon: 'tabler:certificate',
+  },
+  {
+    title: 'Postdoctorados',
+    description: 'Comprueba los requisitos de postulación y las condiciones asociadas al proyecto postdoctoral.',
+    href: '/postdoctorado',
+    icon: 'tabler:microscope',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Becas y financiamiento"
+    actions={[
+      { text: 'Conocer las becas', href: '#becas-fondo-verde', variant: 'primary', icon: 'tabler:arrow-down' },
+      { text: 'Ver cómo aplicar', href: '#como-aplicar', variant: 'secondary', icon: 'tabler:arrow-right' },
+    ]}
+  >
+    <Fragment slot="title"> Apoyo para continuar tu formación </Fragment>
+    <Fragment slot="subtitle">
+      Encuentra orientación sobre las becas, las opciones de pago y los pasos para solicitar apoyo en los programas de
+      Fondo Verde Institute.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="becas-fondo-verde"
+    tagline="Becas"
+    title="Becas Fondo Verde"
+    subtitle="Fondo Verde ofrece apoyo económico para facilitar el acceso a sus programas de posgrado. Las modalidades, porcentajes y condiciones pueden variar según el nivel, el programa y la convocatoria vigente."
+    columns={2}
+    items={[
+      {
+        title: 'Beca Fondo Verde',
+        description:
+          'Consulta en la ficha de tu programa el porcentaje disponible, los criterios de evaluación y la documentación necesaria para solicitar la beca.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Apoyos complementarios',
+        description:
+          'Algunos programas contemplan apoyos adicionales sujetos a compromisos académicos. Verifica si están disponibles y cuáles son sus condiciones antes de postular.',
+        icon: 'tabler:award',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-pageDark"></div>
+    </Fragment>
+  </Features2>
+
+  <Features2
+    id="financiamiento"
+    tagline="Opciones de pago"
+    title="Financiamiento"
+    subtitle="La beca y el plan de pagos son conceptos distintos. El costo, los descuentos y las alternativas de pago se detallan en cada programa y pueden cambiar según su modalidad y convocatoria."
+    columns={2}
+    items={[
+      {
+        title: 'Pago al contado',
+        description:
+          'Algunos programas contemplan condiciones especiales para el pago al contado. Consulta el precio vigente y confirma si aplica un descuento.',
+        icon: 'tabler:cash',
+      },
+      {
+        title: 'Pago en cuotas',
+        description:
+          'El número de cuotas, los importes y cualquier condición financiera dependen del programa. Revisa su sección de inscripción y pagos antes de matricularte.',
+        icon: 'tabler:calendar-dollar',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-white dark:bg-page"></div>
+    </Fragment>
+  </Features2>
+
+  <WidgetWrapper id="programas" containerClass="max-w-5xl mx-auto">
+    <div class="mb-8 max-w-3xl">
+      <p class="text-sm font-bold uppercase tracking-wider text-secondary">Condiciones por programa</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight text-default dark:text-white md:text-4xl">
+        Consulta los requisitos específicos
+      </h2>
+      <p class="mt-4 text-lg text-muted dark:text-slate-300">
+        La documentación y los compromisos para solicitar una beca no son iguales en todos los niveles. Selecciona tu
+        programa para revisar los detalles vigentes.
+      </p>
+    </div>
+
+    <ul class="divide-y divide-slate-200 dark:divide-slate-700">
+      {
+        programLevels.map((program) => (
+          <li class="grid gap-3 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+            <div>
+              <h3 class="text-xl font-bold text-default dark:text-white">{program.title}</h3>
+              <p class="mt-2 text-muted dark:text-slate-300">{program.description}</p>
+            </div>
+            <a
+              href={program.href}
+              class="inline-flex w-fit items-center gap-2 font-semibold text-primary transition-colors hover:text-secondary active:translate-y-px"
+            >
+              Ver programas
+              <span class="sr-only"> de {program.title}</span>
+              <Icon name={program.icon} class="h-5 w-5" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </WidgetWrapper>
+
+  <Steps
+    id="como-aplicar"
+    tagline="Postulación"
+    title="Cómo aplicar"
+    subtitle="Sigue estos pasos y confirma siempre los requisitos específicos publicados en la ficha del programa que te interesa."
+    items={[
+      {
+        title: 'Elige tu programa',
+        description: 'Identifica el nivel y la convocatoria a la que deseas postular.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Revisa los requisitos y condiciones',
+        description:
+          'Consulta los documentos de admisión y de beca, los compromisos académicos y las opciones de pago del programa.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Envía tu solicitud',
+        description:
+          'Presenta la documentación indicada al contacto de becas del programa. Para consultas generales, escribe a <a href="mailto:scholarships@fondoverde.org" class="font-semibold text-primary underline underline-offset-2">scholarships@fondoverde.org</a>. El Comité de Becas evalúa las solicitudes y comunica su resolución por correo electrónico.',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-pageDark"></div>
+    </Fragment>
+  </Steps>
+
+  <WidgetWrapper id="becarios" containerClass="max-w-6xl mx-auto">
+    <div class="grid gap-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-secondary">Becarios</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-default dark:text-white">
+          Becas que amplían el acceso a la formación
+        </h2>
+        <p class="mt-4 text-muted dark:text-slate-300">
+          Fondo Verde reporta más de 2.000 becas otorgadas en los últimos cinco años. Conoce más sobre sus iniciativas
+          de acción social.
+        </p>
+        <a
+          href="/fondo-verde-accion-social"
+          class="mt-5 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-secondary active:translate-y-px"
+        >
+          Conocer la acción social de Fondo Verde
+          <Icon name="tabler:arrow-right" class="h-5 w-5" aria-hidden="true" />
+        </a>
+      </div>
+      <p
+        class="font-heading text-5xl font-bold tracking-tight text-primary dark:text-accent md:text-6xl"
+        aria-label="Más de dos mil becas"
+      >
+        +2.000
+      </p>
+    </div>
+ 
+  </WidgetWrapper>
+
+  <WidgetWrapper id="contacto-becas" containerClass="max-w-5xl mx-auto pt-10 md:pt-12 pb-12 md:pb-16">
+    <div
+      class="rounded-xl border border-primary/20 bg-white p-6 shadow-sm dark:bg-pageDark md:flex md:items-center md:justify-between md:gap-8 md:p-8"
+    >
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight text-default dark:text-white">
+          ¿Tienes dudas sobre tu postulación?
+        </h2>
+        <p class="mt-2 text-muted dark:text-slate-300">
+          El equipo de becas puede orientarte sobre el proceso y los requisitos de la convocatoria.
+        </p>
+      </div>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 font-semibold text-white transition-colors hover:bg-secondary active:translate-y-px md:mt-0"
+      >
+        Contactar al equipo de becas
+        <Icon name="tabler:brand-whatsapp" class="h-5 w-5" aria-hidden="true" />
+      </a>
+    </div>
+  </WidgetWrapper>
+</Layout>

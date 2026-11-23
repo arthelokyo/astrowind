@@ -117,6 +117,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   {
                     'is-active': href === currentPath,
                     'nav-widget-link': text === 'Widgets',
+                    'nav-becas-link md:py-2': text === 'Becas',
                     'text-default dark:text-white': href !== currentPath && text !== 'Widgets',
                   },
                 ]}
