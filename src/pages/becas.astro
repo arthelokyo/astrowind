@@ -14,6 +14,10 @@ const metadata = {
     'becas Fondo Verde, financiamiento, becas de posgrado, cómo solicitar una beca, maestrías, doctorados, postdoctorados',
 };
 
+const whatsappMessage =
+  'Hola, quisiera recibir información sobre las becas y el proceso de postulación de Fondo Verde Institute. ¿Podrían orientarme?';
+const whatsappUrl = `https://wa.me/51935544232?text=${encodeURIComponent(whatsappMessage)}`;
+
 const programLevels = [
   {
     title: 'Maestrías',
@@ -209,11 +213,13 @@ const programLevels = [
         </p>
       </div>
       <a
-        href="mailto:scholarships@fondoverde.org"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
         class="mt-5 inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 font-semibold text-white transition-colors hover:bg-secondary active:translate-y-px md:mt-0"
       >
         Contactar al equipo de becas
-        <Icon name="tabler:arrow-right" class="h-5 w-5" aria-hidden="true" />
+        <Icon name="tabler:brand-whatsapp" class="h-5 w-5" aria-hidden="true" />
       </a>
     </div>
   </WidgetWrapper>
