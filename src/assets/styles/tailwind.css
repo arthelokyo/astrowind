@@ -318,25 +318,6 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   color: white;
 }
 
-#header nav > ul > li > a.nav-becas-link {
-  border: 1px solid rgb(41 141 108 / 32%);
-  background: rgb(41 141 108 / 10%);
-  color: var(--aw-color-primary);
-  font-weight: 600;
-}
-
-#header nav > ul > li > a.nav-becas-link::after {
-  display: none;
-}
-
-#header nav > ul > li > a.nav-becas-link:hover,
-#header nav > ul > li > a.nav-becas-link:focus-visible,
-#header nav > ul > li > a.nav-becas-link.is-active {
-  border-color: var(--aw-color-primary);
-  background: var(--aw-color-primary);
-  color: rgb(255 255 255);
-}
-
 .mega-chevron {
   display: inline-block;
   transition: transform 300ms ease;
@@ -552,7 +533,7 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   width: 1.1rem;
 }
 
-@media (max-width: 1023px) and (min-width: 768px) {
+@media (max-width: 1280px) and (min-width: 768px) {
   #header .header-main {
     display: flex;
     align-items: center;
@@ -596,10 +577,6 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
     flex: 0 0 auto;
   }
 
-  #header .header-utility-links {
-    display: none;
-  }
-
   #header .header-download {
     margin-left: 0.35rem;
     margin-right: 0;
@@ -628,6 +605,46 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   }
 }
 
+@media (max-width: 1280px) and (min-width: 1024px) {
+  #header .header-main > nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1101px) {
+  #header .header-brand .logo-light,
+  #header .header-brand .logo-dark {
+    width: 9rem;
+  }
+
+  #header .header-main > nav .mega-trigger,
+  #header .header-main > nav > ul > li > a {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1201px) {
+  #header .header-brand .logo-light,
+  #header .header-brand .logo-dark {
+    width: 10rem;
+  }
+
+  #header .header-main > nav .mega-trigger,
+  #header .header-main > nav > ul > li > a {
+    padding-right: 0.65rem;
+    padding-left: 0.65rem;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  #header .header-utility-links {
+    display: none;
+  }
+}
+
 @media (max-width: 900px) and (min-width: 768px) {
   #header .header-brand .logo-light,
   #header .header-brand .logo-dark {
@@ -645,6 +662,14 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
 @media (max-width: 864px) and (min-width: 768px) {
   #header .header-download {
     display: none;
+  }
+}
+
+@media (min-width: 1281px) {
+  #header .header-main > nav .mega-trigger,
+  #header .header-main > nav > ul > li > a {
+    padding-right: 0.65rem;
+    padding-left: 0.65rem;
   }
 }
 
@@ -775,20 +800,6 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   .mega-link {
     gap: 1rem;
     padding: 0.75rem 0.65rem;
-  }
-
-  #header nav > ul > li > a.nav-becas-link.is-active {
-    border-color: rgb(41 141 108 / 18%);
-    border-left: 3px solid var(--aw-color-primary);
-    background: rgb(41 141 108 / 10%);
-    color: var(--aw-color-primary);
-  }
-
-  .dark #header nav > ul > li > a.nav-becas-link.is-active {
-    border-color: rgb(52 211 153 / 18%);
-    border-left-color: rgb(52 211 153);
-    background: rgb(16 185 129 / 12%);
-    color: rgb(110 231 183);
   }
 }
 
