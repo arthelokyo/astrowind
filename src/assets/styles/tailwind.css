@@ -645,23 +645,35 @@ html:not(.dark) #header[data-program-header] a[aria-label='RSS Feed'] {
   }
 }
 
-@media (max-width: 839px) and (min-width: 768px) {
+@media (max-width: 840px) and (min-width: 768px) {
   #header .header-main {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   #header .header-actions {
-    flex: 0 0 100%;
-    width: 100%;
+    flex: 0 0 auto;
+    width: auto;
     justify-content: flex-end;
   }
 
   #header .header-download {
     display: inline-flex;
   }
+
+  #header .header-brand .logo-light,
+  #header .header-brand .logo-dark {
+    width: 6.5rem;
+  }
+
+  #header .header-main > nav .mega-trigger,
+  #header .header-main > nav > ul > li > a {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    font-size: 0.6875rem;
+  }
 }
 
-@media (max-width: 900px) and (min-width: 768px) {
+@media (max-width: 900px) and (min-width: 841px) {
   #header .header-brand .logo-light,
   #header .header-brand .logo-dark {
     width: 7.5rem;
